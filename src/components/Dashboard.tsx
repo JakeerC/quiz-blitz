@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Play, Trophy, History, BarChart3, LogOut, Zap } from 'lucide-react';
 import { soundManager } from '../utils/sounds';

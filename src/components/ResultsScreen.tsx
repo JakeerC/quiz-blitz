@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { Trophy, Clock, Target, TrendingUp, RotateCcw, Plus, BookOpen, Check, X } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';

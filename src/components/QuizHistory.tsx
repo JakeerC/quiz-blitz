@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { History, Calendar, Clock, Target, TrendingUp, ArrowLeft, CheckCircle, XCircle } from 'lucide-react';
 import { BrutalistButton } from './ui/BrutalistButton';

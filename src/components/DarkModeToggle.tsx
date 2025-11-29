@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { Moon, Sun } from 'lucide-react';
 import { useEffect, useState } from 'react';

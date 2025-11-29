@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Settings, Zap, BookOpen, ListChecks, Shuffle, PenLine } from 'lucide-react';

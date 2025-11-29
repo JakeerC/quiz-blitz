@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { ReactNode } from 'react';
 
@@ -8,6 +10,7 @@ type BrutalistButtonProps = {
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   className?: string;
+  type?: 'button' | 'submit' | 'reset';
 };
 
 export function BrutalistButton({ 
@@ -16,7 +19,8 @@ export function BrutalistButton({
   variant = 'primary',
   size = 'medium',
   disabled = false,
-  className = ''
+  className = '',
+  type = 'button'
 }: BrutalistButtonProps) {
   const baseStyles = "border-[4px] border-black transition-all cursor-pointer select-none";
   
@@ -37,6 +41,7 @@ export function BrutalistButton({
 
   return (
     <motion.button
+      type={type}
       whileHover={!disabled ? { scale: 1.02, y: -2 } : {}}
       whileTap={!disabled ? { scale: 0.98, y: 0 } : {}}
       onClick={disabled ? undefined : onClick}

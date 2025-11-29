@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Quiz App - New-Brutalist Design
  * 
