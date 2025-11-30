@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'motion/react';
 import { ChevronLeft, ChevronRight, Check, X, Clock, Info } from 'lucide-react';
 import { soundManager } from '../utils/sounds';
-import type { QuizConfig, QuizResult, QuestionDetail } from '../App';
+import type { QuizConfig, QuizResult, QuestionDetail } from '../context/AppContext';
 
 type Question = {
   question: string;

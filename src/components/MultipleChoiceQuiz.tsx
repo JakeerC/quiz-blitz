@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Check, X, Clock, Info } from 'lucide-react';
 import { BrutalistButton } from './ui/BrutalistButton';
 import { soundManager } from '../utils/sounds';
-import type { QuizConfig, QuizResult, QuestionDetail } from '../App';
+import type { QuizConfig, QuizResult, QuestionDetail } from '../context/AppContext';
 
 type Question = {
   question: string;

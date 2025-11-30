@@ -5,7 +5,7 @@ import { Trophy, Clock, Target, TrendingUp, RotateCcw, Plus, BookOpen, Check, X 
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { BrutalistButton } from './ui/BrutalistButton';
 import { soundManager } from '../utils/sounds';
-import type { QuizResult, QuizConfig } from '../App';
+import type { QuizResult, QuizConfig } from '../context/AppContext';
 
 type ResultsScreenProps = {
   result: QuizResult;

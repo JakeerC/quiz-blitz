@@ -10,7 +10,7 @@ import { Stepper } from './ui/Stepper';
 import { Slider } from './ui/Slider';
 import { BrutalistInput } from './ui/BrutalistInput';
 import { soundManager } from '../utils/sounds';
-import type { QuizConfig } from '../App';
+import type { QuizConfig } from '../context/AppContext';
 
 type QuizSetupScreenProps = {
   onStartQuiz: (config: QuizConfig) => void;
