@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, ReactNode } from 'react';
 
-// Types from App.tsx
+
 export type QuizConfig = {
   difficulty: 'easy' | 'medium' | 'hard';
   topic: string;

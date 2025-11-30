@@ -209,7 +209,7 @@
     color: inherit;
     opacity: 1;
     background-color: #0000;
-    border-radius: 0;
+    border-radius: var(--radius);
   }
 
   ::file-selector-button {
@@ -220,7 +220,7 @@
     color: inherit;
     opacity: 1;
     background-color: #0000;
-    border-radius: 0;
+    border-radius: var(--radius);
   }
 
   :where(select:is([multiple], [size])) optgroup {
