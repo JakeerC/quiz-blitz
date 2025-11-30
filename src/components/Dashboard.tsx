@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Play, Trophy, History, BarChart3, LogOut, Zap } from 'lucide-react';
+import { Play, Trophy, History, BarChart3, LogOut } from 'lucide-react';
+import { Logo } from './ui/Logo';
 import { soundManager } from '../utils/sounds';
 
 type DashboardProps = {
@@ -49,9 +50,7 @@ export function Dashboard({ username, onNavigate, onLogout, userStats }: Dashboa
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 bg-[#FFE500] border-[4px] border-black dark:border-white flex items-center justify-center">
-              <Zap size={36} strokeWidth={3} fill="#000" />
-            </div>
+            <Logo />
             <div>
               <h1 className="uppercase tracking-tight dark:text-white">Welcome Back!</h1>
               <p className="text-gray-600 dark:text-gray-400 uppercase tracking-wide text-sm">
