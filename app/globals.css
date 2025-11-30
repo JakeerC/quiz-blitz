@@ -187,7 +187,7 @@
   iframe,
   embed,
   object {
-    vertical-align: middle;
+    /* vertical-align: middle; */
     display: block;
   }
 
@@ -799,6 +799,10 @@
 
   .overflow-hidden {
     overflow: hidden;
+  }
+
+  .rounded {
+    border-radius: var(--radius);
   }
 
   .border-\[2px\] {

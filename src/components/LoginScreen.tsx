@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Zap, User, Lock, LogIn } from 'lucide-react';
+import { User, Lock, LogIn } from 'lucide-react';
 import { BrutalistButton } from './ui/BrutalistButton';
+import { Logo } from './ui/Logo';
 import { soundManager } from '../utils/sounds';
+import { Button } from './ui/button';
 
 type LoginScreenProps = {
   onLogin: (username: string) => void;
@@ -42,9 +44,7 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
           className="text-center mb-8"
         >
           <div className="inline-flex items-center gap-3 mb-4">
-            <div className="w-16 h-16 bg-[#FFE500] border-[4px] border-black dark:border-white flex items-center justify-center">
-              <Zap size={36} strokeWidth={3} fill="#000" />
-            </div>
+            <Logo />
             <h1 className="uppercase tracking-tight dark:text-white">Quiz App</h1>
           </div>
           <p className="uppercase tracking-wide text-sm text-gray-600 dark:text-gray-400">
@@ -57,18 +57,19 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
           initial={{ y: 20 }}
           animate={{ y: 0 }}
           transition={{ delay: 0.1 }}
-          className="border-[6px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]"
+          className="rounded border-[6px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]"
         >
           <div className="p-8">
             <div className="flex gap-2 mb-6">
               <button
                 onClick={() => setIsLogin(true)}
-                className={`flex-1 py-3 px-4 border-[3px] border-black dark:border-white uppercase tracking-wide transition-colors ${
+                className={`cursor-pointer flex-1 py-3 px-4 border-[3px] border-black dark:border-white uppercase tracking-wide transition-colors ${
                   isLogin ? 'bg-[#FFE500]' : 'bg-white dark:bg-[#2a2a2a] dark:text-white'
                 }`}
               >
                 Login
               </button>
+             
               <button
                 onClick={() => setIsLogin(false)}
                 className={`flex-1 py-3 px-4 border-[3px] border-black dark:border-white uppercase tracking-wide transition-colors ${
