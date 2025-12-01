@@ -6,7 +6,6 @@ import { User, Lock, LogIn } from 'lucide-react';
 import { BrutalistButton } from './ui/BrutalistButton';
 import { Logo } from './ui/Logo';
 import { soundManager } from '../utils/sounds';
-import { Button } from './ui/button';
 
 type LoginScreenProps = {
   onLogin: (username: string) => void;
