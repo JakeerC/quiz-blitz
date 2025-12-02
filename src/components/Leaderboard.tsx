@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'motion/react';
 import { Crown, Medal, TrendingUp, ArrowLeft } from 'lucide-react';
 import { BrutalistButton } from './ui/BrutalistButton';
 import { soundManager } from '../utils/sounds';
@@ -54,9 +53,7 @@ export function Leaderboard({ onBack, currentUser }: LeaderboardProps) {
 
   return (
     <div className="min-h-screen p-6 py-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+      <div
         className="max-w-4xl mx-auto"
       >
         {/* Header */}
@@ -79,18 +76,12 @@ export function Leaderboard({ onBack, currentUser }: LeaderboardProps) {
         </div>
 
         {/* Top 3 Podium */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 }}
+        <div
           className="mb-8"
         >
           <div className="grid grid-cols-3 gap-4 items-end">
             {/* Second Place */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+            <div
               className="order-1"
             >
               <div className="border-[4px] border-black dark:border-white bg-[#C0C0C0] p-6 text-center mb-2">
@@ -102,13 +93,10 @@ export function Leaderboard({ onBack, currentUser }: LeaderboardProps) {
                 <p className="tracking-tight">{mockLeaderboard[1].score}</p>
               </div>
               <div className="h-32 border-[4px] border-black dark:border-white bg-[#C0C0C0]"></div>
-            </motion.div>
+            </div>
 
             {/* First Place */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+            <div
               className="order-2"
             >
               <div className="border-[4px] border-black dark:border-white bg-[#FFE500] p-6 text-center mb-2">
@@ -120,13 +108,10 @@ export function Leaderboard({ onBack, currentUser }: LeaderboardProps) {
                 <p className="tracking-tight" style={{ fontSize: '1.5rem' }}>{mockLeaderboard[0].score}</p>
               </div>
               <div className="h-48 border-[4px] border-black dark:border-white bg-[#FFE500]"></div>
-            </motion.div>
+            </div>
 
             {/* Third Place */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+            <div
               className="order-3"
             >
               <div className="border-[4px] border-black dark:border-white bg-[#CD7F32] p-6 text-center mb-2">
@@ -138,15 +123,12 @@ export function Leaderboard({ onBack, currentUser }: LeaderboardProps) {
                 <p className="tracking-tight">{mockLeaderboard[2].score}</p>
               </div>
               <div className="h-24 border-[4px] border-black dark:border-white bg-[#CD7F32]"></div>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Full Leaderboard Table */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
+        <div
           className="border-[6px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]"
         >
           {/* Table Header */}
@@ -160,11 +142,8 @@ export function Leaderboard({ onBack, currentUser }: LeaderboardProps) {
           {/* Table Body */}
           <div className="divide-y-[3px] divide-gray-200 dark:divide-gray-700">
             {mockLeaderboard.map((entry, index) => (
-              <motion.div
+              <div
                 key={entry.rank}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7 + index * 0.05 }}
                 className={`grid grid-cols-5 gap-4 p-4 ${
                   entry.username === currentUser ? 'bg-[#FFE500]' : ''
                 }`}
@@ -176,23 +155,20 @@ export function Leaderboard({ onBack, currentUser }: LeaderboardProps) {
                 <p className="uppercase tracking-wide col-span-2 dark:text-white">{entry.username}</p>
                 <p className="uppercase tracking-wide text-right dark:text-white">{entry.score}</p>
                 <p className="uppercase tracking-wide text-right dark:text-white">{entry.accuracy}%</p>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Stats Legend */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
+        <div
           className="mt-6 p-4 border-[4px] border-black dark:border-white bg-[#FFFEF9] dark:bg-[#1a1a1a]"
         >
           <p className="text-sm text-gray-600 dark:text-gray-400 uppercase tracking-wide">
             💡 Score = (Correct Answers × 100) - (Time Penalty) + (Streak Bonus)
           </p>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'motion/react';
 import { Play, Trophy, History, BarChart3, LogOut } from 'lucide-react';
 import { Logo } from './ui/Logo';
 import { soundManager } from '../utils/sounds';
@@ -42,9 +41,7 @@ export function Dashboard({ username, onNavigate, onLogout, userStats }: Dashboa
 
   return (
     <div className="min-h-screen p-6 py-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+      <div
         className="max-w-5xl mx-auto"
       >
         {/* Header */}
@@ -69,10 +66,7 @@ export function Dashboard({ username, onNavigate, onLogout, userStats }: Dashboa
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+          <div
             className="border-[4px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] p-6"
           >
             <p className="text-sm uppercase tracking-wide text-gray-600 dark:text-gray-400 mb-2">
@@ -81,12 +75,9 @@ export function Dashboard({ username, onNavigate, onLogout, userStats }: Dashboa
             <p className="tracking-tight dark:text-white" style={{ fontSize: '2rem' }}>
               {userStats.totalQuizzes}
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+          <div
             className="border-[4px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] p-6"
           >
             <p className="text-sm uppercase tracking-wide text-gray-600 dark:text-gray-400 mb-2">
@@ -95,12 +86,9 @@ export function Dashboard({ username, onNavigate, onLogout, userStats }: Dashboa
             <p className="tracking-tight dark:text-white" style={{ fontSize: '2rem' }}>
               {accuracy}%
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+          <div
             className="border-[4px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] p-6"
           >
             <p className="text-sm uppercase tracking-wide text-gray-600 dark:text-gray-400 mb-2">
@@ -109,12 +97,9 @@ export function Dashboard({ username, onNavigate, onLogout, userStats }: Dashboa
             <p className="tracking-tight dark:text-white" style={{ fontSize: '2rem' }}>
               {userStats.totalQuestions}
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+          <div
             className="border-[4px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] p-6"
           >
             <p className="text-sm uppercase tracking-wide text-gray-600 dark:text-gray-400 mb-2">
@@ -123,19 +108,14 @@ export function Dashboard({ username, onNavigate, onLogout, userStats }: Dashboa
             <p className="tracking-tight dark:text-white" style={{ fontSize: '2rem' }}>
               {userStats.achievements}
             </p>
-          </motion.div>
+          </div>
         </div>
 
         {/* Main Menu Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {menuItems.map((item, index) => (
-            <motion.button
+            <button
               key={item.screen}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5 + index * 0.1 }}
-              whileHover={{ scale: 1.02, x: 4 }}
-              whileTap={{ scale: 0.98 }}
               onClick={() => handleNavigate(item.screen)}
               className="border-[6px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] p-8 hover:bg-gray-50 dark:hover:bg-[#3a3a3a] transition-colors shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] text-left"
             >
@@ -154,22 +134,19 @@ export function Dashboard({ username, onNavigate, onLogout, userStats }: Dashboa
                 {item.screen === 'history' && 'View past quiz attempts'}
                 {item.screen === 'trophies' && 'Track your progress'}
               </p>
-            </motion.button>
+            </button>
           ))}
         </div>
 
         {/* Quick Tip */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.9 }}
+        <div
           className="mt-8 border-[4px] border-black dark:border-white bg-[#FFE500] p-6"
         >
           <p className="uppercase tracking-wide">
             💡 Complete quizzes to unlock achievements and climb the leaderboard!
           </p>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'motion/react';
 import { 
   Trophy, Star, Zap, Target, Flame, Brain, Clock, TrendingUp, 
   Award, Crown, Shield, Sparkles, ArrowLeft, Lock 
@@ -166,9 +165,7 @@ export function TrophiesAchievements({ onBack }: TrophiesAchievementsProps) {
 
   return (
     <div className="min-h-screen p-6 py-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+      <div
         className="max-w-6xl mx-auto"
       >
         {/* Header */}
@@ -191,10 +188,7 @@ export function TrophiesAchievements({ onBack }: TrophiesAchievementsProps) {
         </div>
 
         {/* Progress Overview */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.1 }}
+        <div
           className="border-[6px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] p-8 mb-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]"
         >
           <div className="flex items-center justify-between mb-4">
@@ -213,24 +207,19 @@ export function TrophiesAchievements({ onBack }: TrophiesAchievementsProps) {
           
           {/* Progress Bar */}
           <div className="h-8 bg-gray-200 dark:bg-[#1a1a1a] border-[4px] border-black dark:border-white">
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: `${progressPercentage}%` }}
-              transition={{ delay: 0.3, duration: 1 }}
-              className="h-full bg-gradient-to-r from-[#00D9A3] via-[#FFE500] to-[#FF9500] flex items-center justify-end pr-2"
+            <div
+              style={{ width: `${progressPercentage}%` }}
+              className="h-full bg-gradient-to-r from-[#00D9A3] via-[#FFE500] to-[#FF9500] flex items-center justify-end pr-2 transition-all duration-1000"
             >
               {progressPercentage > 10 && (
                 <span className="uppercase tracking-wide">{progressPercentage}%</span>
               )}
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Rarity Legend */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
+        <div
           className="flex flex-wrap gap-3 mb-6"
         >
           <div className="flex items-center gap-2 px-3 py-2 border-[3px] border-black dark:border-white bg-white dark:bg-[#2a2a2a]">
@@ -249,17 +238,13 @@ export function TrophiesAchievements({ onBack }: TrophiesAchievementsProps) {
             <div className="w-4 h-4 bg-[#FFD700] border-[2px] border-black"></div>
             <span className="uppercase tracking-wide text-sm dark:text-white">Legendary</span>
           </div>
-        </motion.div>
+        </div>
 
         {/* Achievements Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {mockAchievements.map((achievement, index) => (
-            <motion.div
+            <div
               key={achievement.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 + index * 0.05 }}
-              whileHover={achievement.unlocked ? { scale: 1.05, y: -4 } : {}}
               className={`
                 border-[4px] ${getRarityBorder(achievement.rarity)} 
                 bg-white dark:bg-[#2a2a2a] overflow-hidden
@@ -291,13 +276,9 @@ export function TrophiesAchievements({ onBack }: TrophiesAchievementsProps) {
                 <div className="flex items-start justify-between mb-2">
                   <h3 className="uppercase tracking-wide dark:text-white">{achievement.title}</h3>
                   {achievement.unlocked && (
-                    <motion.div
-                      initial={{ rotate: -180, scale: 0 }}
-                      animate={{ rotate: 0, scale: 1 }}
-                      transition={{ delay: 0.5 + index * 0.05 }}
-                    >
+                    <div>
                       <Star size={20} strokeWidth={3} fill={achievement.color} />
-                    </motion.div>
+                    </div>
                   )}
                 </div>
                 
@@ -313,12 +294,9 @@ export function TrophiesAchievements({ onBack }: TrophiesAchievementsProps) {
                       <span>{achievement.progress}/{achievement.maxProgress}</span>
                     </div>
                     <div className="h-3 bg-gray-200 dark:bg-[#1a1a1a] border-[2px] border-black dark:border-white">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${((achievement.progress || 0) / achievement.maxProgress) * 100}%` }}
-                        transition={{ delay: 0.6 + index * 0.05 }}
-                        style={{ backgroundColor: achievement.color }}
-                        className="h-full"
+                      <div
+                        style={{ width: `${((achievement.progress || 0) / achievement.maxProgress) * 100}%`, backgroundColor: achievement.color }}
+                        className="h-full transition-all"
                       />
                     </div>
                   </div>
@@ -331,22 +309,19 @@ export function TrophiesAchievements({ onBack }: TrophiesAchievementsProps) {
                   </span>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Fun Footer Message */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
+        <div
           className="mt-8 border-[4px] border-black dark:border-white bg-[#FFE500] p-6 text-center"
         >
           <p className="uppercase tracking-wide">
             🎯 Keep playing to unlock more achievements! 🏆
           </p>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 }

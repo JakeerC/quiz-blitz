@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'motion/react';
 import { ReactNode } from 'react';
 
 type BrutalistButtonProps = {
@@ -40,15 +39,13 @@ export function BrutalistButton({
   const disabledStyles = disabled ? "opacity-50 cursor-not-allowed" : "";
 
   return (
-    <motion.button
+    <button
       type={type}
-      whileHover={!disabled ? { scale: 1.02, y: -2 } : {}}
-      whileTap={!disabled ? { scale: 0.98, y: 0 } : {}}
       onClick={disabled ? undefined : onClick}
       className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${disabledStyles} ${className}`}
       disabled={disabled}
     >
       {children}
-    </motion.button>
+    </button>
   );
 }

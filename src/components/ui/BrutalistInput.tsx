@@ -1,5 +1,3 @@
-import { motion } from 'motion/react';
-
 type BrutalistInputProps = {
   value: string;
   onChange: (value: string) => void;
@@ -9,8 +7,7 @@ type BrutalistInputProps = {
 
 export function BrutalistInput({ value, onChange, placeholder, className = '' }: BrutalistInputProps) {
   return (
-    <motion.input
-      whileFocus={{ scale: 1.02, y: -2 }}
+    <input
       type="text"
       value={value}
       onChange={(e) => onChange(e.target.value)}

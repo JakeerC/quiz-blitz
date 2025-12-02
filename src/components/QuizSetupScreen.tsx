@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'motion/react';
 import { Settings, Zap, BookOpen, ListChecks, Shuffle, PenLine } from 'lucide-react';
 import { BrutalistButton } from './ui/BrutalistButton';
 import { ToggleSelector } from './ui/ToggleSelector';
@@ -74,9 +73,7 @@ export function QuizSetupScreen({ onStartQuiz, onBack }: QuizSetupScreenProps) {
 
   return (
     <div className="min-h-screen p-6 bg-transparent py-12">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+      <div 
         className="max-w-3xl mx-auto"
       >
         
@@ -202,15 +199,13 @@ export function QuizSetupScreen({ onStartQuiz, onBack }: QuizSetupScreenProps) {
             
             {/* Swipe Hint for True/False */}
             {responseType === 'true-false' && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
+              <div
                 className="mt-4 p-4 bg-[#FFE500] dark:bg-[#B8A000] border-[3px] border-black dark:border-white"
               >
                 <p className="text-sm uppercase tracking-wide dark:text-white">
                   💡 Swipe right for TRUE, left for FALSE
                 </p>
-              </motion.div>
+              </div>
             )}
           </div>
 
@@ -249,7 +244,7 @@ export function QuizSetupScreen({ onStartQuiz, onBack }: QuizSetupScreenProps) {
           </BrutalistButton>
         </div>
 
-      </motion.div>
+      </div>
     </div>
   );
 }

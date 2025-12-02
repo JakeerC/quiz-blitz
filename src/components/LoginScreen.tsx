@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'motion/react';
 import { User, Lock, LogIn } from 'lucide-react';
 import { BrutalistButton } from './ui/BrutalistButton';
 import { Logo } from './ui/Logo';
@@ -31,17 +30,9 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="w-full max-w-md"
-      >
+      <div className="w-full max-w-md">
         {/* Logo/Header */}
-        <motion.div
-          initial={{ y: -20 }}
-          animate={{ y: 0 }}
-          className="text-center mb-8"
-        >
+        <div className="text-center mb-8">
           <div className="inline-flex items-center gap-3 mb-4">
             <Logo />
             <h1 className="uppercase tracking-tight dark:text-white">Quiz App</h1>
@@ -49,15 +40,10 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
           <p className="uppercase tracking-wide text-sm text-gray-600 dark:text-gray-400">
             Test your knowledge. Track your progress.
           </p>
-        </motion.div>
+        </div>
 
         {/* Login Form */}
-        <motion.div
-          initial={{ y: 20 }}
-          animate={{ y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="rounded border-[6px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]"
-        >
+        <div className="rounded border-[6px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
           <div className="p-8">
             <div className="flex gap-2 mb-6">
               <button
@@ -151,13 +137,13 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
               Continue as Demo User
             </button>
           </div>
-        </motion.div>
+        </div>
 
         {/* Footer */}
         <p className="text-center text-sm text-gray-600 dark:text-gray-400 uppercase tracking-wide mt-6">
           New-Brutalist Quiz Experience
         </p>
-      </motion.div>
+      </div>
     </div>
   );
 }

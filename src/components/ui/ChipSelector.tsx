@@ -1,5 +1,3 @@
-import { motion } from 'motion/react';
-
 type ChipSelectorProps = {
   options: string[];
   selected: string;
@@ -13,10 +11,8 @@ export function ChipSelector({ options, selected, onChange }: ChipSelectorProps)
         const isSelected = selected === option;
         
         return (
-          <motion.button
+          <button
             key={option}
-            whileHover={{ scale: 1.05, rotate: isSelected ? 0 : -2 }}
-            whileTap={{ scale: 0.95 }}
             onClick={() => onChange(option)}
             className={`
               px-5 py-2.5 border-[3px] border-black dark:border-white transition-all
@@ -27,7 +23,7 @@ export function ChipSelector({ options, selected, onChange }: ChipSelectorProps)
             `}
           >
             <span className="uppercase tracking-wide">{option}</span>
-          </motion.button>
+          </button>
         );
       })}
     </div>

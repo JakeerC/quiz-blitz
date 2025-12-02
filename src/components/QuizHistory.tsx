@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'motion/react';
 import { History, Calendar, Clock, Target, TrendingUp, ArrowLeft, CheckCircle, XCircle } from 'lucide-react';
 import { BrutalistButton } from './ui/BrutalistButton';
 import { soundManager } from '../utils/sounds';
@@ -119,9 +118,7 @@ export function QuizHistory({ onBack }: QuizHistoryProps) {
 
   return (
     <div className="min-h-screen p-6 py-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+      <div
         className="max-w-5xl mx-auto"
       >
         {/* Header */}
@@ -145,10 +142,7 @@ export function QuizHistory({ onBack }: QuizHistoryProps) {
 
         {/* Summary Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+          <div
             className="border-[4px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] p-6"
           >
             <p className="text-sm uppercase tracking-wide text-gray-600 dark:text-gray-400 mb-2">
@@ -157,12 +151,9 @@ export function QuizHistory({ onBack }: QuizHistoryProps) {
             <p className="tracking-tight dark:text-white" style={{ fontSize: '2rem' }}>
               {totalQuizzes}
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+          <div
             className="border-[4px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] p-6"
           >
             <p className="text-sm uppercase tracking-wide text-gray-600 dark:text-gray-400 mb-2">
@@ -171,12 +162,9 @@ export function QuizHistory({ onBack }: QuizHistoryProps) {
             <p className="tracking-tight dark:text-white" style={{ fontSize: '2rem' }}>
               {avgAccuracy}%
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+          <div
             className="border-[4px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] p-6"
           >
             <p className="text-sm uppercase tracking-wide text-gray-600 dark:text-gray-400 mb-2">
@@ -185,12 +173,9 @@ export function QuizHistory({ onBack }: QuizHistoryProps) {
             <p className="tracking-tight dark:text-white" style={{ fontSize: '2rem' }}>
               {avgScore}
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+          <div
             className="border-[4px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] p-6"
           >
             <p className="text-sm uppercase tracking-wide text-gray-600 dark:text-gray-400 mb-2">
@@ -199,17 +184,14 @@ export function QuizHistory({ onBack }: QuizHistoryProps) {
             <p className="tracking-tight dark:text-white" style={{ fontSize: '2rem' }}>
               {totalQuestions}
             </p>
-          </motion.div>
+          </div>
         </div>
 
         {/* History List */}
         <div className="space-y-4">
           {mockHistory.map((entry, index) => (
-            <motion.div
+            <div
               key={entry.id}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 + index * 0.1 }}
               className="border-[4px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]"
             >
               {/* Header */}
@@ -291,24 +273,22 @@ export function QuizHistory({ onBack }: QuizHistoryProps) {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Empty State (if needed) */}
         {mockHistory.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+          <div
             className="text-center py-20"
           >
             <History size={64} strokeWidth={2} className="mx-auto mb-4 text-gray-400" />
             <p className="text-gray-600 dark:text-gray-400 uppercase tracking-wide">
               No quiz history yet. Start a quiz to see your results here!
             </p>
-          </motion.div>
+          </div>
         )}
-      </motion.div>
+      </div>
     </div>
   );
 }

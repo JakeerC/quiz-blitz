@@ -1,5 +1,3 @@
-import { motion } from 'motion/react';
-
 type SliderProps = {
   value: number;
   onChange: (value: number) => void;
@@ -15,17 +13,15 @@ export function Slider({ value, onChange, min = 1, max = 50, step = 1 }: SliderP
     <div className="w-full">
       <div className="relative h-6 border-[4px] border-black bg-white">
         {/* Track Fill */}
-        <motion.div
-          className="absolute top-0 left-0 h-full bg-[#FFE500]"
+        <div
+          className="absolute top-0 left-0 h-full bg-[#FFE500] transition-all"
           style={{ width: `${percentage}%` }}
         />
         
         {/* Slider Handle */}
-        <motion.div
+        <div
           className="absolute top-1/2 -translate-y-1/2 w-8 h-8 bg-black border-[4px] border-white cursor-grab active:cursor-grabbing"
           style={{ left: `calc(${percentage}% - 16px)` }}
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.9 }}
         />
         
         {/* Input Range */}

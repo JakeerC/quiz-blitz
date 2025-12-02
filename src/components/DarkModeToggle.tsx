@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'motion/react';
 import { Moon, Sun } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
@@ -31,9 +30,7 @@ export function DarkModeToggle({ className = '' }: DarkModeToggleProps) {
   };
 
   return (
-    <motion.button
-      whileHover={{ scale: 1.05, rotate: 5 }}
-      whileTap={{ scale: 0.95 }}
+    <button
       onClick={toggleDarkMode}
       className={`
         w-14 h-14 border-[4px] border-black dark:border-white
@@ -49,6 +46,6 @@ export function DarkModeToggle({ className = '' }: DarkModeToggleProps) {
       ) : (
         <Moon size={28} strokeWidth={3} className="text-black" />
       )}
-    </motion.button>
+    </button>
   );
 }

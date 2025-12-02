@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 import { Check, X, Clock, Info } from 'lucide-react';
 import { BrutalistButton } from './ui/BrutalistButton';
 import { soundManager } from '../utils/sounds';
@@ -156,21 +155,16 @@ export function MultipleChoiceQuiz({ config, onComplete }: MultipleChoiceQuizPro
             </div>
           </div>
           <div className="h-4 bg-white dark:bg-[#2a2a2a] border-[4px] border-black dark:border-white">
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: `${progress}%` }}
-              className="h-full bg-[#FFE500]"
+            <div
+              style={{ width: `${progress}%` }}
+              className="h-full bg-[#FFE500] transition-all"
             />
           </div>
         </div>
 
         {/* Question Card */}
-        <AnimatePresence mode="wait">
-          <motion.div
+          <div
             key={currentIndex}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
             className="mb-8"
           >
             <div className="border-[6px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
@@ -179,8 +173,7 @@ export function MultipleChoiceQuiz({ config, onComplete }: MultipleChoiceQuizPro
                 <span className="text-sm uppercase tracking-wide">{currentQuestion.topic}</span>
               </div>
             </div>
-          </motion.div>
-        </AnimatePresence>
+          </div>
 
         {/* Options */}
         <div className="space-y-4 mb-8">
@@ -191,10 +184,8 @@ export function MultipleChoiceQuiz({ config, onComplete }: MultipleChoiceQuizPro
             const showIncorrect = showFeedback && isSelected && !isCorrect;
 
             return (
-              <motion.button
+              <button
                 key={index}
-                whileHover={!showFeedback ? { scale: 1.02, x: 4 } : {}}
-                whileTap={!showFeedback ? { scale: 0.98 } : {}}
                 onClick={() => handleAnswerSelect(index)}
                 disabled={showFeedback}
                 className={`
@@ -210,16 +201,14 @@ export function MultipleChoiceQuiz({ config, onComplete }: MultipleChoiceQuizPro
                   {showCorrect && <Check size={28} strokeWidth={3} />}
                   {showIncorrect && <X size={28} strokeWidth={3} />}
                 </div>
-              </motion.button>
+              </button>
             );
           })}
         </div>
 
         {/* Explanation (Interactive Mode) */}
         {config.answerMode === 'interactive' && showFeedback && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <div
             className="mb-8"
           >
             <div className="border-[4px] border-black dark:border-white bg-[#FFFEF9] dark:bg-[#1a1a1a] p-6">
@@ -231,14 +220,12 @@ export function MultipleChoiceQuiz({ config, onComplete }: MultipleChoiceQuizPro
                 {currentQuestion.explanation}
               </p>
             </div>
-          </motion.div>
+          </div>
         )}
 
         {/* Next Button (Interactive Mode) */}
         {config.answerMode === 'interactive' && showFeedback && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <div
             className="flex justify-end"
           >
             <BrutalistButton 
@@ -251,7 +238,7 @@ export function MultipleChoiceQuiz({ config, onComplete }: MultipleChoiceQuizPro
                 {currentIndex < questions.length - 1 ? 'Next →' : 'Finish'}
               </span>
             </BrutalistButton>
-          </motion.div>
+          </div>
         )}
 
       </div>

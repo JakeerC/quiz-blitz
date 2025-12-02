@@ -1,5 +1,3 @@
-import { motion } from 'motion/react';
-
 type ToggleSelectorProps<T extends string> = {
   options: { value: T; label: string }[];
   selected: T;
@@ -17,10 +15,8 @@ export function ToggleSelector<T extends string>({
         const isSelected = selected === option.value;
         
         return (
-          <motion.button
+          <button
             key={option.value}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             onClick={() => onChange(option.value)}
             className={`
               px-6 py-3 border-[4px] border-black dark:border-white transition-colors
@@ -31,7 +27,7 @@ export function ToggleSelector<T extends string>({
             `}
           >
             <span className="uppercase tracking-wider">{option.label}</span>
-          </motion.button>
+          </button>
         );
       })}
     </div>
