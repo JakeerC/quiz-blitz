@@ -1,7 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, ReactNode } from 'react';
-
+import {createContext, useContext, useState, ReactNode} from 'react';
 
 export type QuizConfig = {
   difficulty: 'easy' | 'medium' | 'hard';
@@ -49,17 +48,17 @@ type AppContextType = {
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-export function AppProvider({ children }: { children: ReactNode }) {
+export function AppProvider({children}: {children: ReactNode}) {
   const [username, setUsername] = useState<string>('');
   const [quizConfig, setQuizConfig] = useState<QuizConfig | null>(null);
   const [quizResult, setQuizResult] = useState<QuizResult | null>(null);
-  
+
   // User stats (mock data)
   const [userStats, setUserStats] = useState<UserStats>({
     totalQuizzes: 5,
     totalCorrect: 82,
     totalQuestions: 100,
-    achievements: 4
+    achievements: 4,
   });
 
   const login = (user: string) => {
@@ -79,11 +78,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const completeQuiz = (result: QuizResult) => {
     setQuizResult(result);
-    setUserStats(prev => ({
+    setUserStats((prev) => ({
       totalQuizzes: prev.totalQuizzes + 1,
       totalCorrect: prev.totalCorrect + result.correctAnswers,
       totalQuestions: prev.totalQuestions + result.totalQuestions,
-      achievements: prev.achievements // Would check for new achievements here
+      achievements: prev.achievements, // Would check for new achievements here
     }));
   };
 
@@ -93,17 +92,18 @@ export function AppProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AppContext.Provider value={{
-      username,
-      quizConfig,
-      quizResult,
-      userStats,
-      login,
-      logout,
-      startQuiz,
-      completeQuiz,
-      resetQuiz
-    }}>
+    <AppContext.Provider
+      value={{
+        username,
+        quizConfig,
+        quizResult,
+        userStats,
+        login,
+        logout,
+        startQuiz,
+        completeQuiz,
+        resetQuiz,
+      }}>
       {children}
     </AppContext.Provider>
   );

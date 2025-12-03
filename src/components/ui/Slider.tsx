@@ -6,7 +6,13 @@ type SliderProps = {
   step?: number;
 };
 
-export function Slider({ value, onChange, min = 1, max = 50, step = 1 }: SliderProps) {
+export function Slider({
+  value,
+  onChange,
+  min = 1,
+  max = 50,
+  step = 1,
+}: SliderProps) {
   const percentage = ((value - min) / (max - min)) * 100;
 
   return (
@@ -15,15 +21,15 @@ export function Slider({ value, onChange, min = 1, max = 50, step = 1 }: SliderP
         {/* Track Fill */}
         <div
           className="absolute top-0 left-0 h-full bg-[#FFE500] transition-all"
-          style={{ width: `${percentage}%` }}
+          style={{width: `${percentage}%`}}
         />
-        
+
         {/* Slider Handle */}
         <div
-          className="absolute top-1/2 -translate-y-1/2 w-8 h-8 bg-black border-[4px] border-white cursor-grab active:cursor-grabbing"
-          style={{ left: `calc(${percentage}% - 16px)` }}
+          className="absolute top-1/2 h-8 w-8 -translate-y-1/2 cursor-grab border-[4px] border-white bg-black active:cursor-grabbing"
+          style={{left: `calc(${percentage}% - 16px)`}}
         />
-        
+
         {/* Input Range */}
         <input
           type="range"
@@ -32,14 +38,18 @@ export function Slider({ value, onChange, min = 1, max = 50, step = 1 }: SliderP
           step={step}
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
-          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
         />
       </div>
-      
+
       {/* Min/Max Labels */}
-      <div className="flex justify-between mt-2">
-        <span className="text-sm uppercase tracking-wide text-gray-600">{min}</span>
-        <span className="text-sm uppercase tracking-wide text-gray-600">{max}</span>
+      <div className="mt-2 flex justify-between">
+        <span className="text-sm tracking-wide text-gray-600 uppercase">
+          {min}
+        </span>
+        <span className="text-sm tracking-wide text-gray-600 uppercase">
+          {max}
+        </span>
       </div>
     </div>
   );

@@ -1,15 +1,22 @@
 'use client';
 
-import { useState } from 'react';
-import { Settings, Zap, BookOpen, ListChecks, Shuffle, PenLine } from 'lucide-react';
-import { BrutalistButton } from './ui/BrutalistButton';
-import { ToggleSelector } from './ui/ToggleSelector';
-import { ChipSelector } from './ui/ChipSelector';
-import { Stepper } from './ui/Stepper';
-import { Slider } from './ui/Slider';
-import { BrutalistInput } from './ui/BrutalistInput';
-import { soundManager } from '../utils/sounds';
-import type { QuizConfig } from '../context/AppContext';
+import {useState} from 'react';
+import {
+  Settings,
+  Zap,
+  BookOpen,
+  ListChecks,
+  Shuffle,
+  PenLine,
+} from 'lucide-react';
+import {BrutalistButton} from './ui/BrutalistButton';
+import {ToggleSelector} from './ui/ToggleSelector';
+import {ChipSelector} from './ui/ChipSelector';
+import {Stepper} from './ui/Stepper';
+import {Slider} from './ui/Slider';
+import {BrutalistInput} from './ui/BrutalistInput';
+import {soundManager} from '../utils/sounds';
+import type {QuizConfig} from '../context/AppContext';
 
 type QuizSetupScreenProps = {
   onStartQuiz: (config: QuizConfig) => void;
@@ -26,27 +33,34 @@ const TOPICS = [
   'Music',
   'Sports',
   'Technology',
-  'Art'
+  'Art',
 ];
 
-export function QuizSetupScreen({ onStartQuiz, onBack }: QuizSetupScreenProps) {
-  const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>('medium');
+export function QuizSetupScreen({onStartQuiz, onBack}: QuizSetupScreenProps) {
+  const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>(
+    'medium'
+  );
   const [topic, setTopic] = useState('Science');
   const [customTopic, setCustomTopic] = useState('');
   const [useCustomTopic, setUseCustomTopic] = useState(false);
   const [numQuestions, setNumQuestions] = useState(10);
-  const [responseType, setResponseType] = useState<'multiple-choice' | 'true-false'>('multiple-choice');
-  const [answerMode, setAnswerMode] = useState<'interactive' | 'batch'>('interactive');
+  const [responseType, setResponseType] = useState<
+    'multiple-choice' | 'true-false'
+  >('multiple-choice');
+  const [answerMode, setAnswerMode] = useState<'interactive' | 'batch'>(
+    'interactive'
+  );
 
   const handleStart = () => {
     soundManager.playClick();
-    const finalTopic = useCustomTopic && customTopic.trim() ? customTopic.trim() : topic;
+    const finalTopic =
+      useCustomTopic && customTopic.trim() ? customTopic.trim() : topic;
     onStartQuiz({
       difficulty,
       topic: finalTopic,
       numQuestions,
       responseType,
-      answerMode
+      answerMode,
     });
   };
 
@@ -61,7 +75,9 @@ export function QuizSetupScreen({ onStartQuiz, onBack }: QuizSetupScreenProps) {
     setUseCustomTopic(false);
   };
 
-  const handleResponseTypeChange = (value: 'multiple-choice' | 'true-false') => {
+  const handleResponseTypeChange = (
+    value: 'multiple-choice' | 'true-false'
+  ) => {
     soundManager.playClick();
     setResponseType(value);
   };
@@ -72,38 +88,43 @@ export function QuizSetupScreen({ onStartQuiz, onBack }: QuizSetupScreenProps) {
   };
 
   return (
-    <div className="min-h-screen p-6 bg-transparent py-12">
-      <div 
-        className="max-w-3xl mx-auto"
-      >
-        
+    <div className="min-h-screen bg-transparent p-6 py-12">
+      <div className="mx-auto max-w-3xl">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 bg-[#5B8BFF] dark:bg-[#4169E1] border-[4px] border-black dark:border-white flex items-center justify-center">
+            <div className="flex h-16 w-16 items-center justify-center border-[4px] border-black bg-[#5B8BFF] dark:border-white dark:bg-[#4169E1]">
               <Settings size={32} strokeWidth={3} className="dark:text-white" />
             </div>
-            <h1 className="uppercase tracking-tight dark:text-white">Setup Quiz</h1>
+            <h1 className="tracking-tight uppercase dark:text-white">
+              Setup Quiz
+            </h1>
           </div>
-          <BrutalistButton onClick={() => { soundManager.playClick(); onBack(); }} variant="secondary">
-            <span className="uppercase tracking-wide">← Dashboard</span>
+          <BrutalistButton
+            onClick={() => {
+              soundManager.playClick();
+              onBack();
+            }}
+            variant="secondary">
+            <span className="tracking-wide uppercase">← Dashboard</span>
           </BrutalistButton>
         </div>
 
         {/* Main Setup Container */}
-        <div className="border-[6px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] space-y-10">
-          
+        <div className="space-y-10 border-[6px] border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:border-white dark:bg-[#2a2a2a] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
           {/* Difficulty */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="mb-4 flex items-center gap-3">
               <Zap size={24} strokeWidth={3} className="dark:text-white" />
-              <h2 className="uppercase tracking-wide dark:text-white">Difficulty</h2>
+              <h2 className="tracking-wide uppercase dark:text-white">
+                Difficulty
+              </h2>
             </div>
             <ToggleSelector
               options={[
-                { value: 'easy', label: 'Easy' },
-                { value: 'medium', label: 'Medium' },
-                { value: 'hard', label: 'Hard' }
+                {value: 'easy', label: 'Easy'},
+                {value: 'medium', label: 'Medium'},
+                {value: 'hard', label: 'Hard'},
               ]}
               selected={difficulty}
               onChange={handleDifficultyChange}
@@ -112,21 +133,25 @@ export function QuizSetupScreen({ onStartQuiz, onBack }: QuizSetupScreenProps) {
 
           {/* Topic */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="mb-4 flex items-center gap-3">
               <BookOpen size={24} strokeWidth={3} className="dark:text-white" />
-              <h2 className="uppercase tracking-wide dark:text-white">Topic</h2>
+              <h2 className="tracking-wide uppercase dark:text-white">Topic</h2>
             </div>
             <ChipSelector
               options={TOPICS}
               selected={topic}
               onChange={handleTopicChange}
             />
-            
+
             {/* Custom Topic Input */}
             <div className="mt-4">
-              <div className="flex items-center gap-2 mb-3">
-                <PenLine size={20} strokeWidth={3} className="dark:text-white" />
-                <label className="text-sm uppercase tracking-wide dark:text-white">
+              <div className="mb-3 flex items-center gap-2">
+                <PenLine
+                  size={20}
+                  strokeWidth={3}
+                  className="dark:text-white"
+                />
+                <label className="text-sm tracking-wide uppercase dark:text-white">
                   Or enter custom topic:
                 </label>
               </div>
@@ -145,18 +170,24 @@ export function QuizSetupScreen({ onStartQuiz, onBack }: QuizSetupScreenProps) {
 
           {/* Number of Questions */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <ListChecks size={24} strokeWidth={3} className="dark:text-white" />
-              <h2 className="uppercase tracking-wide dark:text-white">Questions</h2>
+            <div className="mb-4 flex items-center gap-3">
+              <ListChecks
+                size={24}
+                strokeWidth={3}
+                className="dark:text-white"
+              />
+              <h2 className="tracking-wide uppercase dark:text-white">
+                Questions
+              </h2>
             </div>
-            
+
             {/* Display current value */}
             <div className="mb-4">
-              <div className="inline-block px-6 py-3 bg-[#FFE500] border-[4px] border-black dark:border-white">
+              <div className="inline-block border-[4px] border-black bg-[#FFE500] px-6 py-3 dark:border-white">
                 <span className="tracking-wider">{numQuestions} Questions</span>
               </div>
             </div>
-            
+
             {/* Slider */}
             <div className="mb-4">
               <Slider
@@ -167,7 +198,7 @@ export function QuizSetupScreen({ onStartQuiz, onBack }: QuizSetupScreenProps) {
                 step={1}
               />
             </div>
-            
+
             {/* Stepper as alternative */}
             <div className="flex justify-center">
               <Stepper
@@ -184,25 +215,25 @@ export function QuizSetupScreen({ onStartQuiz, onBack }: QuizSetupScreenProps) {
 
           {/* Response Type */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="mb-4 flex items-center gap-3">
               <Shuffle size={24} strokeWidth={3} className="dark:text-white" />
-              <h2 className="uppercase tracking-wide dark:text-white">Response Type</h2>
+              <h2 className="tracking-wide uppercase dark:text-white">
+                Response Type
+              </h2>
             </div>
             <ToggleSelector
               options={[
-                { value: 'multiple-choice', label: 'Multiple Choice' },
-                { value: 'true-false', label: 'True / False' }
+                {value: 'multiple-choice', label: 'Multiple Choice'},
+                {value: 'true-false', label: 'True / False'},
               ]}
               selected={responseType}
               onChange={handleResponseTypeChange}
             />
-            
+
             {/* Swipe Hint for True/False */}
             {responseType === 'true-false' && (
-              <div
-                className="mt-4 p-4 bg-[#FFE500] dark:bg-[#B8A000] border-[3px] border-black dark:border-white"
-              >
-                <p className="text-sm uppercase tracking-wide dark:text-white">
+              <div className="mt-4 border-[3px] border-black bg-[#FFE500] p-4 dark:border-white dark:bg-[#B8A000]">
+                <p className="text-sm tracking-wide uppercase dark:text-white">
                   💡 Swipe right for TRUE, left for FALSE
                 </p>
               </div>
@@ -211,39 +242,37 @@ export function QuizSetupScreen({ onStartQuiz, onBack }: QuizSetupScreenProps) {
 
           {/* Answer Mode */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <h2 className="uppercase tracking-wide dark:text-white">Answer Mode</h2>
+            <div className="mb-4 flex items-center gap-3">
+              <h2 className="tracking-wide uppercase dark:text-white">
+                Answer Mode
+              </h2>
             </div>
             <ToggleSelector
               options={[
-                { value: 'interactive', label: 'Interactive' },
-                { value: 'batch', label: 'Batch' }
+                {value: 'interactive', label: 'Interactive'},
+                {value: 'batch', label: 'Batch'},
               ]}
               selected={answerMode}
               onChange={handleAnswerModeChange}
             />
             <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
-              {answerMode === 'interactive' 
-                ? 'See if you\'re right after each question' 
-                : 'Get all results at the end'
-              }
+              {answerMode === 'interactive'
+                ? "See if you're right after each question"
+                : 'Get all results at the end'}
             </p>
           </div>
-
         </div>
 
         {/* Start Button */}
         <div className="mt-8 flex justify-end">
-          <BrutalistButton 
-            onClick={handleStart} 
-            variant="primary" 
+          <BrutalistButton
+            onClick={handleStart}
+            variant="primary"
             size="large"
-            className="px-16"
-          >
-            <span className="uppercase tracking-widest">Start Quiz →</span>
+            className="px-16">
+            <span className="tracking-widest uppercase">Start Quiz →</span>
           </BrutalistButton>
         </div>
-
       </div>
     </div>
   );

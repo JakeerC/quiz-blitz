@@ -1,11 +1,23 @@
 'use client';
 
-import { 
-  Trophy, Star, Zap, Target, Flame, Brain, Clock, TrendingUp, 
-  Award, Crown, Shield, Sparkles, ArrowLeft, Lock 
+import {
+  Trophy,
+  Star,
+  Zap,
+  Target,
+  Flame,
+  Brain,
+  Clock,
+  TrendingUp,
+  Award,
+  Crown,
+  Shield,
+  Sparkles,
+  ArrowLeft,
+  Lock,
 } from 'lucide-react';
-import { BrutalistButton } from './ui/BrutalistButton';
-import { soundManager } from '../utils/sounds';
+import {BrutalistButton} from './ui/BrutalistButton';
+import {soundManager} from '../utils/sounds';
 
 type Achievement = {
   id: number;
@@ -32,7 +44,7 @@ const mockAchievements: Achievement[] = [
     icon: Star,
     color: '#00D9A3',
     unlocked: true,
-    rarity: 'common'
+    rarity: 'common',
   },
   {
     id: 2,
@@ -41,7 +53,7 @@ const mockAchievements: Achievement[] = [
     icon: Zap,
     color: '#FFE500',
     unlocked: true,
-    rarity: 'rare'
+    rarity: 'rare',
   },
   {
     id: 3,
@@ -50,7 +62,7 @@ const mockAchievements: Achievement[] = [
     icon: Target,
     color: '#FF9500',
     unlocked: true,
-    rarity: 'epic'
+    rarity: 'epic',
   },
   {
     id: 4,
@@ -59,7 +71,7 @@ const mockAchievements: Achievement[] = [
     icon: Flame,
     color: '#FF5757',
     unlocked: true,
-    rarity: 'legendary'
+    rarity: 'legendary',
   },
   {
     id: 5,
@@ -70,7 +82,7 @@ const mockAchievements: Achievement[] = [
     unlocked: true,
     progress: 7,
     maxProgress: 10,
-    rarity: 'common'
+    rarity: 'common',
   },
   {
     id: 6,
@@ -79,7 +91,7 @@ const mockAchievements: Achievement[] = [
     icon: Award,
     color: '#9C27B0',
     unlocked: false,
-    rarity: 'rare'
+    rarity: 'rare',
   },
   {
     id: 7,
@@ -88,7 +100,7 @@ const mockAchievements: Achievement[] = [
     icon: TrendingUp,
     color: '#4CAF50',
     unlocked: false,
-    rarity: 'epic'
+    rarity: 'epic',
   },
   {
     id: 8,
@@ -97,7 +109,7 @@ const mockAchievements: Achievement[] = [
     icon: Clock,
     color: '#3F51B5',
     unlocked: false,
-    rarity: 'common'
+    rarity: 'common',
   },
   {
     id: 9,
@@ -106,7 +118,7 @@ const mockAchievements: Achievement[] = [
     icon: Crown,
     color: '#FFE500',
     unlocked: false,
-    rarity: 'legendary'
+    rarity: 'legendary',
   },
   {
     id: 10,
@@ -115,7 +127,7 @@ const mockAchievements: Achievement[] = [
     icon: Shield,
     color: '#607D8B',
     unlocked: false,
-    rarity: 'epic'
+    rarity: 'epic',
   },
   {
     id: 11,
@@ -126,7 +138,7 @@ const mockAchievements: Achievement[] = [
     unlocked: false,
     progress: 3,
     maxProgress: 5,
-    rarity: 'rare'
+    rarity: 'rare',
   },
   {
     id: 12,
@@ -135,17 +147,17 @@ const mockAchievements: Achievement[] = [
     icon: Trophy,
     color: '#FFD700',
     unlocked: false,
-    rarity: 'legendary'
+    rarity: 'legendary',
   },
 ];
 
-export function TrophiesAchievements({ onBack }: TrophiesAchievementsProps) {
+export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
   const handleBack = () => {
     soundManager.playClick();
     onBack();
   };
 
-  const unlockedCount = mockAchievements.filter(a => a.unlocked).length;
+  const unlockedCount = mockAchievements.filter((a) => a.unlocked).length;
   const totalCount = mockAchievements.length;
   const progressPercentage = Math.round((unlockedCount / totalCount) * 100);
 
@@ -165,101 +177,107 @@ export function TrophiesAchievements({ onBack }: TrophiesAchievementsProps) {
 
   return (
     <div className="min-h-screen p-6 py-12">
-      <div
-        className="max-w-6xl mx-auto"
-      >
+      <div className="mx-auto max-w-6xl">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 bg-[#FF9500] border-[4px] border-black dark:border-white flex items-center justify-center">
+            <div className="flex h-16 w-16 items-center justify-center border-[4px] border-black bg-[#FF9500] dark:border-white">
               <Trophy size={36} strokeWidth={3} />
             </div>
             <div>
-              <h1 className="uppercase tracking-tight dark:text-white">Achievements</h1>
-              <p className="text-gray-600 dark:text-gray-400 uppercase tracking-wide text-sm">
+              <h1 className="tracking-tight uppercase dark:text-white">
+                Achievements
+              </h1>
+              <p className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
                 Your Trophy Collection
               </p>
             </div>
           </div>
           <BrutalistButton onClick={handleBack} variant="secondary">
             <ArrowLeft size={20} strokeWidth={3} />
-            <span className="uppercase tracking-wide">Back</span>
+            <span className="tracking-wide uppercase">Back</span>
           </BrutalistButton>
         </div>
 
         {/* Progress Overview */}
-        <div
-          className="border-[6px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] p-8 mb-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]"
-        >
-          <div className="flex items-center justify-between mb-4">
+        <div className="mb-8 border-[6px] border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:border-white dark:bg-[#2a2a2a] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
+          <div className="mb-4 flex items-center justify-between">
             <div>
-              <h2 className="uppercase tracking-tight mb-2 dark:text-white">Overall Progress</h2>
-              <p className="text-gray-600 dark:text-gray-400 uppercase tracking-wide text-sm">
+              <h2 className="mb-2 tracking-tight uppercase dark:text-white">
+                Overall Progress
+              </h2>
+              <p className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
                 {unlockedCount} of {totalCount} achievements unlocked
               </p>
             </div>
             <div className="text-right">
-              <p className="tracking-tight dark:text-white" style={{ fontSize: '3rem' }}>
+              <p
+                className="tracking-tight dark:text-white"
+                style={{fontSize: '3rem'}}>
                 {progressPercentage}%
               </p>
             </div>
           </div>
-          
+
           {/* Progress Bar */}
-          <div className="h-8 bg-gray-200 dark:bg-[#1a1a1a] border-[4px] border-black dark:border-white">
+          <div className="h-8 border-[4px] border-black bg-gray-200 dark:border-white dark:bg-[#1a1a1a]">
             <div
-              style={{ width: `${progressPercentage}%` }}
-              className="h-full bg-gradient-to-r from-[#00D9A3] via-[#FFE500] to-[#FF9500] flex items-center justify-end pr-2 transition-all duration-1000"
-            >
+              style={{width: `${progressPercentage}%`}}
+              className="flex h-full items-center justify-end bg-gradient-to-r from-[#00D9A3] via-[#FFE500] to-[#FF9500] pr-2 transition-all duration-1000">
               {progressPercentage > 10 && (
-                <span className="uppercase tracking-wide">{progressPercentage}%</span>
+                <span className="tracking-wide uppercase">
+                  {progressPercentage}%
+                </span>
               )}
             </div>
           </div>
         </div>
 
         {/* Rarity Legend */}
-        <div
-          className="flex flex-wrap gap-3 mb-6"
-        >
-          <div className="flex items-center gap-2 px-3 py-2 border-[3px] border-black dark:border-white bg-white dark:bg-[#2a2a2a]">
-            <div className="w-4 h-4 bg-gray-400 border-[2px] border-black"></div>
-            <span className="uppercase tracking-wide text-sm dark:text-white">Common</span>
+        <div className="mb-6 flex flex-wrap gap-3">
+          <div className="flex items-center gap-2 border-[3px] border-black bg-white px-3 py-2 dark:border-white dark:bg-[#2a2a2a]">
+            <div className="h-4 w-4 border-[2px] border-black bg-gray-400"></div>
+            <span className="text-sm tracking-wide uppercase dark:text-white">
+              Common
+            </span>
           </div>
-          <div className="flex items-center gap-2 px-3 py-2 border-[3px] border-[#00B8D4] bg-white dark:bg-[#2a2a2a]">
-            <div className="w-4 h-4 bg-[#00B8D4] border-[2px] border-black"></div>
-            <span className="uppercase tracking-wide text-sm dark:text-white">Rare</span>
+          <div className="flex items-center gap-2 border-[3px] border-[#00B8D4] bg-white px-3 py-2 dark:bg-[#2a2a2a]">
+            <div className="h-4 w-4 border-[2px] border-black bg-[#00B8D4]"></div>
+            <span className="text-sm tracking-wide uppercase dark:text-white">
+              Rare
+            </span>
           </div>
-          <div className="flex items-center gap-2 px-3 py-2 border-[3px] border-[#9C27B0] bg-white dark:bg-[#2a2a2a]">
-            <div className="w-4 h-4 bg-[#9C27B0] border-[2px] border-black"></div>
-            <span className="uppercase tracking-wide text-sm dark:text-white">Epic</span>
+          <div className="flex items-center gap-2 border-[3px] border-[#9C27B0] bg-white px-3 py-2 dark:bg-[#2a2a2a]">
+            <div className="h-4 w-4 border-[2px] border-black bg-[#9C27B0]"></div>
+            <span className="text-sm tracking-wide uppercase dark:text-white">
+              Epic
+            </span>
           </div>
-          <div className="flex items-center gap-2 px-3 py-2 border-[3px] border-[#FFD700] bg-white dark:bg-[#2a2a2a]">
-            <div className="w-4 h-4 bg-[#FFD700] border-[2px] border-black"></div>
-            <span className="uppercase tracking-wide text-sm dark:text-white">Legendary</span>
+          <div className="flex items-center gap-2 border-[3px] border-[#FFD700] bg-white px-3 py-2 dark:bg-[#2a2a2a]">
+            <div className="h-4 w-4 border-[2px] border-black bg-[#FFD700]"></div>
+            <span className="text-sm tracking-wide uppercase dark:text-white">
+              Legendary
+            </span>
           </div>
         </div>
 
         {/* Achievements Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {mockAchievements.map((achievement, index) => (
             <div
               key={achievement.id}
-              className={`
-                border-[4px] ${getRarityBorder(achievement.rarity)} 
-                bg-white dark:bg-[#2a2a2a] overflow-hidden
-                ${achievement.unlocked ? getRarityGlow(achievement.rarity) : 'opacity-60'}
-                ${achievement.unlocked ? 'shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]' : ''}
-              `}
-            >
+              className={`border-[4px] ${getRarityBorder(achievement.rarity)} overflow-hidden bg-white dark:bg-[#2a2a2a] ${achievement.unlocked ? getRarityGlow(achievement.rarity) : 'opacity-60'} ${achievement.unlocked ? 'shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]' : ''} `}>
               {/* Header */}
-              <div 
-                className="p-4 border-b-[3px] border-black dark:border-white flex items-center justify-center"
-                style={{ backgroundColor: achievement.unlocked ? achievement.color : '#9E9E9E' }}
-              >
+              <div
+                className="flex items-center justify-center border-b-[3px] border-black p-4 dark:border-white"
+                style={{
+                  backgroundColor: achievement.unlocked
+                    ? achievement.color
+                    : '#9E9E9E',
+                }}>
                 <div className="relative">
-                  <achievement.icon 
-                    size={48} 
+                  <achievement.icon
+                    size={48}
                     strokeWidth={3}
                     className={achievement.unlocked ? '' : 'opacity-50'}
                   />
@@ -273,29 +291,40 @@ export function TrophiesAchievements({ onBack }: TrophiesAchievementsProps) {
 
               {/* Content */}
               <div className="p-4">
-                <div className="flex items-start justify-between mb-2">
-                  <h3 className="uppercase tracking-wide dark:text-white">{achievement.title}</h3>
+                <div className="mb-2 flex items-start justify-between">
+                  <h3 className="tracking-wide uppercase dark:text-white">
+                    {achievement.title}
+                  </h3>
                   {achievement.unlocked && (
                     <div>
-                      <Star size={20} strokeWidth={3} fill={achievement.color} />
+                      <Star
+                        size={20}
+                        strokeWidth={3}
+                        fill={achievement.color}
+                      />
                     </div>
                   )}
                 </div>
-                
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+
+                <p className="mb-3 text-sm text-gray-600 dark:text-gray-400">
                   {achievement.description}
                 </p>
 
                 {/* Progress Bar (if applicable) */}
                 {achievement.maxProgress && (
                   <div className="mt-3">
-                    <div className="flex justify-between text-xs uppercase tracking-wide mb-1 dark:text-white">
+                    <div className="mb-1 flex justify-between text-xs tracking-wide uppercase dark:text-white">
                       <span>Progress</span>
-                      <span>{achievement.progress}/{achievement.maxProgress}</span>
+                      <span>
+                        {achievement.progress}/{achievement.maxProgress}
+                      </span>
                     </div>
-                    <div className="h-3 bg-gray-200 dark:bg-[#1a1a1a] border-[2px] border-black dark:border-white">
+                    <div className="h-3 border-[2px] border-black bg-gray-200 dark:border-white dark:bg-[#1a1a1a]">
                       <div
-                        style={{ width: `${((achievement.progress || 0) / achievement.maxProgress) * 100}%`, backgroundColor: achievement.color }}
+                        style={{
+                          width: `${((achievement.progress || 0) / achievement.maxProgress) * 100}%`,
+                          backgroundColor: achievement.color,
+                        }}
                         className="h-full transition-all"
                       />
                     </div>
@@ -303,8 +332,8 @@ export function TrophiesAchievements({ onBack }: TrophiesAchievementsProps) {
                 )}
 
                 {/* Rarity Badge */}
-                <div className="mt-3 pt-3 border-t-[2px] border-gray-200 dark:border-gray-700">
-                  <span className="text-xs uppercase tracking-wide text-gray-600 dark:text-gray-400">
+                <div className="mt-3 border-t-[2px] border-gray-200 pt-3 dark:border-gray-700">
+                  <span className="text-xs tracking-wide text-gray-600 uppercase dark:text-gray-400">
                     {achievement.rarity}
                   </span>
                 </div>
@@ -314,10 +343,8 @@ export function TrophiesAchievements({ onBack }: TrophiesAchievementsProps) {
         </div>
 
         {/* Fun Footer Message */}
-        <div
-          className="mt-8 border-[4px] border-black dark:border-white bg-[#FFE500] p-6 text-center"
-        >
-          <p className="uppercase tracking-wide">
+        <div className="mt-8 border-[4px] border-black bg-[#FFE500] p-6 text-center dark:border-white">
+          <p className="tracking-wide uppercase">
             🎯 Keep playing to unlock more achievements! 🏆
           </p>
         </div>

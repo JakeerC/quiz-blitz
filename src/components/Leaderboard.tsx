@@ -1,8 +1,8 @@
 'use client';
 
-import { Crown, Medal, TrendingUp, ArrowLeft } from 'lucide-react';
-import { BrutalistButton } from './ui/BrutalistButton';
-import { soundManager } from '../utils/sounds';
+import {Crown, Medal, TrendingUp, ArrowLeft} from 'lucide-react';
+import {BrutalistButton} from './ui/BrutalistButton';
+import {soundManager} from '../utils/sounds';
 
 type LeaderboardEntry = {
   rank: number;
@@ -19,19 +19,19 @@ type LeaderboardProps = {
 
 // Mock leaderboard data
 const mockLeaderboard: LeaderboardEntry[] = [
-  { rank: 1, username: 'QuizMaster', score: 9850, quizzes: 127, accuracy: 96 },
-  { rank: 2, username: 'BrainBox', score: 8920, quizzes: 115, accuracy: 94 },
-  { rank: 3, username: 'KnowledgeKing', score: 8450, quizzes: 108, accuracy: 92 },
-  { rank: 4, username: 'SmartCookie', score: 7890, quizzes: 98, accuracy: 91 },
-  { rank: 5, username: 'ThinkTank', score: 7320, quizzes: 89, accuracy: 89 },
-  { rank: 6, username: 'Demo User', score: 6750, quizzes: 82, accuracy: 88 },
-  { rank: 7, username: 'QuizWhiz', score: 6210, quizzes: 76, accuracy: 86 },
-  { rank: 8, username: 'FactFinder', score: 5890, quizzes: 71, accuracy: 85 },
-  { rank: 9, username: 'TriviaChamp', score: 5420, quizzes: 65, accuracy: 83 },
-  { rank: 10, username: 'StudyBuddy', score: 4950, quizzes: 60, accuracy: 82 },
+  {rank: 1, username: 'QuizMaster', score: 9850, quizzes: 127, accuracy: 96},
+  {rank: 2, username: 'BrainBox', score: 8920, quizzes: 115, accuracy: 94},
+  {rank: 3, username: 'KnowledgeKing', score: 8450, quizzes: 108, accuracy: 92},
+  {rank: 4, username: 'SmartCookie', score: 7890, quizzes: 98, accuracy: 91},
+  {rank: 5, username: 'ThinkTank', score: 7320, quizzes: 89, accuracy: 89},
+  {rank: 6, username: 'Demo User', score: 6750, quizzes: 82, accuracy: 88},
+  {rank: 7, username: 'QuizWhiz', score: 6210, quizzes: 76, accuracy: 86},
+  {rank: 8, username: 'FactFinder', score: 5890, quizzes: 71, accuracy: 85},
+  {rank: 9, username: 'TriviaChamp', score: 5420, quizzes: 65, accuracy: 83},
+  {rank: 10, username: 'StudyBuddy', score: 4950, quizzes: 60, accuracy: 82},
 ];
 
-export function Leaderboard({ onBack, currentUser }: LeaderboardProps) {
+export function Leaderboard({onBack, currentUser}: LeaderboardProps) {
   const handleBack = () => {
     soundManager.playClick();
     onBack();
@@ -53,90 +53,96 @@ export function Leaderboard({ onBack, currentUser }: LeaderboardProps) {
 
   return (
     <div className="min-h-screen p-6 py-12">
-      <div
-        className="max-w-4xl mx-auto"
-      >
+      <div className="mx-auto max-w-4xl">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 bg-[#FFE500] border-[4px] border-black dark:border-white flex items-center justify-center">
+            <div className="flex h-16 w-16 items-center justify-center border-[4px] border-black bg-[#FFE500] dark:border-white">
               <TrendingUp size={36} strokeWidth={3} />
             </div>
             <div>
-              <h1 className="uppercase tracking-tight dark:text-white">Leaderboard</h1>
-              <p className="text-gray-600 dark:text-gray-400 uppercase tracking-wide text-sm">
+              <h1 className="tracking-tight uppercase dark:text-white">
+                Leaderboard
+              </h1>
+              <p className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
                 Top Quiz Champions
               </p>
             </div>
           </div>
           <BrutalistButton onClick={handleBack} variant="secondary">
             <ArrowLeft size={20} strokeWidth={3} />
-            <span className="uppercase tracking-wide">Back</span>
+            <span className="tracking-wide uppercase">Back</span>
           </BrutalistButton>
         </div>
 
         {/* Top 3 Podium */}
-        <div
-          className="mb-8"
-        >
-          <div className="grid grid-cols-3 gap-4 items-end">
+        <div className="mb-8">
+          <div className="grid grid-cols-3 items-end gap-4">
             {/* Second Place */}
-            <div
-              className="order-1"
-            >
-              <div className="border-[4px] border-black dark:border-white bg-[#C0C0C0] p-6 text-center mb-2">
-                <div className="flex justify-center mb-2">
+            <div className="order-1">
+              <div className="mb-2 border-[4px] border-black bg-[#C0C0C0] p-6 text-center dark:border-white">
+                <div className="mb-2 flex justify-center">
                   <Medal size={32} strokeWidth={3} />
                 </div>
-                <p className="text-sm uppercase tracking-wide mb-1">2nd Place</p>
-                <p className="uppercase tracking-tight mb-1">{mockLeaderboard[1].username}</p>
+                <p className="mb-1 text-sm tracking-wide uppercase">
+                  2nd Place
+                </p>
+                <p className="mb-1 tracking-tight uppercase">
+                  {mockLeaderboard[1].username}
+                </p>
                 <p className="tracking-tight">{mockLeaderboard[1].score}</p>
               </div>
-              <div className="h-32 border-[4px] border-black dark:border-white bg-[#C0C0C0]"></div>
+              <div className="h-32 border-[4px] border-black bg-[#C0C0C0] dark:border-white"></div>
             </div>
 
             {/* First Place */}
-            <div
-              className="order-2"
-            >
-              <div className="border-[4px] border-black dark:border-white bg-[#FFE500] p-6 text-center mb-2">
-                <div className="flex justify-center mb-2">
+            <div className="order-2">
+              <div className="mb-2 border-[4px] border-black bg-[#FFE500] p-6 text-center dark:border-white">
+                <div className="mb-2 flex justify-center">
                   <Crown size={40} strokeWidth={3} fill="#000" />
                 </div>
-                <p className="text-sm uppercase tracking-wide mb-1">1st Place</p>
-                <p className="uppercase tracking-tight mb-1">{mockLeaderboard[0].username}</p>
-                <p className="tracking-tight" style={{ fontSize: '1.5rem' }}>{mockLeaderboard[0].score}</p>
+                <p className="mb-1 text-sm tracking-wide uppercase">
+                  1st Place
+                </p>
+                <p className="mb-1 tracking-tight uppercase">
+                  {mockLeaderboard[0].username}
+                </p>
+                <p className="tracking-tight" style={{fontSize: '1.5rem'}}>
+                  {mockLeaderboard[0].score}
+                </p>
               </div>
-              <div className="h-48 border-[4px] border-black dark:border-white bg-[#FFE500]"></div>
+              <div className="h-48 border-[4px] border-black bg-[#FFE500] dark:border-white"></div>
             </div>
 
             {/* Third Place */}
-            <div
-              className="order-3"
-            >
-              <div className="border-[4px] border-black dark:border-white bg-[#CD7F32] p-6 text-center mb-2">
-                <div className="flex justify-center mb-2">
+            <div className="order-3">
+              <div className="mb-2 border-[4px] border-black bg-[#CD7F32] p-6 text-center dark:border-white">
+                <div className="mb-2 flex justify-center">
                   <Medal size={32} strokeWidth={3} />
                 </div>
-                <p className="text-sm uppercase tracking-wide mb-1">3rd Place</p>
-                <p className="uppercase tracking-tight mb-1">{mockLeaderboard[2].username}</p>
+                <p className="mb-1 text-sm tracking-wide uppercase">
+                  3rd Place
+                </p>
+                <p className="mb-1 tracking-tight uppercase">
+                  {mockLeaderboard[2].username}
+                </p>
                 <p className="tracking-tight">{mockLeaderboard[2].score}</p>
               </div>
-              <div className="h-24 border-[4px] border-black dark:border-white bg-[#CD7F32]"></div>
+              <div className="h-24 border-[4px] border-black bg-[#CD7F32] dark:border-white"></div>
             </div>
           </div>
         </div>
 
         {/* Full Leaderboard Table */}
-        <div
-          className="border-[6px] border-black dark:border-white bg-white dark:bg-[#2a2a2a] overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]"
-        >
+        <div className="overflow-hidden border-[6px] border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:border-white dark:bg-[#2a2a2a] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
           {/* Table Header */}
-          <div className="grid grid-cols-5 gap-4 p-4 bg-black dark:bg-white text-white dark:text-black border-b-[4px] border-black dark:border-white">
-            <p className="uppercase tracking-wide text-sm">Rank</p>
-            <p className="uppercase tracking-wide text-sm col-span-2">Player</p>
-            <p className="uppercase tracking-wide text-sm text-right">Score</p>
-            <p className="uppercase tracking-wide text-sm text-right">Accuracy</p>
+          <div className="grid grid-cols-5 gap-4 border-b-[4px] border-black bg-black p-4 text-white dark:border-white dark:bg-white dark:text-black">
+            <p className="text-sm tracking-wide uppercase">Rank</p>
+            <p className="col-span-2 text-sm tracking-wide uppercase">Player</p>
+            <p className="text-right text-sm tracking-wide uppercase">Score</p>
+            <p className="text-right text-sm tracking-wide uppercase">
+              Accuracy
+            </p>
           </div>
 
           {/* Table Body */}
@@ -146,25 +152,30 @@ export function Leaderboard({ onBack, currentUser }: LeaderboardProps) {
                 key={entry.rank}
                 className={`grid grid-cols-5 gap-4 p-4 ${
                   entry.username === currentUser ? 'bg-[#FFE500]' : ''
-                }`}
-              >
+                }`}>
                 <div className="flex items-center gap-2">
                   {getRankIcon(entry.rank)}
-                  <span className="uppercase tracking-wide dark:text-white">#{entry.rank}</span>
+                  <span className="tracking-wide uppercase dark:text-white">
+                    #{entry.rank}
+                  </span>
                 </div>
-                <p className="uppercase tracking-wide col-span-2 dark:text-white">{entry.username}</p>
-                <p className="uppercase tracking-wide text-right dark:text-white">{entry.score}</p>
-                <p className="uppercase tracking-wide text-right dark:text-white">{entry.accuracy}%</p>
+                <p className="col-span-2 tracking-wide uppercase dark:text-white">
+                  {entry.username}
+                </p>
+                <p className="text-right tracking-wide uppercase dark:text-white">
+                  {entry.score}
+                </p>
+                <p className="text-right tracking-wide uppercase dark:text-white">
+                  {entry.accuracy}%
+                </p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Stats Legend */}
-        <div
-          className="mt-6 p-4 border-[4px] border-black dark:border-white bg-[#FFFEF9] dark:bg-[#1a1a1a]"
-        >
-          <p className="text-sm text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+        <div className="mt-6 border-[4px] border-black bg-[#FFFEF9] p-4 dark:border-white dark:bg-[#1a1a1a]">
+          <p className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
             💡 Score = (Correct Answers × 100) - (Time Penalty) + (Streak Bonus)
           </p>
         </div>
