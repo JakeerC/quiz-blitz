@@ -1,13 +1,13 @@
 'use client';
 
-import { MultipleChoiceQuiz } from '@/components/MultipleChoiceQuiz';
-import { TrueFalseQuiz } from '@/components/TrueFalseQuiz';
-import { useApp, QuizResult } from '@/context/AppContext';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import {MultipleChoiceQuiz} from '@/components/MultipleChoiceQuiz';
+import {TrueFalseQuiz} from '@/components/TrueFalseQuiz';
+import {useApp, QuizResult} from '@/context/AppContext';
+import {useRouter} from 'next/navigation';
+import {useEffect} from 'react';
 
 export default function QuizPage() {
-  const { username, quizConfig, completeQuiz } = useApp();
+  const {username, quizConfig, completeQuiz} = useApp();
   const router = useRouter();
 
   useEffect(() => {
@@ -28,15 +28,12 @@ export default function QuizPage() {
   return (
     <>
       {quizConfig.responseType === 'multiple-choice' ? (
-        <MultipleChoiceQuiz 
-          config={quizConfig} 
-          onComplete={handleComplete} 
+        <MultipleChoiceQuiz
+          config={quizConfig}
+          onCompleteAction={handleComplete}
         />
       ) : (
-        <TrueFalseQuiz 
-          config={quizConfig} 
-          onComplete={handleComplete} 
-        />
+        <TrueFalseQuiz config={quizConfig} onCompleteAction={handleComplete} />
       )}
     </>
   );

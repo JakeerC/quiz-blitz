@@ -1,12 +1,12 @@
 'use client';
 
-import { QuizSetupScreen } from '@/components/QuizSetupScreen';
-import { useApp, QuizConfig } from '@/context/AppContext';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import {QuizSetupScreen} from '@/components/QuizSetupScreen';
+import {useApp, QuizConfig} from '@/context/AppContext';
+import {useRouter} from 'next/navigation';
+import {useEffect} from 'react';
 
 export default function SetupPage() {
-  const { username, startQuiz } = useApp();
+  const {username, startQuiz} = useApp();
   const router = useRouter();
 
   useEffect(() => {
@@ -27,9 +27,9 @@ export default function SetupPage() {
   if (!username) return null;
 
   return (
-    <QuizSetupScreen 
-      onStartQuiz={handleStartQuiz}
-      onBack={handleBack}
+    <QuizSetupScreen
+      onStartQuizAction={handleStartQuiz}
+      onBackAction={handleBack}
     />
   );
 }

@@ -24,7 +24,7 @@ type Question = {
 
 type TrueFalseQuizProps = {
   config: QuizConfig;
-  onComplete: (result: QuizResult) => void;
+  onCompleteAction: (result: QuizResult) => void;
 };
 
 // Generate mock questions
@@ -70,7 +70,7 @@ function generateQuestions(config: QuizConfig): Question[] {
   return questions;
 }
 
-export function TrueFalseQuiz({config, onComplete}: TrueFalseQuizProps) {
+export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
   const [questions] = useState(() => generateQuestions(config));
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<(boolean | null)[]>(
@@ -145,7 +145,7 @@ export function TrueFalseQuiz({config, onComplete}: TrueFalseQuizProps) {
 
     soundManager.playSuccess();
 
-    onComplete({
+    onCompleteAction({
       totalQuestions: questions.length,
       correctAnswers,
       incorrectAnswers: questions.length - correctAnswers,

@@ -20,7 +20,7 @@ type Question = {
 
 type MultipleChoiceQuizProps = {
   config: QuizConfig;
-  onComplete: (result: QuizResult) => void;
+  onCompleteAction: (result: QuizResult) => void;
 };
 
 // Generate mock questions
@@ -70,7 +70,7 @@ function generateQuestions(config: QuizConfig): Question[] {
 
 export function MultipleChoiceQuiz({
   config,
-  onComplete,
+  onCompleteAction,
 }: MultipleChoiceQuizProps) {
   const [questions] = useState(() => generateQuestions(config));
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -138,7 +138,7 @@ export function MultipleChoiceQuiz({
 
     soundManager.playSuccess();
 
-    onComplete({
+    onCompleteAction({
       totalQuestions: questions.length,
       correctAnswers,
       incorrectAnswers: questions.length - correctAnswers,

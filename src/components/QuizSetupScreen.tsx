@@ -19,8 +19,8 @@ import {soundManager} from '../utils/sounds';
 import type {QuizConfig} from '../context/AppContext';
 
 type QuizSetupScreenProps = {
-  onStartQuiz: (config: QuizConfig) => void;
-  onBack: () => void;
+  onStartQuizAction: (config: QuizConfig) => void;
+  onBackAction: () => void;
 };
 
 const TOPICS = [
@@ -36,7 +36,10 @@ const TOPICS = [
   'Art',
 ];
 
-export function QuizSetupScreen({onStartQuiz, onBack}: QuizSetupScreenProps) {
+export function QuizSetupScreen({
+  onStartQuizAction,
+  onBackAction,
+}: QuizSetupScreenProps) {
   const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>(
     'medium'
   );
@@ -55,7 +58,7 @@ export function QuizSetupScreen({onStartQuiz, onBack}: QuizSetupScreenProps) {
     soundManager.playClick();
     const finalTopic =
       useCustomTopic && customTopic.trim() ? customTopic.trim() : topic;
-    onStartQuiz({
+    onStartQuizAction({
       difficulty,
       topic: finalTopic,
       numQuestions,
@@ -103,7 +106,7 @@ export function QuizSetupScreen({onStartQuiz, onBack}: QuizSetupScreenProps) {
           <BrutalistButton
             onClick={() => {
               soundManager.playClick();
-              onBack();
+              onBackAction();
             }}
             variant="secondary">
             <span className="tracking-wide uppercase">← Dashboard</span>
