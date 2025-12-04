@@ -96,12 +96,10 @@ export function QuizSetupScreen({
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center border-4 border-black bg-[#5B8BFF] dark:border-white dark:bg-[#4169E1]">
-              <Settings size={32} strokeWidth={3} className="dark:text-white" />
+            <div className="flex h-16 w-16 items-center justify-center border-4 border-black bg-[#5B8BFF]">
+              <Settings size={32} strokeWidth={3} className="" />
             </div>
-            <h1 className="tracking-tight uppercase dark:text-white">
-              Setup Quiz
-            </h1>
+            <h1 className="tracking-tight uppercase">Setup Quiz</h1>
           </div>
           <BrutalistButton
             onClick={() => {
@@ -114,14 +112,12 @@ export function QuizSetupScreen({
         </div>
 
         {/* Main Setup Container */}
-        <div className="space-y-10 border-[6px] border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:border-white dark:bg-[#2a2a2a] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
+        <div className="space-y-10 border-[6px] border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           {/* Difficulty */}
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <Zap size={24} strokeWidth={3} className="dark:text-white" />
-              <h2 className="tracking-wide uppercase dark:text-white">
-                Difficulty
-              </h2>
+              <Zap size={24} strokeWidth={3} className="" />
+              <h2 className="tracking-wide uppercase">Difficulty</h2>
             </div>
             <ToggleSelector
               options={[
@@ -137,8 +133,8 @@ export function QuizSetupScreen({
           {/* Topic */}
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <BookOpen size={24} strokeWidth={3} className="dark:text-white" />
-              <h2 className="tracking-wide uppercase dark:text-white">Topic</h2>
+              <BookOpen size={24} strokeWidth={3} className="" />
+              <h2 className="tracking-wide uppercase">Topic</h2>
             </div>
             <ChipSelector
               options={TOPICS}
@@ -149,12 +145,8 @@ export function QuizSetupScreen({
             {/* Custom Topic Input */}
             <div className="mt-4">
               <div className="mb-3 flex items-center gap-2">
-                <PenLine
-                  size={20}
-                  strokeWidth={3}
-                  className="dark:text-white"
-                />
-                <label className="text-sm tracking-wide uppercase dark:text-white">
+                <PenLine size={20} strokeWidth={3} className="" />
+                <label className="text-sm tracking-wide uppercase">
                   Or enter custom topic:
                 </label>
               </div>
@@ -174,19 +166,13 @@ export function QuizSetupScreen({
           {/* Number of Questions */}
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <ListChecks
-                size={24}
-                strokeWidth={3}
-                className="dark:text-white"
-              />
-              <h2 className="tracking-wide uppercase dark:text-white">
-                Questions
-              </h2>
+              <ListChecks size={24} strokeWidth={3} className="" />
+              <h2 className="tracking-wide uppercase">Questions</h2>
             </div>
 
             {/* Display current value */}
             <div className="mb-4">
-              <div className="inline-block border-4 border-black bg-[#FFE500] px-6 py-3 dark:border-white">
+              <div className="inline-block border-4 border-black bg-[#FFE500] px-6 py-3">
                 <span className="tracking-wider">{numQuestions} Questions</span>
               </div>
             </div>
@@ -214,15 +200,13 @@ export function QuizSetupScreen({
             </div>
           </div>
 
-          <div className="h-[4px] bg-black dark:bg-white"></div>
+          <div className="h-[4px] bg-black"></div>
 
           {/* Response Type */}
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <Shuffle size={24} strokeWidth={3} className="dark:text-white" />
-              <h2 className="tracking-wide uppercase dark:text-white">
-                Response Type
-              </h2>
+              <Shuffle size={24} strokeWidth={3} className="" />
+              <h2 className="tracking-wide uppercase">Response Type</h2>
             </div>
             <ToggleSelector
               options={[
@@ -235,8 +219,8 @@ export function QuizSetupScreen({
 
             {/* Swipe Hint for True/False */}
             {responseType === 'true-false' && (
-              <div className="mt-4 border-4 border-black bg-[#FFE500] p-4 dark:border-white dark:bg-[#B8A000]">
-                <p className="text-sm tracking-wide uppercase dark:text-white">
+              <div className="mt-4 border-4 border-black bg-[#FFE500] p-4">
+                <p className="text-sm tracking-wide uppercase">
                   💡 Swipe right for TRUE, left for FALSE
                 </p>
               </div>
@@ -246,9 +230,7 @@ export function QuizSetupScreen({
           {/* Answer Mode */}
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <h2 className="tracking-wide uppercase dark:text-white">
-                Answer Mode
-              </h2>
+              <h2 className="tracking-wide uppercase">Answer Mode</h2>
             </div>
             <ToggleSelector
               options={[
@@ -258,7 +240,7 @@ export function QuizSetupScreen({
               selected={answerMode}
               onChange={handleAnswerModeChange}
             />
-            <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
+            <p className="mt-3 text-sm text-gray-600">
               {answerMode === 'interactive'
                 ? "See if you're right after each question"
                 : 'Get all results at the end'}

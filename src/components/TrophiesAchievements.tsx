@@ -165,7 +165,7 @@ export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
     if (rarity === 'legendary') return 'border-[#FFD700]';
     if (rarity === 'epic') return 'border-[#9C27B0]';
     if (rarity === 'rare') return 'border-[#00B8D4]';
-    return 'border-black dark:border-white';
+    return 'border-black ';
   };
 
   const getRarityGlow = (rarity: string) => {
@@ -181,14 +181,12 @@ export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center border-[4px] border-black bg-[#FF9500] dark:border-white">
+            <div className="flex h-16 w-16 items-center justify-center border-[4px] border-black bg-[#FF9500]">
               <Trophy size={36} strokeWidth={3} />
             </div>
             <div>
-              <h1 className="tracking-tight uppercase dark:text-white">
-                Achievements
-              </h1>
-              <p className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+              <h1 className="tracking-tight uppercase">Achievements</h1>
+              <p className="text-sm tracking-wide text-gray-600 uppercase">
                 Your Trophy Collection
               </p>
             </div>
@@ -200,27 +198,25 @@ export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
         </div>
 
         {/* Progress Overview */}
-        <div className="mb-8 border-[6px] border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:border-white dark:bg-[#2a2a2a] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
+        <div className="mb-8 border-[6px] border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <div className="mb-4 flex items-center justify-between">
             <div>
-              <h2 className="mb-2 tracking-tight uppercase dark:text-white">
+              <h2 className="mb-2 tracking-tight uppercase">
                 Overall Progress
               </h2>
-              <p className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+              <p className="text-sm tracking-wide text-gray-600 uppercase">
                 {unlockedCount} of {totalCount} achievements unlocked
               </p>
             </div>
             <div className="text-right">
-              <p
-                className="tracking-tight dark:text-white"
-                style={{fontSize: '3rem'}}>
+              <p className="tracking-tight" style={{fontSize: '3rem'}}>
                 {progressPercentage}%
               </p>
             </div>
           </div>
 
           {/* Progress Bar */}
-          <div className="h-8 border-[4px] border-black bg-gray-200 dark:border-white dark:bg-[#1a1a1a]">
+          <div className="h-8 border-[4px] border-black bg-gray-200">
             <div
               style={{width: `${progressPercentage}%`}}
               className="flex h-full items-center justify-end bg-gradient-to-r from-[#00D9A3] via-[#FFE500] to-[#FF9500] pr-2 transition-all duration-1000">
@@ -235,29 +231,21 @@ export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
 
         {/* Rarity Legend */}
         <div className="mb-6 flex flex-wrap gap-3">
-          <div className="flex items-center gap-2 border-[3px] border-black bg-white px-3 py-2 dark:border-white dark:bg-[#2a2a2a]">
+          <div className="flex items-center gap-2 border-[3px] border-black bg-white px-3 py-2">
             <div className="h-4 w-4 border-[2px] border-black bg-gray-400"></div>
-            <span className="text-sm tracking-wide uppercase dark:text-white">
-              Common
-            </span>
+            <span className="text-sm tracking-wide uppercase">Common</span>
           </div>
-          <div className="flex items-center gap-2 border-[3px] border-[#00B8D4] bg-white px-3 py-2 dark:bg-[#2a2a2a]">
+          <div className="flex items-center gap-2 border-[3px] border-[#00B8D4] bg-white px-3 py-2">
             <div className="h-4 w-4 border-[2px] border-black bg-[#00B8D4]"></div>
-            <span className="text-sm tracking-wide uppercase dark:text-white">
-              Rare
-            </span>
+            <span className="text-sm tracking-wide uppercase">Rare</span>
           </div>
-          <div className="flex items-center gap-2 border-[3px] border-[#9C27B0] bg-white px-3 py-2 dark:bg-[#2a2a2a]">
+          <div className="flex items-center gap-2 border-[3px] border-[#9C27B0] bg-white px-3 py-2">
             <div className="h-4 w-4 border-[2px] border-black bg-[#9C27B0]"></div>
-            <span className="text-sm tracking-wide uppercase dark:text-white">
-              Epic
-            </span>
+            <span className="text-sm tracking-wide uppercase">Epic</span>
           </div>
-          <div className="flex items-center gap-2 border-[3px] border-[#FFD700] bg-white px-3 py-2 dark:bg-[#2a2a2a]">
+          <div className="flex items-center gap-2 border-[3px] border-[#FFD700] bg-white px-3 py-2">
             <div className="h-4 w-4 border-[2px] border-black bg-[#FFD700]"></div>
-            <span className="text-sm tracking-wide uppercase dark:text-white">
-              Legendary
-            </span>
+            <span className="text-sm tracking-wide uppercase">Legendary</span>
           </div>
         </div>
 
@@ -266,10 +254,10 @@ export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
           {mockAchievements.map((achievement, index) => (
             <div
               key={achievement.id}
-              className={`border-[4px] ${getRarityBorder(achievement.rarity)} overflow-hidden bg-white dark:bg-[#2a2a2a] ${achievement.unlocked ? getRarityGlow(achievement.rarity) : 'opacity-60'} ${achievement.unlocked ? 'shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]' : ''} `}>
+              className={`border-[4px] ${getRarityBorder(achievement.rarity)} overflow-hidden bg-white ${achievement.unlocked ? getRarityGlow(achievement.rarity) : 'opacity-60'} ${achievement.unlocked ? 'shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]' : ''} `}>
               {/* Header */}
               <div
-                className="flex items-center justify-center border-b-[3px] border-black p-4 dark:border-white"
+                className="flex items-center justify-center border-b-[3px] border-black p-4"
                 style={{
                   backgroundColor: achievement.unlocked
                     ? achievement.color
@@ -292,7 +280,7 @@ export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
               {/* Content */}
               <div className="p-4">
                 <div className="mb-2 flex items-start justify-between">
-                  <h3 className="tracking-wide uppercase dark:text-white">
+                  <h3 className="tracking-wide uppercase">
                     {achievement.title}
                   </h3>
                   {achievement.unlocked && (
@@ -306,20 +294,20 @@ export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
                   )}
                 </div>
 
-                <p className="mb-3 text-sm text-gray-600 dark:text-gray-400">
+                <p className="mb-3 text-sm text-gray-600">
                   {achievement.description}
                 </p>
 
                 {/* Progress Bar (if applicable) */}
                 {achievement.maxProgress && (
                   <div className="mt-3">
-                    <div className="mb-1 flex justify-between text-xs tracking-wide uppercase dark:text-white">
+                    <div className="mb-1 flex justify-between text-xs tracking-wide uppercase">
                       <span>Progress</span>
                       <span>
                         {achievement.progress}/{achievement.maxProgress}
                       </span>
                     </div>
-                    <div className="h-3 border-[2px] border-black bg-gray-200 dark:border-white dark:bg-[#1a1a1a]">
+                    <div className="h-3 border-[2px] border-black bg-gray-200">
                       <div
                         style={{
                           width: `${((achievement.progress || 0) / achievement.maxProgress) * 100}%`,
@@ -332,8 +320,8 @@ export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
                 )}
 
                 {/* Rarity Badge */}
-                <div className="mt-3 border-t-[2px] border-gray-200 pt-3 dark:border-gray-700">
-                  <span className="text-xs tracking-wide text-gray-600 uppercase dark:text-gray-400">
+                <div className="mt-3 border-t-[2px] border-gray-200 pt-3">
+                  <span className="text-xs tracking-wide text-gray-600 uppercase">
                     {achievement.rarity}
                   </span>
                 </div>
@@ -343,7 +331,7 @@ export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
         </div>
 
         {/* Fun Footer Message */}
-        <div className="mt-8 border-[4px] border-black bg-[#FFE500] p-6 text-center dark:border-white">
+        <div className="mt-8 border-[4px] border-black bg-[#FFE500] p-6 text-center">
           <p className="tracking-wide uppercase">
             🎯 Keep playing to unlock more achievements! 🏆
           </p>

@@ -58,17 +58,15 @@ export function Dashboard({
           <div className="flex items-center gap-4">
             <Logo />
             <div>
-              <h1 className="tracking-tight uppercase dark:text-white">
-                Welcome Back!
-              </h1>
-              <p className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+              <h1 className="tracking-tight uppercase">Welcome Back!</h1>
+              <p className="text-sm tracking-wide text-gray-600 uppercase">
                 {username}
               </p>
             </div>
           </div>
           <button
             onClick={handleLogout}
-            className="flex items-center gap-2 border-4 border-black bg-[#FF5757] px-6 py-3 transition-colors hover:bg-[#FF4444] dark:border-white">
+            className="flex items-center gap-2 border-4 border-black bg-[#FF5757] px-6 py-3 transition-colors hover:bg-[#FF4444]">
             <LogOut size={20} strokeWidth={3} />
             <span className="tracking-wide uppercase">Logout</span>
           </button>
@@ -76,46 +74,38 @@ export function Dashboard({
 
         {/* Stats Cards */}
         <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-4">
-          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
-            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+          <div className="border-4 border-black bg-white p-6">
+            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
               Total Quizzes
             </p>
-            <p
-              className="tracking-tight dark:text-white"
-              style={{fontSize: '2rem'}}>
+            <p className="tracking-tight" style={{fontSize: '2rem'}}>
               {userStats.totalQuizzes}
             </p>
           </div>
 
-          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
-            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+          <div className="border-4 border-black bg-white p-6">
+            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
               Accuracy
             </p>
-            <p
-              className="tracking-tight dark:text-white"
-              style={{fontSize: '2rem'}}>
+            <p className="tracking-tight" style={{fontSize: '2rem'}}>
               {accuracy}%
             </p>
           </div>
 
-          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
-            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+          <div className="border-4 border-black bg-white p-6">
+            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
               Questions Answered
             </p>
-            <p
-              className="tracking-tight dark:text-white"
-              style={{fontSize: '2rem'}}>
+            <p className="tracking-tight" style={{fontSize: '2rem'}}>
               {userStats.totalQuestions}
             </p>
           </div>
 
-          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
-            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+          <div className="border-4 border-black bg-white p-6">
+            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
               Achievements
             </p>
-            <p
-              className="tracking-tight dark:text-white"
-              style={{fontSize: '2rem'}}>
+            <p className="tracking-tight" style={{fontSize: '2rem'}}>
               {userStats.achievements}
             </p>
           </div>
@@ -127,18 +117,16 @@ export function Dashboard({
             <button
               key={item.screen}
               onClick={() => handleNavigate(item.screen)}
-              className="border-[6px] border-black bg-white p-8 text-left shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-colors hover:bg-gray-50 dark:border-white dark:bg-[#2a2a2a] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] dark:hover:bg-[#3a3a3a]">
+              className="border-[6px] border-black bg-white p-8 text-left shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-colors hover:bg-gray-50">
               <div className="mb-4 flex items-center gap-4">
                 <div
-                  className="flex h-16 w-16 items-center justify-center border-4 border-black dark:border-white"
+                  className="flex h-16 w-16 items-center justify-center border-4 border-black"
                   style={{backgroundColor: item.color}}>
                   <item.icon size={32} strokeWidth={3} />
                 </div>
-                <h2 className="tracking-tight uppercase dark:text-white">
-                  {item.label}
-                </h2>
+                <h2 className="tracking-tight uppercase">{item.label}</h2>
               </div>
-              <p className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+              <p className="text-sm tracking-wide text-gray-600 uppercase">
                 {item.screen === 'setup' && 'Start a new quiz session'}
                 {item.screen === 'leaderboard' && 'See top performers'}
                 {item.screen === 'history' && 'View past quiz attempts'}
@@ -149,7 +137,7 @@ export function Dashboard({
         </div>
 
         {/* Quick Tip */}
-        <div className="mt-8 border-4 border-black bg-[#FFE500] p-6 dark:border-white">
+        <div className="mt-8 border-4 border-black bg-[#FFE500] p-6">
           <p className="tracking-wide uppercase">
             💡 Complete quizzes to unlock achievements and climb the
             leaderboard!

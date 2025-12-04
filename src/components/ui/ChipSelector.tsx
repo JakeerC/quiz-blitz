@@ -14,10 +14,10 @@ export function ChipSelector({options, selected, onChange}: ChipSelectorProps) {
           <button
             key={option}
             onClick={() => onChange(option)}
-            className={`border-[3px] border-black px-5 py-2.5 transition-all dark:border-white ${
+            className={`border-[3px] border-black px-5 py-2.5 transition-all ${
               isSelected
                 ? 'bg-[#FFE500] text-black'
-                : 'bg-white text-black hover:bg-gray-50 dark:bg-[#2a2a2a] dark:text-white dark:hover:bg-[#3a3a3a]'
+                : 'bg-white text-black hover:bg-gray-50'
             } `}>
             <span className="tracking-wide uppercase">{option}</span>
           </button>

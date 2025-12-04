@@ -143,14 +143,12 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center border-4 border-black bg-[#00B8D4] dark:border-white">
+            <div className="flex h-16 w-16 items-center justify-center border-4 border-black bg-[#00B8D4]">
               <History size={36} strokeWidth={3} />
             </div>
             <div>
-              <h1 className="tracking-tight uppercase dark:text-white">
-                Quiz History
-              </h1>
-              <p className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+              <h1 className="tracking-tight uppercase">Quiz History</h1>
+              <p className="text-sm tracking-wide text-gray-600 uppercase">
                 Your Past Attempts
               </p>
             </div>
@@ -163,46 +161,38 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
 
         {/* Summary Stats */}
         <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-4">
-          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
-            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+          <div className="border-4 border-black bg-white p-6">
+            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
               Total Quizzes
             </p>
-            <p
-              className="tracking-tight dark:text-white"
-              style={{fontSize: '2rem'}}>
+            <p className="tracking-tight" style={{fontSize: '2rem'}}>
               {totalQuizzes}
             </p>
           </div>
 
-          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
-            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+          <div className="border-4 border-black bg-white p-6">
+            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
               Avg Accuracy
             </p>
-            <p
-              className="tracking-tight dark:text-white"
-              style={{fontSize: '2rem'}}>
+            <p className="tracking-tight" style={{fontSize: '2rem'}}>
               {avgAccuracy}%
             </p>
           </div>
 
-          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
-            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+          <div className="border-4 border-black bg-white p-6">
+            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
               Avg Score
             </p>
-            <p
-              className="tracking-tight dark:text-white"
-              style={{fontSize: '2rem'}}>
+            <p className="tracking-tight" style={{fontSize: '2rem'}}>
               {avgScore}
             </p>
           </div>
 
-          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
-            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+          <div className="border-4 border-black bg-white p-6">
+            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
               Total Questions
             </p>
-            <p
-              className="tracking-tight dark:text-white"
-              style={{fontSize: '2rem'}}>
+            <p className="tracking-tight" style={{fontSize: '2rem'}}>
               {totalQuestions}
             </p>
           </div>
@@ -213,22 +203,18 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
           {mockHistory.map((entry, index) => (
             <div
               key={entry.id}
-              className="overflow-hidden border-4 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:border-white dark:bg-[#2a2a2a] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
+              className="overflow-hidden border-4 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               {/* Header */}
-              <div className="border-b-[3px] border-black bg-gray-50 p-4 dark:border-white dark:bg-[#1a1a1a]">
+              <div className="border-b-[3px] border-black bg-gray-50 p-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <Calendar
-                      size={20}
-                      strokeWidth={3}
-                      className="dark:text-white"
-                    />
-                    <span className="text-sm tracking-wide uppercase dark:text-white">
+                    <Calendar size={20} strokeWidth={3} className="" />
+                    <span className="text-sm tracking-wide uppercase">
                       {formatDate(entry.date)}
                     </span>
                   </div>
                   <div
-                    className="border-[3px] border-black px-3 py-1 dark:border-white"
+                    className="border-[3px] border-black px-3 py-1"
                     style={{backgroundColor: getGradeColor(entry.grade)}}>
                     <span className="tracking-wide uppercase">
                       Grade: {entry.grade}
@@ -241,11 +227,11 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
               <div className="p-6">
                 <div className="mb-4 flex items-start justify-between">
                   <div>
-                    <h3 className="mb-2 tracking-tight uppercase dark:text-white">
+                    <h3 className="mb-2 tracking-tight uppercase">
                       {entry.topic}
                     </h3>
                     <div
-                      className="inline-block border-[3px] border-black px-3 py-1 dark:border-white"
+                      className="inline-block border-[3px] border-black px-3 py-1"
                       style={{
                         backgroundColor: getDifficultyColor(entry.difficulty),
                       }}>
@@ -255,12 +241,10 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
                     </div>
                   </div>
                   <div className="text-right">
-                    <p
-                      className="tracking-tight dark:text-white"
-                      style={{fontSize: '2rem'}}>
+                    <p className="tracking-tight" style={{fontSize: '2rem'}}>
                       {entry.score}
                     </p>
-                    <p className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+                    <p className="text-sm tracking-wide text-gray-600 uppercase">
                       Points
                     </p>
                   </div>
@@ -275,10 +259,10 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
                       className="text-[#00D9A3]"
                     />
                     <div>
-                      <p className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+                      <p className="text-sm tracking-wide text-gray-600 uppercase">
                         Score
                       </p>
-                      <p className="tracking-wide uppercase dark:text-white">
+                      <p className="tracking-wide uppercase">
                         {entry.correctAnswers}/{entry.totalQuestions}
                       </p>
                     </div>
@@ -291,10 +275,10 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
                       className="text-[#FFE500]"
                     />
                     <div>
-                      <p className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+                      <p className="text-sm tracking-wide text-gray-600 uppercase">
                         Time
                       </p>
-                      <p className="tracking-wide uppercase dark:text-white">
+                      <p className="tracking-wide uppercase">
                         {formatTime(entry.timeTaken)}
                       </p>
                     </div>
@@ -307,10 +291,10 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
                       className="text-[#FF9500]"
                     />
                     <div>
-                      <p className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+                      <p className="text-sm tracking-wide text-gray-600 uppercase">
                         Accuracy
                       </p>
-                      <p className="tracking-wide uppercase dark:text-white">
+                      <p className="tracking-wide uppercase">
                         {Math.round(
                           (entry.correctAnswers / entry.totalQuestions) * 100
                         )}
@@ -332,7 +316,7 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
               strokeWidth={2}
               className="mx-auto mb-4 text-gray-400"
             />
-            <p className="tracking-wide text-gray-600 uppercase dark:text-gray-400">
+            <p className="tracking-wide text-gray-600 uppercase">
               No quiz history yet. Start a quiz to see your results here!
             </p>
           </div>

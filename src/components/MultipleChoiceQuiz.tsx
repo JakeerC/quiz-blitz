@@ -156,17 +156,17 @@ export function MultipleChoiceQuiz({
         {/* Progress Bar */}
         <div className="mb-8">
           <div className="mb-3 flex items-center justify-between">
-            <span className="tracking-wide uppercase dark:text-white">
+            <span className="tracking-wide uppercase">
               Question {currentIndex + 1} / {questions.length}
             </span>
             <div className="flex items-center gap-2">
-              <Clock size={20} strokeWidth={3} className="dark:text-white" />
-              <span className="tracking-wide uppercase dark:text-white">
+              <Clock size={20} strokeWidth={3} className="" />
+              <span className="tracking-wide uppercase">
                 {config.difficulty}
               </span>
             </div>
           </div>
-          <div className="h-4 border-4 border-black bg-white dark:border-white dark:bg-[#2a2a2a]">
+          <div className="h-4 border-4 border-black bg-white">
             <div
               style={{width: `${progress}%`}}
               className="h-full bg-[#FFE500] transition-all"
@@ -176,11 +176,11 @@ export function MultipleChoiceQuiz({
 
         {/* Question Card */}
         <div key={currentIndex} className="mb-8">
-          <div className="border-[6px] border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:border-white dark:bg-[#2a2a2a] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
-            <h2 className="mb-2 tracking-tight uppercase dark:text-white">
+          <div className="border-[6px] border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <h2 className="mb-2 tracking-tight uppercase">
               {currentQuestion.question}
             </h2>
-            <div className="mt-2 inline-block border-[3px] border-black bg-[#FFE500] px-3 py-1 dark:border-white">
+            <div className="mt-2 inline-block border-[3px] border-black bg-[#FFE500] px-3 py-1">
               <span className="text-sm tracking-wide uppercase">
                 {currentQuestion.topic}
               </span>
@@ -201,11 +201,9 @@ export function MultipleChoiceQuiz({
                 key={index}
                 onClick={() => handleAnswerSelect(index)}
                 disabled={showFeedback}
-                className={`w-full border-4 border-black p-6 text-left transition-all dark:border-white ${isSelected && !showFeedback ? 'bg-gray-200 dark:bg-[#3a3a3a]' : 'bg-white dark:bg-[#2a2a2a]'} ${showCorrect ? 'bg-[#00D9A3]' : ''} ${showIncorrect ? 'bg-[#FF5757]' : ''} ${!showFeedback ? 'cursor-pointer hover:bg-gray-50 dark:hover:bg-[#3a3a3a]' : 'cursor-default'} `}>
+                className={`w-full border-4 border-black p-6 text-left transition-all ${isSelected && !showFeedback ? 'bg-gray-200' : 'bg-white'} ${showCorrect ? 'bg-[#00D9A3]' : ''} ${showIncorrect ? 'bg-[#FF5757]' : ''} ${!showFeedback ? 'cursor-pointer hover:bg-gray-50' : 'cursor-default'} `}>
                 <div className="flex items-center justify-between">
-                  <span className="tracking-wide uppercase dark:text-white">
-                    {option}
-                  </span>
+                  <span className="tracking-wide uppercase">{option}</span>
                   {showCorrect && <Check size={28} strokeWidth={3} />}
                   {showIncorrect && <X size={28} strokeWidth={3} />}
                 </div>
@@ -217,18 +215,12 @@ export function MultipleChoiceQuiz({
         {/* Explanation (Interactive Mode) */}
         {config.answerMode === 'interactive' && showFeedback && (
           <div className="mb-8">
-            <div className="border-4 border-black bg-[#FFFEF9] p-6 dark:border-white dark:bg-[#1a1a1a]">
+            <div className="border-4 border-black bg-[#FFFEF9] p-6">
               <div className="mb-3 flex items-start gap-3">
-                <Info
-                  size={24}
-                  strokeWidth={3}
-                  className="shrink-0 dark:text-white"
-                />
-                <h3 className="tracking-wide uppercase dark:text-white">
-                  Explanation
-                </h3>
+                <Info size={24} strokeWidth={3} className="shrink-0" />
+                <h3 className="tracking-wide uppercase">Explanation</h3>
               </div>
-              <p className="leading-relaxed text-gray-700 dark:text-gray-300">
+              <p className="leading-relaxed text-gray-700">
                 {currentQuestion.explanation}
               </p>
             </div>

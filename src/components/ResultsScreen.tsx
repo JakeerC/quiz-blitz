@@ -81,35 +81,31 @@ export function ResultsScreen({
         {/* Header */}
         <div className="mb-8 flex items-center gap-4">
           <div
-            className={`flex h-16 w-16 items-center justify-center border-[4px] border-black dark:border-white`}
+            className={`flex h-16 w-16 items-center justify-center border-[4px] border-black`}
             style={{backgroundColor: grade.color}}>
             <Trophy size={32} strokeWidth={3} />
           </div>
           <div>
-            <h1 className="tracking-tight uppercase dark:text-white">
-              Quiz Complete!
-            </h1>
-            <p className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+            <h1 className="tracking-tight uppercase">Quiz Complete!</h1>
+            <p className="text-sm tracking-wide text-gray-600 uppercase">
               {isPassed ? 'Great work!' : 'Keep practicing!'}
             </p>
           </div>
         </div>
 
         {/* Main Results Container */}
-        <div className="mb-8 border-[6px] border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:border-white dark:bg-[#2a2a2a] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
+        <div className="mb-8 border-[6px] border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           {/* Score Section */}
-          <div className="border-b-[4px] border-black p-8 dark:border-white">
+          <div className="border-b-[4px] border-black p-8">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="mb-2 tracking-tight uppercase dark:text-white">
-                  Your Score
-                </h2>
-                <p className="text-gray-600 dark:text-gray-400">
+                <h2 className="mb-2 tracking-tight uppercase">Your Score</h2>
+                <p className="text-gray-600">
                   {result.correctAnswers} out of {result.totalQuestions} correct
                 </p>
               </div>
               <div
-                className="flex h-32 w-32 items-center justify-center border-[4px] border-black dark:border-white"
+                className="flex h-32 w-32 items-center justify-center border-[4px] border-black"
                 style={{backgroundColor: grade.color}}>
                 <span className="tracking-tight" style={{fontSize: '3rem'}}>
                   {scorePercentage}%
@@ -119,53 +115,39 @@ export function ResultsScreen({
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 border-b-[4px] border-black md:grid-cols-3 dark:border-white">
+          <div className="grid grid-cols-1 border-b-[4px] border-black md:grid-cols-3">
             {/* Stat: Time */}
-            <div className="border-b-[4px] border-black p-6 md:border-r-[4px] md:border-b-0 dark:border-white">
+            <div className="border-b-[4px] border-black p-6 md:border-r-[4px] md:border-b-0">
               <div className="mb-2 flex items-center gap-3">
-                <Clock size={24} strokeWidth={3} className="dark:text-white" />
-                <h3 className="tracking-wide uppercase dark:text-white">
-                  Time
-                </h3>
+                <Clock size={24} strokeWidth={3} className="" />
+                <h3 className="tracking-wide uppercase">Time</h3>
               </div>
-              <p className="tracking-wide dark:text-white">
-                {formatTime(result.timeTaken)}
-              </p>
+              <p className="tracking-wide">{formatTime(result.timeTaken)}</p>
             </div>
 
             {/* Stat: Accuracy */}
-            <div className="border-b-[4px] border-black p-6 md:border-r-[4px] md:border-b-0 dark:border-white">
+            <div className="border-b-[4px] border-black p-6 md:border-r-[4px] md:border-b-0">
               <div className="mb-2 flex items-center gap-3">
-                <Target size={24} strokeWidth={3} className="dark:text-white" />
-                <h3 className="tracking-wide uppercase dark:text-white">
-                  Accuracy
-                </h3>
+                <Target size={24} strokeWidth={3} className="" />
+                <h3 className="tracking-wide uppercase">Accuracy</h3>
               </div>
-              <p className="tracking-wide dark:text-white">
-                {scorePercentage}%
-              </p>
+              <p className="tracking-wide">{scorePercentage}%</p>
             </div>
 
             {/* Stat: Grade */}
             <div className="p-6">
               <div className="mb-2 flex items-center gap-3">
-                <TrendingUp
-                  size={24}
-                  strokeWidth={3}
-                  className="dark:text-white"
-                />
-                <h3 className="tracking-wide uppercase dark:text-white">
-                  Grade
-                </h3>
+                <TrendingUp size={24} strokeWidth={3} className="" />
+                <h3 className="tracking-wide uppercase">Grade</h3>
               </div>
-              <p className="tracking-wide dark:text-white">{grade.grade}</p>
+              <p className="tracking-wide">{grade.grade}</p>
             </div>
           </div>
 
           {/* Chart Section */}
           <div className="flex flex-col items-center gap-8 p-8 md:flex-row">
             {/* Pie Chart */}
-            <div className="h-48 w-48 flex-shrink-0 border-[4px] border-black bg-white p-2 dark:border-white dark:bg-[#2a2a2a]">
+            <div className="h-48 w-48 flex-shrink-0 border-[4px] border-black bg-white p-2">
               <div className="h-full w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
@@ -189,19 +171,17 @@ export function ResultsScreen({
 
             {/* Legend & Breakdown */}
             <div className="flex-1">
-              <h3 className="mb-4 tracking-wide uppercase dark:text-white">
-                Breakdown
-              </h3>
+              <h3 className="mb-4 tracking-wide uppercase">Breakdown</h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="h-6 w-6 border-[3px] border-black bg-[#00D9A3] dark:border-white"></div>
-                  <span className="tracking-wide uppercase dark:text-white">
+                  <div className="h-6 w-6 border-[3px] border-black bg-[#00D9A3]"></div>
+                  <span className="tracking-wide uppercase">
                     Correct: {result.correctAnswers}
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="h-6 w-6 border-[3px] border-black bg-[#FF5757] dark:border-white"></div>
-                  <span className="tracking-wide uppercase dark:text-white">
+                  <div className="h-6 w-6 border-[3px] border-black bg-[#FF5757]"></div>
+                  <span className="tracking-wide uppercase">
                     Incorrect: {result.incorrectAnswers}
                   </span>
                 </div>
@@ -211,7 +191,7 @@ export function ResultsScreen({
 
           {/* Skills to Improve */}
           {skillsToImprove.length > 0 && (
-            <div className="border-t-[4px] border-black bg-[#FFE500] p-8 dark:border-white dark:bg-[#FF9500]">
+            <div className="border-t-[4px] border-black bg-[#FFE500] p-8">
               <h3 className="mb-4 tracking-wide uppercase">
                 Skills To Improve
               </h3>
@@ -219,8 +199,8 @@ export function ResultsScreen({
                 {skillsToImprove.map((skill, index) => (
                   <div
                     key={index}
-                    className="border-[3px] border-black bg-white px-4 py-2 dark:border-white dark:bg-[#2a2a2a]">
-                    <span className="text-sm tracking-wide uppercase dark:text-white">
+                    className="border-[3px] border-black bg-white px-4 py-2">
+                    <span className="text-sm tracking-wide uppercase">
                       {skill}
                     </span>
                   </div>
@@ -234,20 +214,18 @@ export function ResultsScreen({
         {result.questionDetails && result.questionDetails.length > 0 && (
           <div className="mb-8">
             <div className="mb-6 flex items-center gap-3">
-              <BookOpen size={28} strokeWidth={3} className="dark:text-white" />
-              <h2 className="tracking-tight uppercase dark:text-white">
-                Question Review
-              </h2>
+              <BookOpen size={28} strokeWidth={3} className="" />
+              <h2 className="tracking-tight uppercase">Question Review</h2>
             </div>
 
             <div className="space-y-4">
               {result.questionDetails.map((detail, index) => (
                 <div
                   key={index}
-                  className="overflow-hidden border-[4px] border-black bg-white dark:border-white dark:bg-[#2a2a2a]">
+                  className="overflow-hidden border-[4px] border-black bg-white">
                   {/* Question Header */}
                   <div
-                    className={`border-b-[4px] border-black p-4 dark:border-white ${detail.isCorrect ? 'bg-[#00D9A3]' : 'bg-[#FF5757]'}`}>
+                    className={`border-b-[4px] border-black p-4 ${detail.isCorrect ? 'bg-[#00D9A3]' : 'bg-[#FF5757]'}`}>
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex items-start gap-3">
                         {detail.isCorrect ? (
@@ -276,7 +254,7 @@ export function ResultsScreen({
                   {/* Answer Details */}
                   <div className="space-y-4 p-6">
                     <div>
-                      <span className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+                      <span className="text-sm tracking-wide text-gray-600 uppercase">
                         Your Answer:
                       </span>
                       <p
@@ -287,20 +265,20 @@ export function ResultsScreen({
 
                     {!detail.isCorrect && (
                       <div>
-                        <span className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+                        <span className="text-sm tracking-wide text-gray-600 uppercase">
                           Correct Answer:
                         </span>
-                        <p className="mt-1 tracking-wide text-[#00D9A3] uppercase dark:text-white">
+                        <p className="mt-1 tracking-wide text-[#00D9A3] uppercase">
                           {detail.correctAnswer}
                         </p>
                       </div>
                     )}
 
-                    <div className="border-t-[3px] border-gray-200 pt-4 dark:border-gray-700">
-                      <span className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+                    <div className="border-t-[3px] border-gray-200 pt-4">
+                      <span className="text-sm tracking-wide text-gray-600 uppercase">
                         Explanation:
                       </span>
-                      <p className="mt-2 leading-relaxed text-gray-700 dark:text-gray-300">
+                      <p className="mt-2 leading-relaxed text-gray-700">
                         {detail.explanation}
                       </p>
                     </div>

@@ -18,10 +18,10 @@ export function ToggleSelector<T extends string>({
           <button
             key={option.value}
             onClick={() => onChange(option.value)}
-            className={`border-[4px] border-black px-6 py-3 transition-colors dark:border-white ${
+            className={`border-[4px] border-black px-6 py-3 transition-colors ${
               isSelected
-                ? 'bg-black text-white dark:bg-white dark:text-black'
-                : 'bg-white text-black hover:bg-gray-100 dark:bg-[#2a2a2a] dark:text-white dark:hover:bg-[#3a3a3a]'
+                ? 'bg-black text-white'
+                : 'bg-white text-black hover:bg-gray-100'
             } `}>
             <span className="tracking-wider uppercase">{option.label}</span>
           </button>

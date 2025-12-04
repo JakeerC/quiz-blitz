@@ -35,11 +35,9 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
         <div className="mb-8 text-center">
           <div className="mb-4 inline-flex items-center gap-3">
             <Logo />
-            <h1 className="tracking-tight uppercase dark:text-white">
-              Quiz App
-            </h1>
+            <h1 className="tracking-tight uppercase">Quiz App</h1>
           </div>
-          <p className="text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+          <p className="text-sm tracking-wide text-gray-600 uppercase">
             Test your knowledge. Track your progress.
           </p>
         </div>
@@ -50,20 +48,16 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
             <div className="mb-6 flex gap-2">
               <button
                 onClick={() => setIsLogin(true)}
-                className={`flex-1 cursor-pointer border-[3px] border-black px-4 py-3 tracking-wide uppercase transition-colors dark:border-white ${
-                  isLogin
-                    ? 'bg-[#FFE500]'
-                    : 'bg-white dark:bg-[#2a2a2a] dark:text-white'
+                className={`flex-1 cursor-pointer border-[3px] border-black px-4 py-3 tracking-wide uppercase transition-colors ${
+                  isLogin ? 'bg-[#FFE500]' : 'bg-white'
                 }`}>
                 Login
               </button>
 
               <button
                 onClick={() => setIsLogin(false)}
-                className={`flex-1 border-[3px] border-black px-4 py-3 tracking-wide uppercase transition-colors dark:border-white ${
-                  !isLogin
-                    ? 'bg-[#FFE500]'
-                    : 'bg-white dark:bg-[#2a2a2a] dark:text-white'
+                className={`flex-1 border-[3px] border-black px-4 py-3 tracking-wide uppercase transition-colors ${
+                  !isLogin ? 'bg-[#FFE500]' : 'bg-white'
                 }`}>
                 Sign Up
               </button>
@@ -72,12 +66,12 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Username Input */}
               <div>
-                <label className="mb-2 block text-sm tracking-wide uppercase dark:text-white">
+                <label className="mb-2 block text-sm tracking-wide uppercase">
                   Username
                 </label>
                 <div className="relative">
                   <User
-                    className="absolute top-1/2 left-4 -translate-y-1/2 dark:text-white"
+                    className="absolute top-1/2 left-4 -translate-y-1/2"
                     size={20}
                     strokeWidth={3}
                   />
@@ -85,7 +79,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="w-full border-[4px] border-black bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:border-[#FFE500] focus:outline-none dark:border-white dark:bg-[#1a1a1a] dark:text-white"
+                    className="w-full border-[4px] border-black bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:border-[#FFE500] focus:outline-none"
                     placeholder="Enter username"
                     required
                   />
@@ -94,12 +88,12 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
 
               {/* Password Input */}
               <div>
-                <label className="mb-2 block text-sm tracking-wide uppercase dark:text-white">
+                <label className="mb-2 block text-sm tracking-wide uppercase">
                   Password
                 </label>
                 <div className="relative">
                   <Lock
-                    className="absolute top-1/2 left-4 -translate-y-1/2 dark:text-white"
+                    className="absolute top-1/2 left-4 -translate-y-1/2"
                     size={20}
                     strokeWidth={3}
                   />
@@ -107,7 +101,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full border-[4px] border-black bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:border-[#FFE500] focus:outline-none dark:border-white dark:bg-[#1a1a1a] dark:text-white"
+                    className="w-full border-[4px] border-black bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:border-[#FFE500] focus:outline-none"
                     placeholder="Enter password"
                     required
                   />
@@ -129,20 +123,20 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
           </div>
 
           {/* Demo Login */}
-          <div className="border-t-[4px] border-black bg-gray-50 p-6 dark:border-white dark:bg-[#1a1a1a]">
-            <p className="mb-3 text-center text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+          <div className="border-t-[4px] border-black bg-gray-50 p-6">
+            <p className="mb-3 text-center text-sm tracking-wide text-gray-600 uppercase">
               Or try it out:
             </p>
             <button
               onClick={handleDemoLogin}
-              className="w-full border-[3px] border-black bg-white px-4 py-3 tracking-wide uppercase transition-colors hover:bg-gray-100 dark:border-white dark:bg-[#2a2a2a] dark:text-white dark:hover:bg-[#3a3a3a]">
+              className="w-full border-[3px] border-black bg-white px-4 py-3 tracking-wide uppercase transition-colors hover:bg-gray-100">
               Continue as Demo User
             </button>
           </div>
         </div>
 
         {/* Footer */}
-        <p className="mt-6 text-center text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+        <p className="mt-6 text-center text-sm tracking-wide text-gray-600 uppercase">
           New-Brutalist Quiz Experience
         </p>
       </div>

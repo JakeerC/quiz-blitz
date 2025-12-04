@@ -173,17 +173,17 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
         {/* Progress Bar */}
         <div className="mb-8">
           <div className="mb-3 flex items-center justify-between">
-            <span className="tracking-wide uppercase dark:text-white">
+            <span className="tracking-wide uppercase">
               Question {currentIndex + 1} / {questions.length}
             </span>
             <div className="flex items-center gap-2">
-              <Clock size={20} strokeWidth={3} className="dark:text-white" />
-              <span className="tracking-wide uppercase dark:text-white">
+              <Clock size={20} strokeWidth={3} className="" />
+              <span className="tracking-wide uppercase">
                 {config.difficulty}
               </span>
             </div>
           </div>
-          <div className="h-4 border-4 border-black bg-white dark:border-white dark:bg-[#2a2a2a]">
+          <div className="h-4 border-4 border-black bg-white">
             <motion.div
               animate={{width: `${progress}%`}}
               className="h-full bg-[#FFE500]"
@@ -194,25 +194,17 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
         {/* Swipe Indicators */}
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-2 opacity-60">
-            <ChevronLeft
-              size={32}
-              strokeWidth={3}
-              className="dark:text-white"
-            />
-            <div className="border-[3px] border-black bg-[#FF5757] px-4 py-2 dark:border-white">
+            <ChevronLeft size={32} strokeWidth={3} className="" />
+            <div className="border-[3px] border-black bg-[#FF5757] px-4 py-2">
               <span className="tracking-wide uppercase">False</span>
             </div>
           </div>
 
           <div className="flex items-center gap-2 opacity-60">
-            <div className="border-[3px] border-black bg-[#00D9A3] px-4 py-2 dark:border-white">
+            <div className="border-[3px] border-black bg-[#00D9A3] px-4 py-2">
               <span className="tracking-wide uppercase">True</span>
             </div>
-            <ChevronRight
-              size={32}
-              strokeWidth={3}
-              className="dark:text-white"
-            />
+            <ChevronRight size={32} strokeWidth={3} className="" />
           </div>
         </div>
 
@@ -230,13 +222,13 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
               initial={{scale: 0.8, opacity: 0}}
               animate={{scale: 1, opacity: 1}}
               exit={{scale: 0.8, opacity: 0}}>
-              <div className="border-[6px] border-black bg-white p-10 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] dark:border-white dark:bg-[#2a2a2a] dark:shadow-[12px_12px_0px_0px_rgba(255,255,255,1)]">
-                <h2 className="mb-6 text-center tracking-tight uppercase dark:text-white">
+              <div className="border-[6px] border-black bg-white p-10 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+                <h2 className="mb-6 text-center tracking-tight uppercase">
                   {currentQuestion.question}
                 </h2>
 
                 <div className="mb-4 flex justify-center">
-                  <div className="border-[3px] border-black bg-[#FFE500] px-4 py-2 dark:border-white">
+                  <div className="border-[3px] border-black bg-[#FFE500] px-4 py-2">
                     <span className="text-sm tracking-wide uppercase">
                       {currentQuestion.topic}
                     </span>
@@ -248,7 +240,7 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
                   <motion.div
                     initial={{scale: 0}}
                     animate={{scale: 1}}
-                    className={`mt-6 flex items-center justify-center gap-3 border-4 border-black p-4 dark:border-white ${isCorrect ? 'bg-[#00D9A3]' : 'bg-[#FF5757]'} `}>
+                    className={`mt-6 flex items-center justify-center gap-3 border-4 border-black p-4 ${isCorrect ? 'bg-[#00D9A3]' : 'bg-[#FF5757]'} `}>
                     {isCorrect ? (
                       <Check size={32} strokeWidth={3} />
                     ) : (
@@ -270,18 +262,12 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
             initial={{opacity: 0, y: 20}}
             animate={{opacity: 1, y: 0}}
             className="mb-8">
-            <div className="border-4 border-black bg-[#FFFEF9] p-6 dark:border-white dark:bg-[#1a1a1a]">
+            <div className="border-4 border-black bg-[#FFFEF9] p-6">
               <div className="mb-3 flex items-start gap-3">
-                <Info
-                  size={24}
-                  strokeWidth={3}
-                  className="shrink-0 dark:text-white"
-                />
-                <h3 className="tracking-wide uppercase dark:text-white">
-                  Explanation
-                </h3>
+                <Info size={24} strokeWidth={3} className="shrink-0" />
+                <h3 className="tracking-wide uppercase">Explanation</h3>
               </div>
-              <p className="leading-relaxed text-gray-700 dark:text-gray-300">
+              <p className="leading-relaxed text-gray-700">
                 {currentQuestion.explanation}
               </p>
             </div>
@@ -295,7 +281,7 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
             whileTap={{scale: 0.95}}
             onClick={() => handleAnswer(false)}
             disabled={showFeedback}
-            className="flex h-20 w-40 items-center justify-center gap-2 border-4 border-black bg-[#FF5757] hover:bg-[#FF4444] disabled:opacity-50 dark:border-white">
+            className="flex h-20 w-40 items-center justify-center gap-2 border-4 border-black bg-[#FF5757] hover:bg-[#FF4444] disabled:opacity-50">
             <X size={28} strokeWidth={3} />
             <span className="tracking-wide uppercase">False</span>
           </motion.button>
@@ -305,14 +291,14 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
             whileTap={{scale: 0.95}}
             onClick={() => handleAnswer(true)}
             disabled={showFeedback}
-            className="flex h-20 w-40 items-center justify-center gap-2 border-4 border-black bg-[#00D9A3] hover:bg-[#00C794] disabled:opacity-50 dark:border-white">
+            className="flex h-20 w-40 items-center justify-center gap-2 border-4 border-black bg-[#00D9A3] hover:bg-[#00C794] disabled:opacity-50">
             <Check size={28} strokeWidth={3} />
             <span className="tracking-wide uppercase">True</span>
           </motion.button>
         </div>
 
         {/* Swipe Hint */}
-        <p className="mt-6 text-center text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
+        <p className="mt-6 text-center text-sm tracking-wide text-gray-600 uppercase">
           Swipe or tap to answer
         </p>
       </div>
