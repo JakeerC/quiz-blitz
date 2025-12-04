@@ -1,12 +1,12 @@
 'use client';
 
-import { Dashboard } from '@/components/Dashboard';
-import { useApp } from '@/context/AppContext';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import {Dashboard} from '@/components/Dashboard';
+import {useApp} from '@/context/AppContext';
+import {useRouter} from 'next/navigation';
+import {useEffect} from 'react';
 
 export default function DashboardPage() {
-  const { username, logout, userStats } = useApp();
+  const {username, logout, userStats} = useApp();
   const router = useRouter();
 
   useEffect(() => {
@@ -18,12 +18,12 @@ export default function DashboardPage() {
   const handleNavigate = (screen: string) => {
     // Map internal screen names to routes
     const routeMap: Record<string, string> = {
-      'setup': '/setup',
-      'leaderboard': '/leaderboard',
-      'history': '/history',
-      'trophies': '/trophies'
+      setup: '/setup',
+      leaderboard: '/leaderboard',
+      history: '/history',
+      trophies: '/trophies',
     };
-    
+
     const route = routeMap[screen];
     if (route) {
       router.push(route);
@@ -38,10 +38,10 @@ export default function DashboardPage() {
   if (!username) return null;
 
   return (
-    <Dashboard 
-      username={username} 
-      onNavigate={handleNavigate}
-      onLogout={handleLogout}
+    <Dashboard
+      username={username}
+      onNavigateAction={handleNavigate}
+      onLogoutAction={handleLogout}
       userStats={userStats}
     />
   );

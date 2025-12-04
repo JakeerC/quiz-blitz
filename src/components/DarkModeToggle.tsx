@@ -32,7 +32,7 @@ export function DarkModeToggle({className = ''}: DarkModeToggleProps) {
   return (
     <button
       onClick={toggleDarkMode}
-      className={`flex h-14 w-14 items-center justify-center border-[4px] border-black bg-white transition-colors dark:border-white dark:bg-black ${className} `}
+      className={`flex h-14 w-14 items-center justify-center border-4 border-black bg-white transition-colors dark:border-white dark:bg-black ${className} `}
       aria-label="Toggle dark mode">
       {isDark ? (
         <Sun size={28} strokeWidth={3} className="text-yellow-400" />

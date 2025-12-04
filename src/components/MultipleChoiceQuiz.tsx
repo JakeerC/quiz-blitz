@@ -201,7 +201,7 @@ export function MultipleChoiceQuiz({
                 key={index}
                 onClick={() => handleAnswerSelect(index)}
                 disabled={showFeedback}
-                className={`w-full border-[4px] border-black p-6 text-left transition-all dark:border-white ${isSelected && !showFeedback ? 'bg-gray-200 dark:bg-[#3a3a3a]' : 'bg-white dark:bg-[#2a2a2a]'} ${showCorrect ? 'bg-[#00D9A3]' : ''} ${showIncorrect ? 'bg-[#FF5757]' : ''} ${!showFeedback ? 'cursor-pointer hover:bg-gray-50 dark:hover:bg-[#3a3a3a]' : 'cursor-default'} `}>
+                className={`w-full border-4 border-black p-6 text-left transition-all dark:border-white ${isSelected && !showFeedback ? 'bg-gray-200 dark:bg-[#3a3a3a]' : 'bg-white dark:bg-[#2a2a2a]'} ${showCorrect ? 'bg-[#00D9A3]' : ''} ${showIncorrect ? 'bg-[#FF5757]' : ''} ${!showFeedback ? 'cursor-pointer hover:bg-gray-50 dark:hover:bg-[#3a3a3a]' : 'cursor-default'} `}>
                 <div className="flex items-center justify-between">
                   <span className="tracking-wide uppercase dark:text-white">
                     {option}
@@ -217,12 +217,12 @@ export function MultipleChoiceQuiz({
         {/* Explanation (Interactive Mode) */}
         {config.answerMode === 'interactive' && showFeedback && (
           <div className="mb-8">
-            <div className="border-[4px] border-black bg-[#FFFEF9] p-6 dark:border-white dark:bg-[#1a1a1a]">
+            <div className="border-4 border-black bg-[#FFFEF9] p-6 dark:border-white dark:bg-[#1a1a1a]">
               <div className="mb-3 flex items-start gap-3">
                 <Info
                   size={24}
                   strokeWidth={3}
-                  className="flex-shrink-0 dark:text-white"
+                  className="shrink-0 dark:text-white"
                 />
                 <h3 className="tracking-wide uppercase dark:text-white">
                   Explanation

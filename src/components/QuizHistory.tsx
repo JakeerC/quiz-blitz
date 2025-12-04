@@ -26,7 +26,7 @@ type HistoryEntry = {
 };
 
 type QuizHistoryProps = {
-  onBack: () => void;
+  onBackAction: () => void;
 };
 
 // Mock history data
@@ -88,10 +88,10 @@ const mockHistory: HistoryEntry[] = [
   },
 ];
 
-export function QuizHistory({onBack}: QuizHistoryProps) {
+export function QuizHistory({onBackAction}: QuizHistoryProps) {
   const handleBack = () => {
     soundManager.playClick();
-    onBack();
+    onBackAction();
   };
 
   const formatTime = (seconds: number) => {
@@ -143,7 +143,7 @@ export function QuizHistory({onBack}: QuizHistoryProps) {
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center border-[4px] border-black bg-[#00B8D4] dark:border-white">
+            <div className="flex h-16 w-16 items-center justify-center border-4 border-black bg-[#00B8D4] dark:border-white">
               <History size={36} strokeWidth={3} />
             </div>
             <div>
@@ -163,7 +163,7 @@ export function QuizHistory({onBack}: QuizHistoryProps) {
 
         {/* Summary Stats */}
         <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-4">
-          <div className="border-[4px] border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
+          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
             <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
               Total Quizzes
             </p>
@@ -174,7 +174,7 @@ export function QuizHistory({onBack}: QuizHistoryProps) {
             </p>
           </div>
 
-          <div className="border-[4px] border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
+          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
             <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
               Avg Accuracy
             </p>
@@ -185,7 +185,7 @@ export function QuizHistory({onBack}: QuizHistoryProps) {
             </p>
           </div>
 
-          <div className="border-[4px] border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
+          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
             <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
               Avg Score
             </p>
@@ -196,7 +196,7 @@ export function QuizHistory({onBack}: QuizHistoryProps) {
             </p>
           </div>
 
-          <div className="border-[4px] border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
+          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
             <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
               Total Questions
             </p>
@@ -213,7 +213,7 @@ export function QuizHistory({onBack}: QuizHistoryProps) {
           {mockHistory.map((entry, index) => (
             <div
               key={entry.id}
-              className="overflow-hidden border-[4px] border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:border-white dark:bg-[#2a2a2a] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
+              className="overflow-hidden border-4 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:border-white dark:bg-[#2a2a2a] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
               {/* Header */}
               <div className="border-b-[3px] border-black bg-gray-50 p-4 dark:border-white dark:bg-[#1a1a1a]">
                 <div className="flex items-center justify-between">

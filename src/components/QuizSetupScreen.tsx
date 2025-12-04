@@ -96,7 +96,7 @@ export function QuizSetupScreen({
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center border-[4px] border-black bg-[#5B8BFF] dark:border-white dark:bg-[#4169E1]">
+            <div className="flex h-16 w-16 items-center justify-center border-4 border-black bg-[#5B8BFF] dark:border-white dark:bg-[#4169E1]">
               <Settings size={32} strokeWidth={3} className="dark:text-white" />
             </div>
             <h1 className="tracking-tight uppercase dark:text-white">
@@ -186,7 +186,7 @@ export function QuizSetupScreen({
 
             {/* Display current value */}
             <div className="mb-4">
-              <div className="inline-block border-[4px] border-black bg-[#FFE500] px-6 py-3 dark:border-white">
+              <div className="inline-block border-4 border-black bg-[#FFE500] px-6 py-3 dark:border-white">
                 <span className="tracking-wider">{numQuestions} Questions</span>
               </div>
             </div>
@@ -235,7 +235,7 @@ export function QuizSetupScreen({
 
             {/* Swipe Hint for True/False */}
             {responseType === 'true-false' && (
-              <div className="mt-4 border-[3px] border-black bg-[#FFE500] p-4 dark:border-white dark:bg-[#B8A000]">
+              <div className="mt-4 border-4 border-black bg-[#FFE500] p-4 dark:border-white dark:bg-[#B8A000]">
                 <p className="text-sm tracking-wide uppercase dark:text-white">
                   💡 Swipe right for TRUE, left for FALSE
                 </p>

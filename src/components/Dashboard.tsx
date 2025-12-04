@@ -7,8 +7,8 @@ import {soundManager} from '../utils/sounds';
 
 type DashboardProps = {
   username: string;
-  onNavigate: (screen: string) => void;
-  onLogout: () => void;
+  onNavigateAction: (screen: string) => void;
+  onLogoutAction: () => void;
   userStats: {
     totalQuizzes: number;
     totalCorrect: number;
@@ -19,18 +19,18 @@ type DashboardProps = {
 
 export function Dashboard({
   username,
-  onNavigate,
-  onLogout,
+  onNavigateAction,
+  onLogoutAction,
   userStats,
 }: DashboardProps) {
   const handleNavigate = (screen: string) => {
     soundManager.playClick();
-    onNavigate(screen);
+    onNavigateAction(screen);
   };
 
   const handleLogout = () => {
     soundManager.playClick();
-    onLogout();
+    onLogoutAction();
   };
 
   const accuracy =
@@ -68,7 +68,7 @@ export function Dashboard({
           </div>
           <button
             onClick={handleLogout}
-            className="flex items-center gap-2 border-[4px] border-black bg-[#FF5757] px-6 py-3 transition-colors hover:bg-[#FF4444] dark:border-white">
+            className="flex items-center gap-2 border-4 border-black bg-[#FF5757] px-6 py-3 transition-colors hover:bg-[#FF4444] dark:border-white">
             <LogOut size={20} strokeWidth={3} />
             <span className="tracking-wide uppercase">Logout</span>
           </button>
@@ -76,7 +76,7 @@ export function Dashboard({
 
         {/* Stats Cards */}
         <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-4">
-          <div className="border-[4px] border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
+          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
             <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
               Total Quizzes
             </p>
@@ -87,7 +87,7 @@ export function Dashboard({
             </p>
           </div>
 
-          <div className="border-[4px] border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
+          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
             <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
               Accuracy
             </p>
@@ -98,7 +98,7 @@ export function Dashboard({
             </p>
           </div>
 
-          <div className="border-[4px] border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
+          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
             <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
               Questions Answered
             </p>
@@ -109,7 +109,7 @@ export function Dashboard({
             </p>
           </div>
 
-          <div className="border-[4px] border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
+          <div className="border-4 border-black bg-white p-6 dark:border-white dark:bg-[#2a2a2a]">
             <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase dark:text-gray-400">
               Achievements
             </p>
@@ -130,7 +130,7 @@ export function Dashboard({
               className="border-[6px] border-black bg-white p-8 text-left shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-colors hover:bg-gray-50 dark:border-white dark:bg-[#2a2a2a] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] dark:hover:bg-[#3a3a3a]">
               <div className="mb-4 flex items-center gap-4">
                 <div
-                  className="flex h-16 w-16 items-center justify-center border-[4px] border-black dark:border-white"
+                  className="flex h-16 w-16 items-center justify-center border-4 border-black dark:border-white"
                   style={{backgroundColor: item.color}}>
                   <item.icon size={32} strokeWidth={3} />
                 </div>
@@ -149,7 +149,7 @@ export function Dashboard({
         </div>
 
         {/* Quick Tip */}
-        <div className="mt-8 border-[4px] border-black bg-[#FFE500] p-6 dark:border-white">
+        <div className="mt-8 border-4 border-black bg-[#FFE500] p-6 dark:border-white">
           <p className="tracking-wide uppercase">
             💡 Complete quizzes to unlock achievements and climb the
             leaderboard!
