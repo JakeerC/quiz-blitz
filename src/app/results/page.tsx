@@ -1,12 +1,12 @@
 'use client';
 
-import { ResultsScreen } from '@/components/ResultsScreen';
-import { useApp } from '@/context/AppContext';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import {ResultsScreen} from '@/components/ResultsScreen';
+import {useApp} from '@/context/AppContext';
+import {useRouter} from 'next/navigation';
+import {useEffect} from 'react';
 
 export default function ResultsPage() {
-  const { username, quizResult, quizConfig, resetQuiz, startQuiz } = useApp();
+  const {username, quizResult, quizConfig, resetQuiz} = useApp();
   const router = useRouter();
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function ResultsPage() {
   if (!username || !quizResult || !quizConfig) return null;
 
   return (
-    <ResultsScreen 
+    <ResultsScreen
       result={quizResult}
       config={quizConfig}
       onRetake={handleRetake}

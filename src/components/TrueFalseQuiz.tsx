@@ -1,6 +1,6 @@
 'use client';
 
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {
   motion,
   AnimatePresence,
@@ -76,7 +76,7 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
   const [answers, setAnswers] = useState<(boolean | null)[]>(
     Array(config.numQuestions).fill(null)
   );
-  const [startTime] = useState(Date.now());
+  const [startTime] = useState(() => Date.now());
   const [showFeedback, setShowFeedback] = useState(false);
   const [lastAnswer, setLastAnswer] = useState<boolean | null>(null);
 
@@ -154,7 +154,7 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
       questionDetails,
     });
   };
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleDragEnd = (_: any, info: any) => {
     if (info.offset.x > 100) {
       handleAnswer(true);

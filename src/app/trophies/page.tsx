@@ -1,12 +1,12 @@
 'use client';
 
-import { TrophiesAchievements } from '@/components/TrophiesAchievements';
-import { useApp } from '@/context/AppContext';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import {TrophiesAchievements} from '@/components/TrophiesAchievements';
+import {useApp} from '@/context/AppContext';
+import {useRouter} from 'next/navigation';
+import {useEffect} from 'react';
 
 export default function TrophiesPage() {
-  const { username } = useApp();
+  const {username} = useApp();
   const router = useRouter();
 
   useEffect(() => {
@@ -21,7 +21,5 @@ export default function TrophiesPage() {
 
   if (!username) return null;
 
-  return (
-    <TrophiesAchievements onBack={handleBack} />
-  );
+  return <TrophiesAchievements onBackAction={handleBack} />;
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {Check, X, Clock, Info} from 'lucide-react';
 import {BrutalistButton} from './ui/BrutalistButton';
 import {soundManager} from '../utils/sounds';
@@ -79,7 +79,7 @@ export function MultipleChoiceQuiz({
     Array(config.numQuestions).fill(null)
   );
   const [showFeedback, setShowFeedback] = useState(false);
-  const [startTime] = useState(Date.now());
+  const [startTime] = useState(() => Date.now());
 
   const currentQuestion = questions[currentIndex];
   const progress = ((currentIndex + 1) / questions.length) * 100;
@@ -125,7 +125,8 @@ export function MultipleChoiceQuiz({
     const correctAnswers = answers.filter(
       (answer, i) => answer === questions[i].correctAnswer
     ).length;
-    const timeTaken = Math.floor((Date.now() - startTime) / 1000);
+    const now = new Date().getTime();
+    const timeTaken = Math.floor((now - startTime) / 1000);
 
     // Build question details
     const questionDetails: QuestionDetail[] = questions.map((q, i) => ({

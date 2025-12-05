@@ -23,6 +23,8 @@ type Achievement = {
   id: number;
   title: string;
   description: string;
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   icon: any;
   color: string;
   unlocked: boolean;
@@ -32,7 +34,7 @@ type Achievement = {
 };
 
 type TrophiesAchievementsProps = {
-  onBack: () => void;
+  onBackAction: () => void;
 };
 
 // Mock achievements data
@@ -151,10 +153,12 @@ const mockAchievements: Achievement[] = [
   },
 ];
 
-export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
+export function TrophiesAchievements({
+  onBackAction,
+}: TrophiesAchievementsProps) {
   const handleBack = () => {
     soundManager.playClick();
-    onBack();
+    onBackAction();
   };
 
   const unlockedCount = mockAchievements.filter((a) => a.unlocked).length;
@@ -251,7 +255,7 @@ export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
 
         {/* Achievements Grid */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {mockAchievements.map((achievement, index) => (
+          {mockAchievements.map((achievement) => (
             <div
               key={achievement.id}
               className={`border-4 ${getRarityBorder(achievement.rarity)} overflow-hidden bg-white ${achievement.unlocked ? getRarityGlow(achievement.rarity) : 'opacity-60'} ${achievement.unlocked ? 'shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]' : ''} `}>

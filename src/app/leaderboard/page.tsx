@@ -1,12 +1,12 @@
 'use client';
 
-import { Leaderboard } from '@/components/Leaderboard';
-import { useApp } from '@/context/AppContext';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import {Leaderboard} from '@/components/Leaderboard';
+import {useApp} from '@/context/AppContext';
+import {useRouter} from 'next/navigation';
+import {useEffect} from 'react';
 
 export default function LeaderboardPage() {
-  const { username } = useApp();
+  const {username} = useApp();
   const router = useRouter();
 
   useEffect(() => {
@@ -21,10 +21,5 @@ export default function LeaderboardPage() {
 
   if (!username) return null;
 
-  return (
-    <Leaderboard 
-      onBack={handleBack}
-      currentUser={username}
-    />
-  );
+  return <Leaderboard onBackAction={handleBack} currentUser={username} />;
 }

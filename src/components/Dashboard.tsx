@@ -1,6 +1,5 @@
 'use client';
 
-import {useState} from 'react';
 import {Play, Trophy, History, BarChart3, LogOut} from 'lucide-react';
 import {Logo} from './ui/Logo';
 import {soundManager} from '../utils/sounds';
@@ -117,7 +116,7 @@ export function Dashboard({
 
         {/* Main Menu Grid */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {menuItems.map((item, index) => (
+          {menuItems.map((item) => (
             <button
               key={item.screen}
               onClick={() => handleNavigate(item.screen)}

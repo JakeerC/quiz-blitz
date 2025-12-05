@@ -1,12 +1,12 @@
 'use client';
 
-import { QuizHistory } from '@/components/QuizHistory';
-import { useApp } from '@/context/AppContext';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import {QuizHistory} from '@/components/QuizHistory';
+import {useApp} from '@/context/AppContext';
+import {useRouter} from 'next/navigation';
+import {useEffect} from 'react';
 
 export default function HistoryPage() {
-  const { username } = useApp();
+  const {username} = useApp();
   const router = useRouter();
 
   useEffect(() => {
@@ -21,7 +21,5 @@ export default function HistoryPage() {
 
   if (!username) return null;
 
-  return (
-    <QuizHistory onBack={handleBack} />
-  );
+  return <QuizHistory onBackAction={handleBack} />;
 }

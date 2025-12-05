@@ -1,6 +1,5 @@
 'use client';
 
-import {useState} from 'react';
 import {Sparkles} from 'lucide-react';
 import {BrutalistButton} from './ui/BrutalistButton';
 import {soundManager} from '../utils/sounds';

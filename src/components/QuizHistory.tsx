@@ -7,8 +7,6 @@ import {
   Target,
   TrendingUp,
   ArrowLeft,
-  CheckCircle,
-  XCircle,
 } from 'lucide-react';
 import {BrutalistButton} from './ui/BrutalistButton';
 import {soundManager} from '../utils/sounds';
@@ -200,7 +198,7 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
 
         {/* History List */}
         <div className="space-y-4">
-          {mockHistory.map((entry, index) => (
+          {mockHistory.map((entry) => (
             <div
               key={entry.id}
               className="overflow-hidden border-4 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">

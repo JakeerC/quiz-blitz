@@ -13,7 +13,7 @@ type LeaderboardEntry = {
 };
 
 type LeaderboardProps = {
-  onBack: () => void;
+  onBackAction: () => void;
   currentUser: string;
 };
 
@@ -31,17 +31,10 @@ const mockLeaderboard: LeaderboardEntry[] = [
   {rank: 10, username: 'StudyBuddy', score: 4950, quizzes: 60, accuracy: 82},
 ];
 
-export function Leaderboard({onBack, currentUser}: LeaderboardProps) {
+export function Leaderboard({onBackAction, currentUser}: LeaderboardProps) {
   const handleBack = () => {
     soundManager.playClick();
-    onBack();
-  };
-
-  const getRankColor = (rank: number) => {
-    if (rank === 1) return '#FFE500';
-    if (rank === 2) return '#C0C0C0';
-    if (rank === 3) return '#CD7F32';
-    return '#FFFFFF';
+    onBackAction();
   };
 
   const getRankIcon = (rank: number) => {
@@ -145,7 +138,7 @@ export function Leaderboard({onBack, currentUser}: LeaderboardProps) {
 
           {/* Table Body */}
           <div className="divide-y-[3px] divide-gray-200">
-            {mockLeaderboard.map((entry, index) => (
+            {mockLeaderboard.map((entry) => (
               <div
                 key={entry.rank}
                 className={`grid grid-cols-5 gap-4 p-4 ${
