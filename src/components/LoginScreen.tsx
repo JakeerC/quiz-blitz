@@ -48,7 +48,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
             <div className="mb-6 flex gap-2">
               <button
                 onClick={() => setIsLogin(true)}
-                className={`flex-1 cursor-pointer border-[3px] border-black px-4 py-3 tracking-wide uppercase transition-colors ${
+                className={`flex-1 cursor-pointer border-4 border-black px-4 py-3 tracking-wide uppercase transition-colors ${
                   isLogin ? 'bg-primary' : 'bg-white'
                 }`}>
                 Login
@@ -56,7 +56,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
 
               <button
                 onClick={() => setIsLogin(false)}
-                className={`flex-1 border-[3px] border-black px-4 py-3 tracking-wide uppercase transition-colors ${
+                className={`flex-1 border-4 border-black px-4 py-3 tracking-wide uppercase transition-colors ${
                   !isLogin ? 'bg-primary' : 'bg-white'
                 }`}>
                 Sign Up
@@ -129,7 +129,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
             </p>
             <button
               onClick={handleDemoLogin}
-              className="w-full border-[3px] border-black bg-white px-4 py-3 tracking-wide uppercase transition-colors hover:bg-gray-100">
+              className="w-full border-4 border-black bg-white px-4 py-3 tracking-wide uppercase transition-colors hover:bg-gray-100">
               Continue as Demo User
             </button>
           </div>

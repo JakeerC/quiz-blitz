@@ -203,7 +203,7 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
               key={entry.id}
               className="overflow-hidden border-4 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               {/* Header */}
-              <div className="border-b-[3px] border-black bg-gray-50 p-4">
+              <div className="border-b-4 border-black bg-gray-50 p-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <Calendar size={20} strokeWidth={3} className="" />
@@ -212,7 +212,7 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
                     </span>
                   </div>
                   <div
-                    className="border-[3px] border-black px-3 py-1"
+                    className="border-4 border-black px-3 py-1"
                     style={{backgroundColor: getGradeColor(entry.grade)}}>
                     <span className="tracking-wide uppercase">
                       Grade: {entry.grade}
@@ -229,7 +229,7 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
                       {entry.topic}
                     </h3>
                     <div
-                      className="inline-block border-[3px] border-black px-3 py-1"
+                      className="inline-block border-4 border-black px-3 py-1"
                       style={{
                         backgroundColor: getDifficultyColor(entry.difficulty),
                       }}>

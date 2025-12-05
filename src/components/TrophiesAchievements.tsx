@@ -233,19 +233,19 @@ export function TrophiesAchievements({
 
         {/* Rarity Legend */}
         <div className="mb-6 flex flex-wrap gap-3">
-          <div className="flex items-center gap-2 border-[3px] border-black bg-white px-3 py-2">
+          <div className="flex items-center gap-2 border-4 border-black bg-white px-3 py-2">
             <div className="h-4 w-4 border-2 border-black bg-gray-400"></div>
             <span className="text-sm tracking-wide uppercase">Common</span>
           </div>
-          <div className="flex items-center gap-2 border-[3px] border-[#00B8D4] bg-white px-3 py-2">
+          <div className="flex items-center gap-2 border-4 border-[#00B8D4] bg-white px-3 py-2">
             <div className="h-4 w-4 border-2 border-black bg-[#00B8D4]"></div>
             <span className="text-sm tracking-wide uppercase">Rare</span>
           </div>
-          <div className="flex items-center gap-2 border-[3px] border-[#9C27B0] bg-white px-3 py-2">
+          <div className="flex items-center gap-2 border-4 border-[#9C27B0] bg-white px-3 py-2">
             <div className="h-4 w-4 border-2 border-black bg-[#9C27B0]"></div>
             <span className="text-sm tracking-wide uppercase">Epic</span>
           </div>
-          <div className="flex items-center gap-2 border-[3px] border-[#FFD700] bg-white px-3 py-2">
+          <div className="flex items-center gap-2 border-4 border-[#FFD700] bg-white px-3 py-2">
             <div className="h-4 w-4 border-2 border-black bg-[#FFD700]"></div>
             <span className="text-sm tracking-wide uppercase">Legendary</span>
           </div>
@@ -259,7 +259,7 @@ export function TrophiesAchievements({
               className={`border-4 ${getRarityBorder(achievement.rarity)} overflow-hidden bg-white ${achievement.unlocked ? getRarityGlow(achievement.rarity) : 'opacity-60'} ${achievement.unlocked ? 'shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]' : ''} `}>
               {/* Header */}
               <div
-                className="flex items-center justify-center border-b-[3px] border-black p-4"
+                className="flex items-center justify-center border-b-4 border-black p-4"
                 style={{
                   backgroundColor: achievement.unlocked
                     ? achievement.color

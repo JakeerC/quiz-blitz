@@ -173,13 +173,13 @@ export function ResultsScreen({
               <h3 className="mb-4 tracking-wide uppercase">Breakdown</h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="h-6 w-6 border-[3px] border-black bg-[#00D9A3]"></div>
+                  <div className="h-6 w-6 border-4 border-black bg-[#00D9A3]"></div>
                   <span className="tracking-wide uppercase">
                     Correct: {result.correctAnswers}
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="h-6 w-6 border-[3px] border-black bg-[#FF5757]"></div>
+                  <div className="h-6 w-6 border-4 border-black bg-[#FF5757]"></div>
                   <span className="tracking-wide uppercase">
                     Incorrect: {result.incorrectAnswers}
                   </span>
@@ -198,7 +198,7 @@ export function ResultsScreen({
                 {skillsToImprove.map((skill, index) => (
                   <div
                     key={index}
-                    className="border-[3px] border-black bg-white px-4 py-2">
+                    className="border-4 border-black bg-white px-4 py-2">
                     <span className="text-sm tracking-wide uppercase">
                       {skill}
                     </span>
@@ -273,7 +273,7 @@ export function ResultsScreen({
                       </div>
                     )}
 
-                    <div className="border-t-[3px] border-gray-200 pt-4">
+                    <div className="border-t-4 border-gray-200 pt-4">
                       <span className="text-sm tracking-wide text-gray-600 uppercase">
                         Explanation:
                       </span>

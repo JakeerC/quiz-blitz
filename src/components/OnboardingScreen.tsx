@@ -36,9 +36,9 @@ export function OnboardingScreen({onStart}: OnboardingScreenProps) {
 
           {/* Decorative Blocks */}
           <div className="mb-12 flex justify-center gap-4">
-            <div className="h-16 w-16 border-[3px] border-black bg-[#FF5757]" />
-            <div className="h-16 w-16 border-[3px] border-black bg-[#00D9A3]" />
-            <div className="h-16 w-16 border-[3px] border-black bg-[#5B8BFF]" />
+            <div className="h-16 w-16 border-4 border-black bg-[#FF5757]" />
+            <div className="h-16 w-16 border-4 border-black bg-[#00D9A3]" />
+            <div className="h-16 w-16 border-4 border-black bg-[#5B8BFF]" />
           </div>
 
           {/* CTA Button */}

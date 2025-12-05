@@ -181,7 +181,7 @@ export function MultipleChoiceQuiz({
             <h2 className="mb-2 tracking-tight uppercase">
               {currentQuestion.question}
             </h2>
-            <div className="bg-primary mt-2 inline-block border-[3px] border-black px-3 py-1">
+            <div className="bg-primary mt-2 inline-block border-4 border-black px-3 py-1">
               <span className="text-sm tracking-wide uppercase">
                 {currentQuestion.topic}
               </span>

@@ -137,7 +137,7 @@ export function Leaderboard({onBackAction, currentUser}: LeaderboardProps) {
           </div>
 
           {/* Table Body */}
-          <div className="divide-y-[3px] divide-gray-200">
+          <div className="divide-y-4 divide-gray-200">
             {mockLeaderboard.map((entry) => (
               <div
                 key={entry.rank}

@@ -195,13 +195,13 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-2 opacity-60">
             <ChevronLeft size={32} strokeWidth={3} className="" />
-            <div className="border-[3px] border-black bg-[#FF5757] px-4 py-2">
+            <div className="border-4 border-black bg-[#FF5757] px-4 py-2">
               <span className="tracking-wide uppercase">False</span>
             </div>
           </div>
 
           <div className="flex items-center gap-2 opacity-60">
-            <div className="border-[3px] border-black bg-[#00D9A3] px-4 py-2">
+            <div className="border-4 border-black bg-[#00D9A3] px-4 py-2">
               <span className="tracking-wide uppercase">True</span>
             </div>
             <ChevronRight size={32} strokeWidth={3} className="" />
@@ -228,7 +228,7 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
                 </h2>
 
                 <div className="mb-4 flex justify-center">
-                  <div className="bg-primary border-[3px] border-black px-4 py-2">
+                  <div className="bg-primary border-4 border-black px-4 py-2">
                     <span className="text-sm tracking-wide uppercase">
                       {currentQuestion.topic}
                     </span>
