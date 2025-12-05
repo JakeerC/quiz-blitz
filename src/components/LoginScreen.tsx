@@ -48,7 +48,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
             <div className="mb-6 flex gap-2">
               <button
                 onClick={() => setIsLogin(true)}
-                className={`flex-1 cursor-pointer border-4 border-black px-4 py-3 tracking-wide uppercase transition-colors ${
+                className={`border-box flex-1 cursor-pointer px-4 py-3 tracking-wide uppercase transition-colors ${
                   isLogin ? 'bg-primary' : 'bg-white'
                 }`}>
                 Login
@@ -56,7 +56,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
 
               <button
                 onClick={() => setIsLogin(false)}
-                className={`flex-1 border-4 border-black px-4 py-3 tracking-wide uppercase transition-colors ${
+                className={`border-box flex-1 px-4 py-3 tracking-wide uppercase transition-colors ${
                   !isLogin ? 'bg-primary' : 'bg-white'
                 }`}>
                 Sign Up
@@ -79,7 +79,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="focus:border-primary w-full border-4 border-black bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:outline-none"
+                    className="focus:border-primary border-box w-full bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:outline-none"
                     placeholder="Enter username"
                     required
                   />
@@ -101,7 +101,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="focus:border-primary w-full border-4 border-black bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:outline-none"
+                    className="focus:border-primary border-box w-full bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:outline-none"
                     placeholder="Enter password"
                     required
                   />
@@ -129,7 +129,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
             </p>
             <button
               onClick={handleDemoLogin}
-              className="w-full border-4 border-black bg-white px-4 py-3 tracking-wide uppercase transition-colors hover:bg-gray-100">
+              className="border-box w-full bg-white px-4 py-3 tracking-wide uppercase transition-colors hover:bg-gray-100">
               Continue as Demo User
             </button>
           </div>

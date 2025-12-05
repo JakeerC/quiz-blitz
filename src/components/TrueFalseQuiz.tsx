@@ -183,7 +183,7 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
               </span>
             </div>
           </div>
-          <div className="h-4 border-4 border-black bg-white">
+          <div className="border-box h-4 bg-white">
             <motion.div
               animate={{width: `${progress}%`}}
               className="bg-primary h-full"
@@ -195,13 +195,13 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-2 opacity-60">
             <ChevronLeft size={32} strokeWidth={3} className="" />
-            <div className="border-4 border-black bg-[#FF5757] px-4 py-2">
+            <div className="border-box bg-[#FF5757] px-4 py-2">
               <span className="tracking-wide uppercase">False</span>
             </div>
           </div>
 
           <div className="flex items-center gap-2 opacity-60">
-            <div className="border-4 border-black bg-[#00D9A3] px-4 py-2">
+            <div className="border-box bg-[#00D9A3] px-4 py-2">
               <span className="tracking-wide uppercase">True</span>
             </div>
             <ChevronRight size={32} strokeWidth={3} className="" />
@@ -228,7 +228,7 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
                 </h2>
 
                 <div className="mb-4 flex justify-center">
-                  <div className="bg-primary border-4 border-black px-4 py-2">
+                  <div className="bg-primary border-box px-4 py-2">
                     <span className="text-sm tracking-wide uppercase">
                       {currentQuestion.topic}
                     </span>
@@ -240,7 +240,7 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
                   <motion.div
                     initial={{scale: 0}}
                     animate={{scale: 1}}
-                    className={`mt-6 flex items-center justify-center gap-3 border-4 border-black p-4 ${isCorrect ? 'bg-[#00D9A3]' : 'bg-[#FF5757]'} `}>
+                    className={`border-box mt-6 flex items-center justify-center gap-3 p-4 ${isCorrect ? 'bg-[#00D9A3]' : 'bg-[#FF5757]'} `}>
                     {isCorrect ? (
                       <Check size={32} strokeWidth={3} />
                     ) : (
@@ -262,7 +262,7 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
             initial={{opacity: 0, y: 20}}
             animate={{opacity: 1, y: 0}}
             className="mb-8">
-            <div className="border-4 border-black bg-[#FFFEF9] p-6">
+            <div className="border-box bg-[#FFFEF9] p-6">
               <div className="mb-3 flex items-start gap-3">
                 <Info size={24} strokeWidth={3} className="shrink-0" />
                 <h3 className="tracking-wide uppercase">Explanation</h3>
@@ -281,7 +281,7 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
             whileTap={{scale: 0.95}}
             onClick={() => handleAnswer(false)}
             disabled={showFeedback}
-            className="flex h-20 w-40 items-center justify-center gap-2 border-4 border-black bg-[#FF5757] hover:bg-[#FF4444] disabled:opacity-50">
+            className="border-box flex h-20 w-40 items-center justify-center gap-2 bg-[#FF5757] hover:bg-[#FF4444] disabled:opacity-50">
             <X size={28} strokeWidth={3} />
             <span className="tracking-wide uppercase">False</span>
           </motion.button>
@@ -291,7 +291,7 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
             whileTap={{scale: 0.95}}
             onClick={() => handleAnswer(true)}
             disabled={showFeedback}
-            className="flex h-20 w-40 items-center justify-center gap-2 border-4 border-black bg-[#00D9A3] hover:bg-[#00C794] disabled:opacity-50">
+            className="border-box flex h-20 w-40 items-center justify-center gap-2 bg-[#00D9A3] hover:bg-[#00C794] disabled:opacity-50">
             <Check size={28} strokeWidth={3} />
             <span className="tracking-wide uppercase">True</span>
           </motion.button>

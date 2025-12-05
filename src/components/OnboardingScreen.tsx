@@ -20,7 +20,7 @@ export function OnboardingScreen({onStart}: OnboardingScreenProps) {
         {/* Main Container */}
         <div className="card">
           {/* Icon */}
-          <div className="bg-primary mx-auto mb-8 flex h-20 w-20 items-center justify-center border-4 border-black">
+          <div className="bg-primary border-box mx-auto mb-8 flex h-20 w-20 items-center justify-center">
             <Sparkles size={40} strokeWidth={3} />
           </div>
 
@@ -36,9 +36,9 @@ export function OnboardingScreen({onStart}: OnboardingScreenProps) {
 
           {/* Decorative Blocks */}
           <div className="mb-12 flex justify-center gap-4">
-            <div className="h-16 w-16 border-4 border-black bg-[#FF5757]" />
-            <div className="h-16 w-16 border-4 border-black bg-[#00D9A3]" />
-            <div className="h-16 w-16 border-4 border-black bg-[#5B8BFF]" />
+            <div className="border-box h-16 w-16 bg-[#FF5757]" />
+            <div className="border-box h-16 w-16 bg-[#00D9A3]" />
+            <div className="border-box h-16 w-16 bg-[#5B8BFF]" />
           </div>
 
           {/* CTA Button */}

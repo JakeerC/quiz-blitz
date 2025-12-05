@@ -4,7 +4,6 @@ import {Play, Trophy, History, BarChart3, LogOut} from 'lucide-react';
 import {Logo} from './ui/Logo';
 import {soundManager} from '../utils/sounds';
 import {cn} from './ui/utils';
-import {color} from '@/constants/colors';
 
 type DashboardProps = {
   username: string;
@@ -88,7 +87,7 @@ export function Dashboard({
 
         {/* Stats Cards */}
         <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-4">
-          <div className="border-4 border-black bg-white p-6">
+          <div className="border-box bg-white p-6">
             <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
               Total Quizzes
             </p>
@@ -97,7 +96,7 @@ export function Dashboard({
             </p>
           </div>
 
-          <div className="border-4 border-black bg-white p-6">
+          <div className="border-box bg-white p-6">
             <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
               Accuracy
             </p>
@@ -106,7 +105,7 @@ export function Dashboard({
             </p>
           </div>
 
-          <div className="border-4 border-black bg-white p-6">
+          <div className="border-box bg-white p-6">
             <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
               Questions Answered
             </p>
@@ -115,7 +114,7 @@ export function Dashboard({
             </p>
           </div>
 
-          <div className="border-4 border-black bg-white p-6">
+          <div className="border-box bg-white p-6">
             <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
               Achievements
             </p>
@@ -138,7 +137,7 @@ export function Dashboard({
               <div className="mb-4 flex items-center gap-4">
                 <div
                   className={cn(
-                    'flex h-16 w-16 items-center justify-center border-4 border-black',
+                    'border-box flex h-16 w-16 items-center justify-center',
                     item.className
                   )}>
                   <item.icon size={32} strokeWidth={3} />
@@ -156,7 +155,7 @@ export function Dashboard({
         </div>
 
         {/* Quick Tip */}
-        <div className="bg-primary mt-8 border-4 border-black p-6">
+        <div className="bg-primary border-box mt-8 p-6">
           <p className="tracking-wide uppercase">
             💡 Complete quizzes to unlock achievements and climb the
             leaderboard!

@@ -22,7 +22,7 @@ export function BrutalistButton({
   type = 'button',
 }: BrutalistButtonProps) {
   const baseStyles =
-    'border-4 border-black transition-all cursor-pointer select-none rounded';
+    'border-box transition-all cursor-pointer select-none rounded';
 
   const variantStyles = {
     primary: 'bg-primary hover:bg-[#FFD700] active:bg-[#FFC700]',

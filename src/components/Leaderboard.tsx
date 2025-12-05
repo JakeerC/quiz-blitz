@@ -46,11 +46,11 @@ export function Leaderboard({onBackAction, currentUser}: LeaderboardProps) {
 
   return (
     <div className="min-h-screen p-6 py-12">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-5xl">
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="bg-primary flex h-16 w-16 items-center justify-center border-4 border-black">
+            <div className="bg-primary border-box flex h-16 w-16 items-center justify-center">
               <TrendingUp size={36} strokeWidth={3} />
             </div>
             <div>
@@ -71,7 +71,7 @@ export function Leaderboard({onBackAction, currentUser}: LeaderboardProps) {
           <div className="grid grid-cols-3 items-end gap-4">
             {/* Second Place */}
             <div className="order-1">
-              <div className="mb-2 border-4 border-black bg-[#C0C0C0] p-6 text-center">
+              <div className="border-box mb-2 bg-[#C0C0C0] p-6 text-center">
                 <div className="mb-2 flex justify-center">
                   <Medal size={32} strokeWidth={3} />
                 </div>
@@ -83,12 +83,12 @@ export function Leaderboard({onBackAction, currentUser}: LeaderboardProps) {
                 </p>
                 <p className="tracking-tight">{mockLeaderboard[1].score}</p>
               </div>
-              <div className="h-32 border-4 border-black bg-[#C0C0C0]"></div>
+              <div className="border-box h-32 bg-[#C0C0C0]"></div>
             </div>
 
             {/* First Place */}
             <div className="order-2">
-              <div className="bg-primary mb-2 border-4 border-black p-6 text-center">
+              <div className="bg-primary border-box mb-2 p-6 text-center">
                 <div className="mb-2 flex justify-center">
                   <Crown size={40} strokeWidth={3} fill="#000" />
                 </div>
@@ -102,12 +102,12 @@ export function Leaderboard({onBackAction, currentUser}: LeaderboardProps) {
                   {mockLeaderboard[0].score}
                 </p>
               </div>
-              <div className="bg-primary h-48 border-4 border-black"></div>
+              <div className="bg-primary border-box h-48"></div>
             </div>
 
             {/* Third Place */}
             <div className="order-3">
-              <div className="mb-2 border-4 border-black bg-[#CD7F32] p-6 text-center">
+              <div className="border-box mb-2 bg-[#CD7F32] p-6 text-center">
                 <div className="mb-2 flex justify-center">
                   <Medal size={32} strokeWidth={3} />
                 </div>
@@ -119,7 +119,7 @@ export function Leaderboard({onBackAction, currentUser}: LeaderboardProps) {
                 </p>
                 <p className="tracking-tight">{mockLeaderboard[2].score}</p>
               </div>
-              <div className="h-24 border-4 border-black bg-[#CD7F32]"></div>
+              <div className="border-box h-24 bg-[#CD7F32]"></div>
             </div>
           </div>
         </div>
@@ -163,7 +163,7 @@ export function Leaderboard({onBackAction, currentUser}: LeaderboardProps) {
         </div>
 
         {/* Stats Legend */}
-        <div className="mt-6 border-4 border-black bg-[#FFFEF9] p-4">
+        <div className="border-box mt-6 bg-[#FFFEF9] p-4">
           <p className="text-sm tracking-wide text-gray-600 uppercase">
             💡 Score = (Correct Answers × 100) - (Time Penalty) + (Streak Bonus)
           </p>

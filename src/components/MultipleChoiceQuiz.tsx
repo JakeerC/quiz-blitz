@@ -167,7 +167,7 @@ export function MultipleChoiceQuiz({
               </span>
             </div>
           </div>
-          <div className="h-4 border-4 border-black bg-white">
+          <div className="border-box h-4 bg-white">
             <div
               style={{width: `${progress}%`}}
               className="bg-primary h-full transition-all"
@@ -181,7 +181,7 @@ export function MultipleChoiceQuiz({
             <h2 className="mb-2 tracking-tight uppercase">
               {currentQuestion.question}
             </h2>
-            <div className="bg-primary mt-2 inline-block border-4 border-black px-3 py-1">
+            <div className="bg-primary border-box mt-2 inline-block px-3 py-1">
               <span className="text-sm tracking-wide uppercase">
                 {currentQuestion.topic}
               </span>
@@ -202,7 +202,7 @@ export function MultipleChoiceQuiz({
                 key={index}
                 onClick={() => handleAnswerSelect(index)}
                 disabled={showFeedback}
-                className={`w-full border-4 border-black p-6 text-left transition-all ${isSelected && !showFeedback ? 'bg-gray-200' : 'bg-white'} ${showCorrect ? 'bg-[#00D9A3]' : ''} ${showIncorrect ? 'bg-[#FF5757]' : ''} ${!showFeedback ? 'cursor-pointer hover:bg-gray-50' : 'cursor-default'} `}>
+                className={`border-box w-full p-6 text-left transition-all ${isSelected && !showFeedback ? 'bg-gray-200' : 'bg-white'} ${showCorrect ? 'bg-[#00D9A3]' : ''} ${showIncorrect ? 'bg-[#FF5757]' : ''} ${!showFeedback ? 'cursor-pointer hover:bg-gray-50' : 'cursor-default'} `}>
                 <div className="flex items-center justify-between">
                   <span className="tracking-wide uppercase">{option}</span>
                   {showCorrect && <Check size={28} strokeWidth={3} />}
@@ -216,7 +216,7 @@ export function MultipleChoiceQuiz({
         {/* Explanation (Interactive Mode) */}
         {config.answerMode === 'interactive' && showFeedback && (
           <div className="mb-8">
-            <div className="border-4 border-black bg-[#FFFEF9] p-6">
+            <div className="border-box bg-[#FFFEF9] p-6">
               <div className="mb-3 flex items-start gap-3">
                 <Info size={24} strokeWidth={3} className="shrink-0" />
                 <h3 className="tracking-wide uppercase">Explanation</h3>

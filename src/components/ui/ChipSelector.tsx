@@ -14,7 +14,7 @@ export function ChipSelector({options, selected, onChange}: ChipSelectorProps) {
           <button
             key={option}
             onClick={() => onChange(option)}
-            className={`border-4 border-black px-5 py-2.5 transition-all ${
+            className={`border-box px-5 py-2.5 transition-all ${
               isSelected
                 ? 'bg-primary text-black'
                 : 'bg-white text-black hover:bg-gray-50'

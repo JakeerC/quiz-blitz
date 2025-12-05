@@ -48,7 +48,7 @@ const mockAchievements: Achievement[] = [
   },
   {
     id: 2,
-    title: 'Speed Demon',
+    title: 'Speeder',
     description: 'Complete a quiz in under 60 seconds',
     icon: Zap,
     unlocked: true,
@@ -56,7 +56,7 @@ const mockAchievements: Achievement[] = [
   },
   {
     id: 3,
-    title: 'Perfect Score',
+    title: 'Perfectionist',
     description: 'Get 100% on any quiz',
     icon: Target,
     unlocked: true,
@@ -64,7 +64,7 @@ const mockAchievements: Achievement[] = [
   },
   {
     id: 4,
-    title: 'Hot Streak',
+    title: 'Hotshot',
     description: 'Get 10 questions correct in a row',
     icon: Flame,
     unlocked: true,
@@ -72,7 +72,7 @@ const mockAchievements: Achievement[] = [
   },
   {
     id: 5,
-    title: 'Knowledge Seeker',
+    title: 'Knowledge Cruncher',
     description: 'Complete 10 quizzes',
     icon: Brain,
     unlocked: true,
@@ -162,11 +162,11 @@ export function TrophiesAchievements({
 
   return (
     <div className="min-h-screen p-6 py-12">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-5xl">
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="bg-primary flex h-16 w-16 items-center justify-center border-4 border-black">
+            <div className="bg-primary border-box flex h-16 w-16 items-center justify-center">
               <Trophy size={36} strokeWidth={3} />
             </div>
             <div>
@@ -201,7 +201,7 @@ export function TrophiesAchievements({
           </div>
 
           {/* Progress Bar */}
-          <div className="h-8 border-4 border-black bg-gray-200">
+          <div className="border-box h-8 bg-gray-200">
             <div
               style={{width: `${progressPercentage}%`}}
               className="via-primary flex h-full items-center justify-end bg-linear-to-r from-green-500 to-pink-400 pr-2 transition-all duration-1000">
@@ -239,7 +239,7 @@ export function TrophiesAchievements({
           {mockAchievements.map((achievement) => (
             <div
               key={achievement.id}
-              className={`card border-4 border-black bg-white ${achievement.unlocked ? getRarityStyles(achievement.rarity) : 'bg-[#9E9E9E]/60'} ${achievement.unlocked ? 'shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]' : ''} `}>
+              className={`card border-box bg-white ${achievement.unlocked ? getRarityStyles(achievement.rarity) : 'bg-[#9E9E9E]/60'} ${achievement.unlocked ? 'shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]' : ''} `}>
               {/* Header */}
               <div
                 className={cn(
@@ -292,9 +292,11 @@ export function TrophiesAchievements({
                       <div
                         style={{
                           width: `${((achievement.progress || 0) / achievement.maxProgress) * 100}%`,
-                          backgroundColor: achievement.color,
                         }}
-                        className="h-full transition-all"
+                        className={cn(
+                          'h-full transition-all',
+                          getRarityStyles(achievement.rarity)
+                        )}
                       />
                     </div>
                   </div>
@@ -312,7 +314,7 @@ export function TrophiesAchievements({
         </div>
 
         {/* Fun Footer Message */}
-        <div className="bg-primary mt-8 border-4 border-black p-6 text-center">
+        <div className="bg-primary border-box mt-8 p-6 text-center">
           <p className="tracking-wide uppercase">
             🎯 Keep playing to unlock more achievements! 🏆
           </p>

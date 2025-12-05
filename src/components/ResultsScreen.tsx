@@ -80,7 +80,7 @@ export function ResultsScreen({
         {/* Header */}
         <div className="mb-8 flex items-center gap-4">
           <div
-            className={`flex h-16 w-16 items-center justify-center border-4 border-black`}
+            className={`border-box flex h-16 w-16 items-center justify-center`}
             style={{backgroundColor: grade.color}}>
             <Trophy size={32} strokeWidth={3} />
           </div>
@@ -104,7 +104,7 @@ export function ResultsScreen({
                 </p>
               </div>
               <div
-                className="flex h-32 w-32 items-center justify-center border-4 border-black"
+                className="border-box flex h-32 w-32 items-center justify-center"
                 style={{backgroundColor: grade.color}}>
                 <span className="tracking-tight" style={{fontSize: '3rem'}}>
                   {scorePercentage}%
@@ -146,7 +146,7 @@ export function ResultsScreen({
           {/* Chart Section */}
           <div className="flex flex-col items-center gap-8 p-8 md:flex-row">
             {/* Pie Chart */}
-            <div className="h-48 w-48 shrink-0 border-4 border-black bg-white p-2">
+            <div className="border-box h-48 w-48 shrink-0 bg-white p-2">
               <div className="h-full w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
@@ -173,13 +173,13 @@ export function ResultsScreen({
               <h3 className="mb-4 tracking-wide uppercase">Breakdown</h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="h-6 w-6 border-4 border-black bg-[#00D9A3]"></div>
+                  <div className="border-box h-6 w-6 bg-[#00D9A3]"></div>
                   <span className="tracking-wide uppercase">
                     Correct: {result.correctAnswers}
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="h-6 w-6 border-4 border-black bg-[#FF5757]"></div>
+                  <div className="border-box h-6 w-6 bg-[#FF5757]"></div>
                   <span className="tracking-wide uppercase">
                     Incorrect: {result.incorrectAnswers}
                   </span>
@@ -196,9 +196,7 @@ export function ResultsScreen({
               </h3>
               <div className="flex flex-wrap gap-3">
                 {skillsToImprove.map((skill, index) => (
-                  <div
-                    key={index}
-                    className="border-4 border-black bg-white px-4 py-2">
+                  <div key={index} className="border-box bg-white px-4 py-2">
                     <span className="text-sm tracking-wide uppercase">
                       {skill}
                     </span>
@@ -221,7 +219,7 @@ export function ResultsScreen({
               {result.questionDetails.map((detail, index) => (
                 <div
                   key={index}
-                  className="overflow-hidden border-4 border-black bg-white">
+                  className="border-box overflow-hidden bg-white">
                   {/* Question Header */}
                   <div
                     className={`border-b-4 border-black p-4 ${detail.isCorrect ? 'bg-[#00D9A3]' : 'bg-[#FF5757]'}`}>

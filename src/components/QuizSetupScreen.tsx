@@ -90,11 +90,11 @@ export function QuizSetupScreen({
 
   return (
     <div className="min-h-screen bg-transparent p-6 py-12">
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-5xl">
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center border-4 border-black bg-[#5B8BFF]">
+            <div className="border-box flex h-16 w-16 items-center justify-center bg-[#5B8BFF]">
               <Settings size={32} strokeWidth={3} className="" />
             </div>
             <h1 className="tracking-tight uppercase">Setup Quiz</h1>
@@ -110,7 +110,7 @@ export function QuizSetupScreen({
         </div>
 
         {/* Main Setup Container */}
-        <div className="card space-y-10">
+        <div className="card space-y-10 p-8">
           {/* Difficulty */}
           <div>
             <div className="mb-4 flex items-center gap-3">
@@ -170,7 +170,7 @@ export function QuizSetupScreen({
 
             {/* Display current value */}
             <div className="mb-4">
-              <div className="bg-primary inline-block border-4 border-black px-6 py-3">
+              <div className="bg-primary border-box inline-block px-6 py-3">
                 <span className="tracking-wider">{numQuestions} Questions</span>
               </div>
             </div>
@@ -217,7 +217,7 @@ export function QuizSetupScreen({
 
             {/* Swipe Hint for True/False */}
             {responseType === 'true-false' && (
-              <div className="bg-primary mt-4 border-4 border-black p-4">
+              <div className="bg-primary border-box mt-4 p-4">
                 <p className="text-sm tracking-wide uppercase">
                   💡 Swipe right for TRUE, left for FALSE
                 </p>
