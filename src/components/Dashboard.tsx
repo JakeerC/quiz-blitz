@@ -4,6 +4,7 @@ import {Play, Trophy, History, BarChart3, LogOut} from 'lucide-react';
 import {Logo} from './ui/Logo';
 import {soundManager} from '../utils/sounds';
 import {cn} from './ui/utils';
+import {color} from '@/constants/colors';
 
 type DashboardProps = {
   username: string;
@@ -39,15 +40,25 @@ export function Dashboard({
       : 0;
 
   const menuItems = [
-    {icon: Play, label: 'New Quiz', screen: 'setup', color: '#00D9A3'},
+    {icon: Play, label: 'New Quiz', screen: 'setup', className: 'bg-green-500'},
     {
       icon: BarChart3,
       label: 'Leaderboard',
       screen: 'leaderboard',
-      color: '#FFE500',
+      className: 'bg-blue-500',
     },
-    {icon: History, label: 'Quiz History', screen: 'history', color: '#00B8D4'},
-    {icon: Trophy, label: 'Achievements', screen: 'trophies', color: '#FF9500'},
+    {
+      icon: History,
+      label: 'Quiz History',
+      screen: 'history',
+      className: 'bg-cyan-500',
+    },
+    {
+      icon: Trophy,
+      label: 'Achievements',
+      screen: 'trophies',
+      className: 'bg-orange-500',
+    },
   ];
 
   return (
@@ -68,7 +79,7 @@ export function Dashboard({
             onClick={handleLogout}
             className={cn(
               'flex items-center gap-2 border-4',
-              'border-black bg-[#FF5757] px-6 py-3 transition-colors hover:bg-[#FF4444]'
+              'bg-secondary hover:bg-secondary/80 border-black px-6 py-3 transition-colors'
             )}>
             <LogOut size={20} strokeWidth={3} />
             <span className="tracking-wide uppercase">Logout</span>
@@ -126,8 +137,10 @@ export function Dashboard({
               )}>
               <div className="mb-4 flex items-center gap-4">
                 <div
-                  className="flex h-16 w-16 items-center justify-center border-4 border-black"
-                  style={{backgroundColor: item.color}}>
+                  className={cn(
+                    'flex h-16 w-16 items-center justify-center border-4 border-black',
+                    item.className
+                  )}>
                   <item.icon size={32} strokeWidth={3} />
                 </div>
                 <h2 className="tracking-tight uppercase">{item.label}</h2>
@@ -143,7 +156,7 @@ export function Dashboard({
         </div>
 
         {/* Quick Tip */}
-        <div className="mt-8 border-4 border-black bg-[#FFE500] p-6">
+        <div className="bg-primary mt-8 border-4 border-black p-6">
           <p className="tracking-wide uppercase">
             💡 Complete quizzes to unlock achievements and climb the
             leaderboard!

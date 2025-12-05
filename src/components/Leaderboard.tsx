@@ -50,7 +50,7 @@ export function Leaderboard({onBackAction, currentUser}: LeaderboardProps) {
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center border-4 border-black bg-[#FFE500]">
+            <div className="bg-primary flex h-16 w-16 items-center justify-center border-4 border-black">
               <TrendingUp size={36} strokeWidth={3} />
             </div>
             <div>
@@ -88,7 +88,7 @@ export function Leaderboard({onBackAction, currentUser}: LeaderboardProps) {
 
             {/* First Place */}
             <div className="order-2">
-              <div className="mb-2 border-4 border-black bg-[#FFE500] p-6 text-center">
+              <div className="bg-primary mb-2 border-4 border-black p-6 text-center">
                 <div className="mb-2 flex justify-center">
                   <Crown size={40} strokeWidth={3} fill="#000" />
                 </div>
@@ -102,7 +102,7 @@ export function Leaderboard({onBackAction, currentUser}: LeaderboardProps) {
                   {mockLeaderboard[0].score}
                 </p>
               </div>
-              <div className="h-48 border-4 border-black bg-[#FFE500]"></div>
+              <div className="bg-primary h-48 border-4 border-black"></div>
             </div>
 
             {/* Third Place */}
@@ -142,7 +142,7 @@ export function Leaderboard({onBackAction, currentUser}: LeaderboardProps) {
               <div
                 key={entry.rank}
                 className={`grid grid-cols-5 gap-4 p-4 ${
-                  entry.username === currentUser ? 'bg-[#FFE500]' : ''
+                  entry.username === currentUser ? 'bg-primary' : ''
                 }`}>
                 <div className="flex items-center gap-2">
                   {getRankIcon(entry.rank)}

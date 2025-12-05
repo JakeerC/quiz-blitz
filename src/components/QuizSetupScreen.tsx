@@ -1,5 +1,3 @@
-'use client';
-
 import {useState} from 'react';
 import {
   Settings,
@@ -172,7 +170,7 @@ export function QuizSetupScreen({
 
             {/* Display current value */}
             <div className="mb-4">
-              <div className="inline-block border-4 border-black bg-[#FFE500] px-6 py-3">
+              <div className="bg-primary inline-block border-4 border-black px-6 py-3">
                 <span className="tracking-wider">{numQuestions} Questions</span>
               </div>
             </div>
@@ -219,7 +217,7 @@ export function QuizSetupScreen({
 
             {/* Swipe Hint for True/False */}
             {responseType === 'true-false' && (
-              <div className="mt-4 border-4 border-black bg-[#FFE500] p-4">
+              <div className="bg-primary mt-4 border-4 border-black p-4">
                 <p className="text-sm tracking-wide uppercase">
                   💡 Swipe right for TRUE, left for FALSE
                 </p>

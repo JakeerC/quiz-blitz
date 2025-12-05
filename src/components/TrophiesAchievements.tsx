@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Trophy,
   Star,
@@ -223,7 +221,7 @@ export function TrophiesAchievements({
           <div className="h-8 border-4 border-black bg-gray-200">
             <div
               style={{width: `${progressPercentage}%`}}
-              className="flex h-full items-center justify-end bg-gradient-to-r from-[#00D9A3] via-[#FFE500] to-[#FF9500] pr-2 transition-all duration-1000">
+              className="via-primary flex h-full items-center justify-end bg-gradient-to-r from-[#00D9A3] to-[#FF9500] pr-2 transition-all duration-1000">
               {progressPercentage > 10 && (
                 <span className="tracking-wide uppercase">
                   {progressPercentage}%
@@ -236,19 +234,19 @@ export function TrophiesAchievements({
         {/* Rarity Legend */}
         <div className="mb-6 flex flex-wrap gap-3">
           <div className="flex items-center gap-2 border-[3px] border-black bg-white px-3 py-2">
-            <div className="h-4 w-4 border-[2px] border-black bg-gray-400"></div>
+            <div className="h-4 w-4 border-2 border-black bg-gray-400"></div>
             <span className="text-sm tracking-wide uppercase">Common</span>
           </div>
           <div className="flex items-center gap-2 border-[3px] border-[#00B8D4] bg-white px-3 py-2">
-            <div className="h-4 w-4 border-[2px] border-black bg-[#00B8D4]"></div>
+            <div className="h-4 w-4 border-2 border-black bg-[#00B8D4]"></div>
             <span className="text-sm tracking-wide uppercase">Rare</span>
           </div>
           <div className="flex items-center gap-2 border-[3px] border-[#9C27B0] bg-white px-3 py-2">
-            <div className="h-4 w-4 border-[2px] border-black bg-[#9C27B0]"></div>
+            <div className="h-4 w-4 border-2 border-black bg-[#9C27B0]"></div>
             <span className="text-sm tracking-wide uppercase">Epic</span>
           </div>
           <div className="flex items-center gap-2 border-[3px] border-[#FFD700] bg-white px-3 py-2">
-            <div className="h-4 w-4 border-[2px] border-black bg-[#FFD700]"></div>
+            <div className="h-4 w-4 border-2 border-black bg-[#FFD700]"></div>
             <span className="text-sm tracking-wide uppercase">Legendary</span>
           </div>
         </div>
@@ -311,7 +309,7 @@ export function TrophiesAchievements({
                         {achievement.progress}/{achievement.maxProgress}
                       </span>
                     </div>
-                    <div className="h-3 border-[2px] border-black bg-gray-200">
+                    <div className="h-3 border-2 border-black bg-gray-200">
                       <div
                         style={{
                           width: `${((achievement.progress || 0) / achievement.maxProgress) * 100}%`,
@@ -324,7 +322,7 @@ export function TrophiesAchievements({
                 )}
 
                 {/* Rarity Badge */}
-                <div className="mt-3 border-t-[2px] border-gray-200 pt-3">
+                <div className="mt-3 border-t-2 border-gray-200 pt-3">
                   <span className="text-xs tracking-wide text-gray-600 uppercase">
                     {achievement.rarity}
                   </span>
@@ -335,7 +333,7 @@ export function TrophiesAchievements({
         </div>
 
         {/* Fun Footer Message */}
-        <div className="mt-8 border-4 border-black bg-[#FFE500] p-6 text-center">
+        <div className="bg-primary mt-8 border-4 border-black p-6 text-center">
           <p className="tracking-wide uppercase">
             🎯 Keep playing to unlock more achievements! 🏆
           </p>

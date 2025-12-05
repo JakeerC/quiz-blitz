@@ -49,7 +49,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
               <button
                 onClick={() => setIsLogin(true)}
                 className={`flex-1 cursor-pointer border-[3px] border-black px-4 py-3 tracking-wide uppercase transition-colors ${
-                  isLogin ? 'bg-[#FFE500]' : 'bg-white'
+                  isLogin ? 'bg-primary' : 'bg-white'
                 }`}>
                 Login
               </button>
@@ -57,7 +57,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
               <button
                 onClick={() => setIsLogin(false)}
                 className={`flex-1 border-[3px] border-black px-4 py-3 tracking-wide uppercase transition-colors ${
-                  !isLogin ? 'bg-[#FFE500]' : 'bg-white'
+                  !isLogin ? 'bg-primary' : 'bg-white'
                 }`}>
                 Sign Up
               </button>
@@ -79,7 +79,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="w-full border-4 border-black bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:border-[#FFE500] focus:outline-none"
+                    className="focus:border-primary w-full border-4 border-black bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:outline-none"
                     placeholder="Enter username"
                     required
                   />
@@ -101,7 +101,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full border-4 border-black bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:border-[#FFE500] focus:outline-none"
+                    className="focus:border-primary w-full border-4 border-black bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:outline-none"
                     placeholder="Enter password"
                     required
                   />

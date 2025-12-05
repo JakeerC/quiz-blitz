@@ -20,7 +20,7 @@ export function Slider({
       <div className="relative h-6 border-4 border-black bg-white">
         {/* Track Fill */}
         <div
-          className="absolute top-0 left-0 h-full bg-[#FFE500] transition-all"
+          className="bg-primary absolute top-0 left-0 h-full transition-all"
           style={{width: `${percentage}%`}}
         />
 

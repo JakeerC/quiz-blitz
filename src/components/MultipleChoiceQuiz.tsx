@@ -170,7 +170,7 @@ export function MultipleChoiceQuiz({
           <div className="h-4 border-4 border-black bg-white">
             <div
               style={{width: `${progress}%`}}
-              className="h-full bg-[#FFE500] transition-all"
+              className="bg-primary h-full transition-all"
             />
           </div>
         </div>
@@ -181,7 +181,7 @@ export function MultipleChoiceQuiz({
             <h2 className="mb-2 tracking-tight uppercase">
               {currentQuestion.question}
             </h2>
-            <div className="mt-2 inline-block border-[3px] border-black bg-[#FFE500] px-3 py-1">
+            <div className="bg-primary mt-2 inline-block border-[3px] border-black px-3 py-1">
               <span className="text-sm tracking-wide uppercase">
                 {currentQuestion.topic}
               </span>

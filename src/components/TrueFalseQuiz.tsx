@@ -186,7 +186,7 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
           <div className="h-4 border-4 border-black bg-white">
             <motion.div
               animate={{width: `${progress}%`}}
-              className="h-full bg-[#FFE500]"
+              className="bg-primary h-full"
             />
           </div>
         </div>
@@ -228,7 +228,7 @@ export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
                 </h2>
 
                 <div className="mb-4 flex justify-center">
-                  <div className="border-[3px] border-black bg-[#FFE500] px-4 py-2">
+                  <div className="bg-primary border-[3px] border-black px-4 py-2">
                     <span className="text-sm tracking-wide uppercase">
                       {currentQuestion.topic}
                     </span>

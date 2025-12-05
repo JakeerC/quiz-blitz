@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Trophy,
   Clock,
@@ -15,6 +13,7 @@ import {PieChart, Pie, Cell, ResponsiveContainer} from 'recharts';
 import {BrutalistButton} from './ui/BrutalistButton';
 import {soundManager} from '../utils/sounds';
 import type {QuizResult, QuizConfig} from '../context/AppContext';
+import {color} from '@/constants/colors';
 
 type ResultsScreenProps = {
   result: QuizResult;
@@ -37,8 +36,8 @@ export function ResultsScreen({
   const isPassed = scorePercentage >= 70;
 
   const chartData = [
-    {name: 'Correct', value: result.correctAnswers, color: '#00D9A3'},
-    {name: 'Incorrect', value: result.incorrectAnswers, color: '#FF5757'},
+    {name: 'Correct', value: result.correctAnswers, color: color.correct},
+    {name: 'Incorrect', value: result.incorrectAnswers, color: color.incorrect},
   ];
 
   const formatTime = (seconds: number) => {
@@ -48,11 +47,11 @@ export function ResultsScreen({
   };
 
   const getGrade = () => {
-    if (scorePercentage >= 90) return {grade: 'A+', color: '#00D9A3'};
-    if (scorePercentage >= 80) return {grade: 'A', color: '#00D9A3'};
-    if (scorePercentage >= 70) return {grade: 'B', color: '#FFE500'};
-    if (scorePercentage >= 60) return {grade: 'C', color: '#FF9500'};
-    return {grade: 'F', color: '#FF5757'};
+    if (scorePercentage >= 90) return {grade: 'A+', color: color.gradeAplus};
+    if (scorePercentage >= 80) return {grade: 'A', color: color.gradeA};
+    if (scorePercentage >= 70) return {grade: 'B', color: color.gradeB};
+    if (scorePercentage >= 60) return {grade: 'C', color: color.gradeC};
+    return {grade: 'F', color: color.gradeF};
   };
 
   const grade = getGrade();
@@ -147,7 +146,7 @@ export function ResultsScreen({
           {/* Chart Section */}
           <div className="flex flex-col items-center gap-8 p-8 md:flex-row">
             {/* Pie Chart */}
-            <div className="h-48 w-48 flex-shrink-0 border-4 border-black bg-white p-2">
+            <div className="h-48 w-48 shrink-0 border-4 border-black bg-white p-2">
               <div className="h-full w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
@@ -191,7 +190,7 @@ export function ResultsScreen({
 
           {/* Skills to Improve */}
           {skillsToImprove.length > 0 && (
-            <div className="border-t-4 border-black bg-[#FFE500] p-8">
+            <div className="bg-primary border-t-4 border-black p-8">
               <h3 className="mb-4 tracking-wide uppercase">
                 Skills To Improve
               </h3>
@@ -232,13 +231,13 @@ export function ResultsScreen({
                           <Check
                             size={24}
                             strokeWidth={3}
-                            className="mt-1 flex-shrink-0"
+                            className="mt-1 shrink-0"
                           />
                         ) : (
                           <X
                             size={24}
                             strokeWidth={3}
-                            className="mt-1 flex-shrink-0"
+                            className="mt-1 shrink-0"
                           />
                         )}
                         <div>

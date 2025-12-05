@@ -267,11 +267,7 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <Clock
-                      size={20}
-                      strokeWidth={3}
-                      className="text-[#FFE500]"
-                    />
+                    <Clock size={20} strokeWidth={3} className="text-primary" />
                     <div>
                       <p className="text-sm tracking-wide text-gray-600 uppercase">
                         Time
