@@ -18,7 +18,7 @@ export function OnboardingScreen({onStart}: OnboardingScreenProps) {
     <div className="flex min-h-screen items-center justify-center bg-transparent p-6">
       <div className="w-full max-w-2xl">
         {/* Main Container */}
-        <div className="border-[6px] border-black bg-white p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <div className="card">
           {/* Icon */}
           <div className="bg-primary mx-auto mb-8 flex h-20 w-20 items-center justify-center border-4 border-black">
             <Sparkles size={40} strokeWidth={3} />

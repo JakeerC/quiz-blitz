@@ -110,7 +110,7 @@ export function QuizSetupScreen({
         </div>
 
         {/* Main Setup Container */}
-        <div className="space-y-10 border-[6px] border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <div className="card space-y-10">
           {/* Difficulty */}
           <div>
             <div className="mb-4 flex items-center gap-3">

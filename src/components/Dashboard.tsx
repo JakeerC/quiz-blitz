@@ -132,8 +132,8 @@ export function Dashboard({
               key={item.screen}
               onClick={() => handleNavigate(item.screen)}
               className={cn(
-                'border-[6px] border-black bg-white p-8 text-left',
-                'shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-colors hover:bg-gray-50'
+                'card p-8 text-left',
+                'transition-colors hover:bg-gray-50'
               )}>
               <div className="mb-4 flex items-center gap-4">
                 <div

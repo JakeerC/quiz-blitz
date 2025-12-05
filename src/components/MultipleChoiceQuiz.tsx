@@ -177,7 +177,7 @@ export function MultipleChoiceQuiz({
 
         {/* Question Card */}
         <div key={currentIndex} className="mb-8">
-          <div className="border-[6px] border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+          <div className="card">
             <h2 className="mb-2 tracking-tight uppercase">
               {currentQuestion.question}
             </h2>

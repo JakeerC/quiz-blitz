@@ -93,7 +93,7 @@ export function ResultsScreen({
         </div>
 
         {/* Main Results Container */}
-        <div className="mb-8 border-[6px] border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <div className="card mb-8">
           {/* Score Section */}
           <div className="border-b-4 border-black p-8">
             <div className="flex items-center justify-between">

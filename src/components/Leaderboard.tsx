@@ -125,7 +125,7 @@ export function Leaderboard({onBackAction, currentUser}: LeaderboardProps) {
         </div>
 
         {/* Full Leaderboard Table */}
-        <div className="overflow-hidden border-[6px] border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <div className="card overflow-hidden">
           {/* Table Header */}
           <div className="grid grid-cols-5 gap-4 border-b-4 border-black bg-black p-4 text-white">
             <p className="text-sm tracking-wide uppercase">Rank</p>

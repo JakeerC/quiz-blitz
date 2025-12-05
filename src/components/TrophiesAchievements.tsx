@@ -16,7 +16,9 @@ import {
 } from 'lucide-react';
 import {BrutalistButton} from './ui/BrutalistButton';
 import {soundManager} from '../utils/sounds';
+import {cn} from './ui/utils';
 
+type Rarity = 'common' | 'rare' | 'epic' | 'legendary';
 type Achievement = {
   id: number;
   title: string;
@@ -24,11 +26,10 @@ type Achievement = {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   icon: any;
-  color: string;
   unlocked: boolean;
   progress?: number;
   maxProgress?: number;
-  rarity: 'common' | 'rare' | 'epic' | 'legendary';
+  rarity: Rarity;
 };
 
 type TrophiesAchievementsProps = {
@@ -42,7 +43,6 @@ const mockAchievements: Achievement[] = [
     title: 'First Steps',
     description: 'Complete your first quiz',
     icon: Star,
-    color: '#00D9A3',
     unlocked: true,
     rarity: 'common',
   },
@@ -51,7 +51,6 @@ const mockAchievements: Achievement[] = [
     title: 'Speed Demon',
     description: 'Complete a quiz in under 60 seconds',
     icon: Zap,
-    color: '#FFE500',
     unlocked: true,
     rarity: 'rare',
   },
@@ -60,7 +59,6 @@ const mockAchievements: Achievement[] = [
     title: 'Perfect Score',
     description: 'Get 100% on any quiz',
     icon: Target,
-    color: '#FF9500',
     unlocked: true,
     rarity: 'epic',
   },
@@ -69,7 +67,6 @@ const mockAchievements: Achievement[] = [
     title: 'Hot Streak',
     description: 'Get 10 questions correct in a row',
     icon: Flame,
-    color: '#FF5757',
     unlocked: true,
     rarity: 'legendary',
   },
@@ -78,7 +75,6 @@ const mockAchievements: Achievement[] = [
     title: 'Knowledge Seeker',
     description: 'Complete 10 quizzes',
     icon: Brain,
-    color: '#00B8D4',
     unlocked: true,
     progress: 7,
     maxProgress: 10,
@@ -89,7 +85,6 @@ const mockAchievements: Achievement[] = [
     title: 'Marathon Runner',
     description: 'Complete a 30-question quiz',
     icon: Award,
-    color: '#9C27B0',
     unlocked: false,
     rarity: 'rare',
   },
@@ -98,7 +93,6 @@ const mockAchievements: Achievement[] = [
     title: 'Quick Learner',
     description: 'Improve your score by 50% on a retake',
     icon: TrendingUp,
-    color: '#4CAF50',
     unlocked: false,
     rarity: 'epic',
   },
@@ -107,7 +101,6 @@ const mockAchievements: Achievement[] = [
     title: 'Night Owl',
     description: 'Complete a quiz after midnight',
     icon: Clock,
-    color: '#3F51B5',
     unlocked: false,
     rarity: 'common',
   },
@@ -116,7 +109,6 @@ const mockAchievements: Achievement[] = [
     title: 'Quiz Master',
     description: 'Reach the top 10 on the leaderboard',
     icon: Crown,
-    color: '#FFE500',
     unlocked: false,
     rarity: 'legendary',
   },
@@ -125,7 +117,6 @@ const mockAchievements: Achievement[] = [
     title: 'Defender',
     description: 'Maintain an 80%+ accuracy over 20 quizzes',
     icon: Shield,
-    color: '#607D8B',
     unlocked: false,
     rarity: 'epic',
   },
@@ -134,7 +125,6 @@ const mockAchievements: Achievement[] = [
     title: 'Versatile',
     description: 'Complete quizzes in 5 different topics',
     icon: Sparkles,
-    color: '#E91E63',
     unlocked: false,
     progress: 3,
     maxProgress: 5,
@@ -145,7 +135,6 @@ const mockAchievements: Achievement[] = [
     title: 'Legend',
     description: 'Unlock all other achievements',
     icon: Trophy,
-    color: '#FFD700',
     unlocked: false,
     rarity: 'legendary',
   },
@@ -163,17 +152,11 @@ export function TrophiesAchievements({
   const totalCount = mockAchievements.length;
   const progressPercentage = Math.round((unlockedCount / totalCount) * 100);
 
-  const getRarityBorder = (rarity: string) => {
-    if (rarity === 'legendary') return 'border-[#FFD700]';
-    if (rarity === 'epic') return 'border-[#9C27B0]';
-    if (rarity === 'rare') return 'border-[#00B8D4]';
-    return 'border-black ';
-  };
-
-  const getRarityGlow = (rarity: string) => {
-    if (rarity === 'legendary') return 'shadow-[0_0_20px_rgba(255,215,0,0.5)]';
-    if (rarity === 'epic') return 'shadow-[0_0_15px_rgba(156,39,176,0.4)]';
-    if (rarity === 'rare') return 'shadow-[0_0_10px_rgba(0,184,212,0.3)]';
+  const getRarityStyles = (rarity: Rarity) => {
+    if (rarity === 'legendary') return 'bg-pink-400';
+    if (rarity === 'epic') return 'bg-purple-500';
+    if (rarity === 'rare') return 'bg-sky-500';
+    if (rarity === 'common') return 'bg-green-500';
     return '';
   };
 
@@ -183,7 +166,7 @@ export function TrophiesAchievements({
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center border-4 border-black bg-[#FF9500]">
+            <div className="bg-primary flex h-16 w-16 items-center justify-center border-4 border-black">
               <Trophy size={36} strokeWidth={3} />
             </div>
             <div>
@@ -200,7 +183,7 @@ export function TrophiesAchievements({
         </div>
 
         {/* Progress Overview */}
-        <div className="mb-8 border-[6px] border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <div className="card mb-8 p-8">
           <div className="mb-4 flex items-center justify-between">
             <div>
               <h2 className="mb-2 tracking-tight uppercase">
@@ -221,7 +204,7 @@ export function TrophiesAchievements({
           <div className="h-8 border-4 border-black bg-gray-200">
             <div
               style={{width: `${progressPercentage}%`}}
-              className="via-primary flex h-full items-center justify-end bg-gradient-to-r from-[#00D9A3] to-[#FF9500] pr-2 transition-all duration-1000">
+              className="via-primary flex h-full items-center justify-end bg-linear-to-r from-green-500 to-pink-400 pr-2 transition-all duration-1000">
               {progressPercentage > 10 && (
                 <span className="tracking-wide uppercase">
                   {progressPercentage}%
@@ -233,20 +216,20 @@ export function TrophiesAchievements({
 
         {/* Rarity Legend */}
         <div className="mb-6 flex flex-wrap gap-3">
-          <div className="flex items-center gap-2 border-4 border-black bg-white px-3 py-2">
-            <div className="h-4 w-4 border-2 border-black bg-gray-400"></div>
+          <div className="flex items-center gap-2 border-4 border-green-500 bg-white px-3 py-2">
+            <div className="h-4 w-4 bg-green-500"></div>
             <span className="text-sm tracking-wide uppercase">Common</span>
           </div>
-          <div className="flex items-center gap-2 border-4 border-[#00B8D4] bg-white px-3 py-2">
-            <div className="h-4 w-4 border-2 border-black bg-[#00B8D4]"></div>
+          <div className="flex items-center gap-2 border-4 border-sky-500 bg-white px-3 py-2">
+            <div className="h-4 w-4 bg-sky-500"></div>
             <span className="text-sm tracking-wide uppercase">Rare</span>
           </div>
-          <div className="flex items-center gap-2 border-4 border-[#9C27B0] bg-white px-3 py-2">
-            <div className="h-4 w-4 border-2 border-black bg-[#9C27B0]"></div>
+          <div className="flex items-center gap-2 border-4 border-purple-500 bg-white px-3 py-2">
+            <div className="h-4 w-4 bg-purple-500"></div>
             <span className="text-sm tracking-wide uppercase">Epic</span>
           </div>
-          <div className="flex items-center gap-2 border-4 border-[#FFD700] bg-white px-3 py-2">
-            <div className="h-4 w-4 border-2 border-black bg-[#FFD700]"></div>
+          <div className="flex items-center gap-2 border-4 border-pink-400 bg-white px-3 py-2">
+            <div className="h-4 w-4 bg-pink-400"></div>
             <span className="text-sm tracking-wide uppercase">Legendary</span>
           </div>
         </div>
@@ -256,15 +239,15 @@ export function TrophiesAchievements({
           {mockAchievements.map((achievement) => (
             <div
               key={achievement.id}
-              className={`border-4 ${getRarityBorder(achievement.rarity)} overflow-hidden bg-white ${achievement.unlocked ? getRarityGlow(achievement.rarity) : 'opacity-60'} ${achievement.unlocked ? 'shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]' : ''} `}>
+              className={`card border-4 border-black bg-white ${achievement.unlocked ? getRarityStyles(achievement.rarity) : 'bg-[#9E9E9E]/60'} ${achievement.unlocked ? 'shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]' : ''} `}>
               {/* Header */}
               <div
-                className="flex items-center justify-center border-b-4 border-black p-4"
-                style={{
-                  backgroundColor: achievement.unlocked
-                    ? achievement.color
-                    : '#9E9E9E',
-                }}>
+                className={cn(
+                  'flex items-center justify-center border-b-4 border-black p-4',
+                  achievement.unlocked
+                    ? getRarityStyles(achievement.rarity)
+                    : 'bg-[#9E9E9E]/60'
+                )}>
                 <div className="relative">
                   <achievement.icon
                     size={48}
@@ -287,11 +270,7 @@ export function TrophiesAchievements({
                   </h3>
                   {achievement.unlocked && (
                     <div>
-                      <Star
-                        size={20}
-                        strokeWidth={3}
-                        fill={achievement.color}
-                      />
+                      <Star size={20} strokeWidth={3} fill={'yellow'} />
                     </div>
                   )}
                 </div>

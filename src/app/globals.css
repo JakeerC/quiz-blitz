@@ -13,6 +13,12 @@
   }
 }
 
-@utility rounded {
-  border-radius: 0.5rem;
+@layer components {
+  .card {
+    @apply overflow-hidden border-6 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)];
+    border-radius: var(--radius);
+  }
+  .rounded {
+    border-radius: var(--radius);
+  }
 }

@@ -43,7 +43,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
         </div>
 
         {/* Login Form */}
-        <div className="rounded border-6 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <div className="card">
           <div className="p-8">
             <div className="mb-6 flex gap-2">
               <button
