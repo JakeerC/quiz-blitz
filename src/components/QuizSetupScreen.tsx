@@ -200,7 +200,7 @@ export function QuizSetupScreen({
             </div>
           </div>
 
-          <div className="h-[4px] bg-black"></div>
+          <div className="h-4 bg-black"></div>
 
           {/* Response Type */}
           <div>

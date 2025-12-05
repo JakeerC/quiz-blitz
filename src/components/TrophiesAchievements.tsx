@@ -181,7 +181,7 @@ export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center border-[4px] border-black bg-[#FF9500]">
+            <div className="flex h-16 w-16 items-center justify-center border-4 border-black bg-[#FF9500]">
               <Trophy size={36} strokeWidth={3} />
             </div>
             <div>
@@ -216,7 +216,7 @@ export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
           </div>
 
           {/* Progress Bar */}
-          <div className="h-8 border-[4px] border-black bg-gray-200">
+          <div className="h-8 border-4 border-black bg-gray-200">
             <div
               style={{width: `${progressPercentage}%`}}
               className="flex h-full items-center justify-end bg-gradient-to-r from-[#00D9A3] via-[#FFE500] to-[#FF9500] pr-2 transition-all duration-1000">
@@ -254,7 +254,7 @@ export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
           {mockAchievements.map((achievement, index) => (
             <div
               key={achievement.id}
-              className={`border-[4px] ${getRarityBorder(achievement.rarity)} overflow-hidden bg-white ${achievement.unlocked ? getRarityGlow(achievement.rarity) : 'opacity-60'} ${achievement.unlocked ? 'shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]' : ''} `}>
+              className={`border-4 ${getRarityBorder(achievement.rarity)} overflow-hidden bg-white ${achievement.unlocked ? getRarityGlow(achievement.rarity) : 'opacity-60'} ${achievement.unlocked ? 'shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]' : ''} `}>
               {/* Header */}
               <div
                 className="flex items-center justify-center border-b-[3px] border-black p-4"
@@ -331,7 +331,7 @@ export function TrophiesAchievements({onBack}: TrophiesAchievementsProps) {
         </div>
 
         {/* Fun Footer Message */}
-        <div className="mt-8 border-[4px] border-black bg-[#FFE500] p-6 text-center">
+        <div className="mt-8 border-4 border-black bg-[#FFE500] p-6 text-center">
           <p className="tracking-wide uppercase">
             🎯 Keep playing to unlock more achievements! 🏆
           </p>

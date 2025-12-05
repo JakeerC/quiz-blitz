@@ -18,7 +18,7 @@ export function ToggleSelector<T extends string>({
           <button
             key={option.value}
             onClick={() => onChange(option.value)}
-            className={`border-[4px] border-black px-6 py-3 transition-colors ${
+            className={`border-4 border-black px-6 py-3 transition-colors ${
               isSelected
                 ? 'bg-black text-white'
                 : 'bg-white text-black hover:bg-gray-100'

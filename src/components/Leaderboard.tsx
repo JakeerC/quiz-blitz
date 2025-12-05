@@ -57,7 +57,7 @@ export function Leaderboard({onBack, currentUser}: LeaderboardProps) {
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center border-[4px] border-black bg-[#FFE500]">
+            <div className="flex h-16 w-16 items-center justify-center border-4 border-black bg-[#FFE500]">
               <TrendingUp size={36} strokeWidth={3} />
             </div>
             <div>
@@ -78,7 +78,7 @@ export function Leaderboard({onBack, currentUser}: LeaderboardProps) {
           <div className="grid grid-cols-3 items-end gap-4">
             {/* Second Place */}
             <div className="order-1">
-              <div className="mb-2 border-[4px] border-black bg-[#C0C0C0] p-6 text-center">
+              <div className="mb-2 border-4 border-black bg-[#C0C0C0] p-6 text-center">
                 <div className="mb-2 flex justify-center">
                   <Medal size={32} strokeWidth={3} />
                 </div>
@@ -90,12 +90,12 @@ export function Leaderboard({onBack, currentUser}: LeaderboardProps) {
                 </p>
                 <p className="tracking-tight">{mockLeaderboard[1].score}</p>
               </div>
-              <div className="h-32 border-[4px] border-black bg-[#C0C0C0]"></div>
+              <div className="h-32 border-4 border-black bg-[#C0C0C0]"></div>
             </div>
 
             {/* First Place */}
             <div className="order-2">
-              <div className="mb-2 border-[4px] border-black bg-[#FFE500] p-6 text-center">
+              <div className="mb-2 border-4 border-black bg-[#FFE500] p-6 text-center">
                 <div className="mb-2 flex justify-center">
                   <Crown size={40} strokeWidth={3} fill="#000" />
                 </div>
@@ -109,12 +109,12 @@ export function Leaderboard({onBack, currentUser}: LeaderboardProps) {
                   {mockLeaderboard[0].score}
                 </p>
               </div>
-              <div className="h-48 border-[4px] border-black bg-[#FFE500]"></div>
+              <div className="h-48 border-4 border-black bg-[#FFE500]"></div>
             </div>
 
             {/* Third Place */}
             <div className="order-3">
-              <div className="mb-2 border-[4px] border-black bg-[#CD7F32] p-6 text-center">
+              <div className="mb-2 border-4 border-black bg-[#CD7F32] p-6 text-center">
                 <div className="mb-2 flex justify-center">
                   <Medal size={32} strokeWidth={3} />
                 </div>
@@ -126,7 +126,7 @@ export function Leaderboard({onBack, currentUser}: LeaderboardProps) {
                 </p>
                 <p className="tracking-tight">{mockLeaderboard[2].score}</p>
               </div>
-              <div className="h-24 border-[4px] border-black bg-[#CD7F32]"></div>
+              <div className="h-24 border-4 border-black bg-[#CD7F32]"></div>
             </div>
           </div>
         </div>
@@ -134,7 +134,7 @@ export function Leaderboard({onBack, currentUser}: LeaderboardProps) {
         {/* Full Leaderboard Table */}
         <div className="overflow-hidden border-[6px] border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           {/* Table Header */}
-          <div className="grid grid-cols-5 gap-4 border-b-[4px] border-black bg-black p-4 text-white">
+          <div className="grid grid-cols-5 gap-4 border-b-4 border-black bg-black p-4 text-white">
             <p className="text-sm tracking-wide uppercase">Rank</p>
             <p className="col-span-2 text-sm tracking-wide uppercase">Player</p>
             <p className="text-right text-sm tracking-wide uppercase">Score</p>
@@ -170,7 +170,7 @@ export function Leaderboard({onBack, currentUser}: LeaderboardProps) {
         </div>
 
         {/* Stats Legend */}
-        <div className="mt-6 border-[4px] border-black bg-[#FFFEF9] p-4">
+        <div className="mt-6 border-4 border-black bg-[#FFFEF9] p-4">
           <p className="text-sm tracking-wide text-gray-600 uppercase">
             💡 Score = (Correct Answers × 100) - (Time Penalty) + (Streak Bonus)
           </p>

@@ -32,18 +32,18 @@ export function Stepper({
       <button
         onClick={handleDecrement}
         disabled={value <= min}
-        className="flex h-12 w-12 items-center justify-center border-[4px] border-black bg-white transition-all hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-30">
+        className="flex h-12 w-12 items-center justify-center border-4 border-black bg-white transition-all hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-30">
         <Minus size={24} strokeWidth={3} />
       </button>
 
-      <div className="flex h-12 w-20 items-center justify-center border-[4px] border-black bg-white">
+      <div className="flex h-12 w-20 items-center justify-center border-4 border-black bg-white">
         <span className="tracking-wider">{value}</span>
       </div>
 
       <button
         onClick={handleIncrement}
         disabled={value >= max}
-        className="flex h-12 w-12 items-center justify-center border-[4px] border-black bg-white transition-all hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-30">
+        className="flex h-12 w-12 items-center justify-center border-4 border-black bg-white transition-all hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-30">
         <Plus size={24} strokeWidth={3} />
       </button>
     </div>

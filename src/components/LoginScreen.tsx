@@ -79,7 +79,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="w-full border-[4px] border-black bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:border-[#FFE500] focus:outline-none"
+                    className="w-full border-4 border-black bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:border-[#FFE500] focus:outline-none"
                     placeholder="Enter username"
                     required
                   />
@@ -101,7 +101,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full border-[4px] border-black bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:border-[#FFE500] focus:outline-none"
+                    className="w-full border-4 border-black bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:border-[#FFE500] focus:outline-none"
                     placeholder="Enter password"
                     required
                   />
@@ -123,7 +123,7 @@ export function LoginScreen({onLogin}: LoginScreenProps) {
           </div>
 
           {/* Demo Login */}
-          <div className="border-t-[4px] border-black bg-gray-50 p-6">
+          <div className="border-t-4 border-black bg-gray-50 p-6">
             <p className="mb-3 text-center text-sm tracking-wide text-gray-600 uppercase">
               Or try it out:
             </p>

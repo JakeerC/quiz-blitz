@@ -81,7 +81,7 @@ export function ResultsScreen({
         {/* Header */}
         <div className="mb-8 flex items-center gap-4">
           <div
-            className={`flex h-16 w-16 items-center justify-center border-[4px] border-black`}
+            className={`flex h-16 w-16 items-center justify-center border-4 border-black`}
             style={{backgroundColor: grade.color}}>
             <Trophy size={32} strokeWidth={3} />
           </div>
@@ -96,7 +96,7 @@ export function ResultsScreen({
         {/* Main Results Container */}
         <div className="mb-8 border-[6px] border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           {/* Score Section */}
-          <div className="border-b-[4px] border-black p-8">
+          <div className="border-b-4 border-black p-8">
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="mb-2 tracking-tight uppercase">Your Score</h2>
@@ -105,7 +105,7 @@ export function ResultsScreen({
                 </p>
               </div>
               <div
-                className="flex h-32 w-32 items-center justify-center border-[4px] border-black"
+                className="flex h-32 w-32 items-center justify-center border-4 border-black"
                 style={{backgroundColor: grade.color}}>
                 <span className="tracking-tight" style={{fontSize: '3rem'}}>
                   {scorePercentage}%
@@ -115,9 +115,9 @@ export function ResultsScreen({
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 border-b-[4px] border-black md:grid-cols-3">
+          <div className="grid grid-cols-1 border-b-4 border-black md:grid-cols-3">
             {/* Stat: Time */}
-            <div className="border-b-[4px] border-black p-6 md:border-r-[4px] md:border-b-0">
+            <div className="border-b-4 border-black p-6 md:border-r-4 md:border-b-0">
               <div className="mb-2 flex items-center gap-3">
                 <Clock size={24} strokeWidth={3} className="" />
                 <h3 className="tracking-wide uppercase">Time</h3>
@@ -126,7 +126,7 @@ export function ResultsScreen({
             </div>
 
             {/* Stat: Accuracy */}
-            <div className="border-b-[4px] border-black p-6 md:border-r-[4px] md:border-b-0">
+            <div className="border-b-4 border-black p-6 md:border-r-4 md:border-b-0">
               <div className="mb-2 flex items-center gap-3">
                 <Target size={24} strokeWidth={3} className="" />
                 <h3 className="tracking-wide uppercase">Accuracy</h3>
@@ -147,7 +147,7 @@ export function ResultsScreen({
           {/* Chart Section */}
           <div className="flex flex-col items-center gap-8 p-8 md:flex-row">
             {/* Pie Chart */}
-            <div className="h-48 w-48 flex-shrink-0 border-[4px] border-black bg-white p-2">
+            <div className="h-48 w-48 flex-shrink-0 border-4 border-black bg-white p-2">
               <div className="h-full w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
@@ -191,7 +191,7 @@ export function ResultsScreen({
 
           {/* Skills to Improve */}
           {skillsToImprove.length > 0 && (
-            <div className="border-t-[4px] border-black bg-[#FFE500] p-8">
+            <div className="border-t-4 border-black bg-[#FFE500] p-8">
               <h3 className="mb-4 tracking-wide uppercase">
                 Skills To Improve
               </h3>
@@ -222,10 +222,10 @@ export function ResultsScreen({
               {result.questionDetails.map((detail, index) => (
                 <div
                   key={index}
-                  className="overflow-hidden border-[4px] border-black bg-white">
+                  className="overflow-hidden border-4 border-black bg-white">
                   {/* Question Header */}
                   <div
-                    className={`border-b-[4px] border-black p-4 ${detail.isCorrect ? 'bg-[#00D9A3]' : 'bg-[#FF5757]'}`}>
+                    className={`border-b-4 border-black p-4 ${detail.isCorrect ? 'bg-[#00D9A3]' : 'bg-[#FF5757]'}`}>
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex items-start gap-3">
                         {detail.isCorrect ? (

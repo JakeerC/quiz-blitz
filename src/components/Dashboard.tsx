@@ -4,6 +4,7 @@ import {useState} from 'react';
 import {Play, Trophy, History, BarChart3, LogOut} from 'lucide-react';
 import {Logo} from './ui/Logo';
 import {soundManager} from '../utils/sounds';
+import {cn} from './ui/utils';
 
 type DashboardProps = {
   username: string;
@@ -66,7 +67,10 @@ export function Dashboard({
           </div>
           <button
             onClick={handleLogout}
-            className="flex items-center gap-2 border-4 border-black bg-[#FF5757] px-6 py-3 transition-colors hover:bg-[#FF4444]">
+            className={cn(
+              'flex items-center gap-2 border-4',
+              'border-black bg-[#FF5757] px-6 py-3 transition-colors hover:bg-[#FF4444]'
+            )}>
             <LogOut size={20} strokeWidth={3} />
             <span className="tracking-wide uppercase">Logout</span>
           </button>
@@ -117,7 +121,10 @@ export function Dashboard({
             <button
               key={item.screen}
               onClick={() => handleNavigate(item.screen)}
-              className="border-[6px] border-black bg-white p-8 text-left shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-colors hover:bg-gray-50">
+              className={cn(
+                'border-[6px] border-black bg-white p-8 text-left',
+                'shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-colors hover:bg-gray-50'
+              )}>
               <div className="mb-4 flex items-center gap-4">
                 <div
                   className="flex h-16 w-16 items-center justify-center border-4 border-black"

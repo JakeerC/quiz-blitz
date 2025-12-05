@@ -17,7 +17,7 @@ export function Slider({
 
   return (
     <div className="w-full">
-      <div className="relative h-6 border-[4px] border-black bg-white">
+      <div className="relative h-6 border-4 border-black bg-white">
         {/* Track Fill */}
         <div
           className="absolute top-0 left-0 h-full bg-[#FFE500] transition-all"
@@ -26,7 +26,7 @@ export function Slider({
 
         {/* Slider Handle */}
         <div
-          className="absolute top-1/2 h-8 w-8 -translate-y-1/2 cursor-grab border-[4px] border-white bg-black active:cursor-grabbing"
+          className="absolute top-1/2 h-8 w-8 -translate-y-1/2 cursor-grab border-4 border-white bg-black active:cursor-grabbing"
           style={{left: `calc(${percentage}% - 16px)`}}
         />
 
