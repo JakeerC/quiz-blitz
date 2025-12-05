@@ -1,6 +1,6 @@
 'use client';
 
-import {Leaderboard} from '@/components/Leaderboard';
+import {Leaderboard} from './component';
 import {useApp} from '@/context/AppContext';
 import {useRouter} from 'next/navigation';
 import {useEffect} from 'react';

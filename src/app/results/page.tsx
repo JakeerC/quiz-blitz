@@ -1,6 +1,6 @@
 'use client';
 
-import {ResultsScreen} from '@/components/ResultsScreen';
+import {Results} from '@/app/results/component';
 import {useApp} from '@/context/AppContext';
 import {useRouter} from 'next/navigation';
 import {useEffect} from 'react';
@@ -36,7 +36,7 @@ export default function ResultsPage() {
   if (!username || !quizResult || !quizConfig) return null;
 
   return (
-    <ResultsScreen
+    <Results
       result={quizResult}
       config={quizConfig}
       onRetake={handleRetake}

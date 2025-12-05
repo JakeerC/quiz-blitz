@@ -1,6 +1,6 @@
 'use client';
 
-import {Dashboard} from '@/components/Dashboard';
+import {Dashboard} from './component';
 import {useApp} from '@/context/AppContext';
 import {useRouter} from 'next/navigation';
 import {useEffect} from 'react';

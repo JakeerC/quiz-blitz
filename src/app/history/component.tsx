@@ -1,15 +1,16 @@
 'use client';
 
 import {
-  History,
+  History as HistoryIcon,
   Calendar,
   Clock,
   Target,
   TrendingUp,
   ArrowLeft,
 } from 'lucide-react';
-import {BrutalistButton} from './ui/BrutalistButton';
-import {soundManager} from '../utils/sounds';
+import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {soundManager} from '@/utils/sounds';
+import {color} from '@/constants/colors';
 
 type HistoryEntry = {
   id: number;
@@ -23,7 +24,7 @@ type HistoryEntry = {
   grade: string;
 };
 
-type QuizHistoryProps = {
+type HistoryProps = {
   onBackAction: () => void;
 };
 
@@ -86,7 +87,7 @@ const mockHistory: HistoryEntry[] = [
   },
 ];
 
-export function QuizHistory({onBackAction}: QuizHistoryProps) {
+export function History({onBackAction}: HistoryProps) {
   const handleBack = () => {
     soundManager.playClick();
     onBackAction();
@@ -114,10 +115,10 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
   };
 
   const getGradeColor = (grade: string) => {
-    if (grade === 'A' || grade === 'A+') return '#00D9A3';
-    if (grade === 'B') return '#FFE500';
-    if (grade === 'C') return '#FF9500';
-    return '#FF5757';
+    if (grade === 'A' || grade === 'A+') return color.gradeAplus;
+    if (grade === 'B') return color.gradeB;
+    if (grade === 'C') return color.gradeC;
+    return color.gradeF;
   };
 
   // Calculate stats
@@ -142,7 +143,7 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="border-box flex h-16 w-16 items-center justify-center bg-[#00B8D4]">
-              <History size={36} strokeWidth={3} />
+              <HistoryIcon size={36} strokeWidth={3} />
             </div>
             <div>
               <h1 className="tracking-tight uppercase">Quiz History</h1>
@@ -305,7 +306,7 @@ export function QuizHistory({onBackAction}: QuizHistoryProps) {
         {/* Empty State (if needed) */}
         {mockHistory.length === 0 && (
           <div className="py-20 text-center">
-            <History
+            <HistoryIcon
               size={64}
               strokeWidth={2}
               className="mx-auto mb-4 text-gray-400"

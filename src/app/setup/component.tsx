@@ -7,16 +7,16 @@ import {
   Shuffle,
   PenLine,
 } from 'lucide-react';
-import {BrutalistButton} from './ui/BrutalistButton';
-import {ToggleSelector} from './ui/ToggleSelector';
-import {ChipSelector} from './ui/ChipSelector';
-import {Stepper} from './ui/Stepper';
-import {Slider} from './ui/Slider';
-import {BrutalistInput} from './ui/BrutalistInput';
-import {soundManager} from '../utils/sounds';
-import type {QuizConfig} from '../context/AppContext';
+import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {ToggleSelector} from '@/components/ui/ToggleSelector';
+import {ChipSelector} from '@/components/ui/ChipSelector';
+import {Stepper} from '@/components/ui/Stepper';
+import {Slider} from '@/components/ui/Slider';
+import {BrutalistInput} from '@/components/ui/BrutalistInput';
+import {soundManager} from '@/utils/sounds';
+import type {QuizConfig} from '@/context/AppContext';
 
-type QuizSetupScreenProps = {
+type SetupProps = {
   onStartQuizAction: (config: QuizConfig) => void;
   onBackAction: () => void;
 };
@@ -34,10 +34,7 @@ const TOPICS = [
   'Art',
 ];
 
-export function QuizSetupScreen({
-  onStartQuizAction,
-  onBackAction,
-}: QuizSetupScreenProps) {
+export function Setup({onStartQuizAction, onBackAction}: SetupProps) {
   const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>(
     'medium'
   );

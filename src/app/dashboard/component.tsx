@@ -1,9 +1,9 @@
 'use client';
 
 import {Play, Trophy, History, BarChart3, LogOut} from 'lucide-react';
-import {Logo} from './ui/Logo';
-import {soundManager} from '../utils/sounds';
-import {cn} from './ui/utils';
+import {Logo} from '@/components/ui/Logo';
+import {soundManager} from '@/utils/sounds';
+import {cn} from '@/components/ui/utils';
 
 type DashboardProps = {
   username: string;

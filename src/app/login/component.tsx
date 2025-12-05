@@ -1,16 +1,14 @@
-'use client';
-
 import {useState} from 'react';
 import {User, Lock, LogIn} from 'lucide-react';
-import {BrutalistButton} from './ui/BrutalistButton';
-import {Logo} from './ui/Logo';
-import {soundManager} from '../utils/sounds';
+import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {Logo} from '@/components/ui/Logo';
+import {soundManager} from '@/utils/sounds';
 
-type LoginScreenProps = {
+type LoginProps = {
   onLogin: (username: string) => void;
 };
 
-export function LoginScreen({onLogin}: LoginScreenProps) {
+export function Login({onLogin}: LoginProps) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isLogin, setIsLogin] = useState(true);

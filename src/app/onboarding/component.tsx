@@ -1,14 +1,12 @@
-'use client';
-
 import {Sparkles} from 'lucide-react';
-import {BrutalistButton} from './ui/BrutalistButton';
-import {soundManager} from '../utils/sounds';
+import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {soundManager} from '@/utils/sounds';
 
-type OnboardingScreenProps = {
+type OnboardingProps = {
   onStart: () => void;
 };
 
-export function OnboardingScreen({onStart}: OnboardingScreenProps) {
+export function Onboarding({onStart}: OnboardingProps) {
   const handleStart = () => {
     soundManager.playClick();
     onStart();

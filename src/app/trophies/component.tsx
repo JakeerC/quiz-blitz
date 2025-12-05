@@ -14,9 +14,9 @@ import {
   ArrowLeft,
   Lock,
 } from 'lucide-react';
-import {BrutalistButton} from './ui/BrutalistButton';
-import {soundManager} from '../utils/sounds';
-import {cn} from './ui/utils';
+import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {soundManager} from '@/utils/sounds';
+import {cn} from '@/components/ui/utils';
 
 type Rarity = 'common' | 'rare' | 'epic' | 'legendary';
 type Achievement = {

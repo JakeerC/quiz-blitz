@@ -1,6 +1,6 @@
 'use client';
 
-import {QuizSetupScreen} from '@/components/QuizSetupScreen';
+import {Setup} from '@/app/setup/component';
 import {useApp, QuizConfig} from '@/context/AppContext';
 import {useRouter} from 'next/navigation';
 import {useEffect} from 'react';
@@ -27,9 +27,6 @@ export default function SetupPage() {
   if (!username) return null;
 
   return (
-    <QuizSetupScreen
-      onStartQuizAction={handleStartQuiz}
-      onBackAction={handleBack}
-    />
+    <Setup onStartQuizAction={handleStartQuiz} onBackAction={handleBack} />
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import {QuizHistory} from '@/components/QuizHistory';
+import {History} from '@/app/history/component';
 import {useApp} from '@/context/AppContext';
 import {useRouter} from 'next/navigation';
 import {useEffect} from 'react';
@@ -21,5 +21,5 @@ export default function HistoryPage() {
 
   if (!username) return null;
 
-  return <QuizHistory onBackAction={handleBack} />;
+  return <History onBackAction={handleBack} />;
 }

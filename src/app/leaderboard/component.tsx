@@ -1,8 +1,8 @@
 'use client';
 
 import {Crown, Medal, TrendingUp, ArrowLeft} from 'lucide-react';
-import {BrutalistButton} from './ui/BrutalistButton';
-import {soundManager} from '../utils/sounds';
+import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {soundManager} from '@/utils/sounds';
 
 type LeaderboardEntry = {
   rank: number;

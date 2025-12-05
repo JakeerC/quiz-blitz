@@ -1,7 +1,7 @@
 'use client';
 
-import { OnboardingScreen } from '@/components/OnboardingScreen';
-import { useRouter } from 'next/navigation';
+import {Onboarding} from '@/app/onboarding/component';
+import {useRouter} from 'next/navigation';
 
 export default function OnboardingPage() {
   const router = useRouter();
@@ -10,5 +10,5 @@ export default function OnboardingPage() {
     router.push('/setup');
   };
 
-  return <OnboardingScreen onStart={handleStart} />;
+  return <Onboarding onStart={handleStart} />;
 }

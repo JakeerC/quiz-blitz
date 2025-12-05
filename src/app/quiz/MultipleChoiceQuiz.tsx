@@ -2,13 +2,13 @@
 
 import {useState} from 'react';
 import {Check, X, Clock, Info} from 'lucide-react';
-import {BrutalistButton} from './ui/BrutalistButton';
-import {soundManager} from '../utils/sounds';
+import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {soundManager} from '@/utils/sounds';
 import type {
   QuizConfig,
   QuizResult,
   QuestionDetail,
-} from '../context/AppContext';
+} from '@/context/AppContext';
 
 type Question = {
   question: string;
@@ -177,7 +177,7 @@ export function MultipleChoiceQuiz({
 
         {/* Question Card */}
         <div key={currentIndex} className="mb-8">
-          <div className="card">
+          <div className="card p-8">
             <h2 className="mb-2 tracking-tight uppercase">
               {currentQuestion.question}
             </h2>

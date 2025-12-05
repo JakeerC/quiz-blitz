@@ -1,6 +1,6 @@
 'use client';
 
-import {TrophiesAchievements} from '@/components/TrophiesAchievements';
+import {TrophiesAchievements} from '@/app/trophies/component';
 import {useApp} from '@/context/AppContext';
 import {useRouter} from 'next/navigation';
 import {useEffect} from 'react';

@@ -10,12 +10,12 @@ import {
   X,
 } from 'lucide-react';
 import {PieChart, Pie, Cell, ResponsiveContainer} from 'recharts';
-import {BrutalistButton} from './ui/BrutalistButton';
-import {soundManager} from '../utils/sounds';
-import type {QuizResult, QuizConfig} from '../context/AppContext';
+import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {soundManager} from '@/utils/sounds';
+import type {QuizResult, QuizConfig} from '@/context/AppContext';
 import {color} from '@/constants/colors';
 
-type ResultsScreenProps = {
+type ResultsProps = {
   result: QuizResult;
   config: QuizConfig;
   onRetake: () => void;
@@ -23,13 +23,13 @@ type ResultsScreenProps = {
   onBackToDashboard: () => void;
 };
 
-export function ResultsScreen({
+export function Results({
   result,
   config,
   onRetake,
   onNewQuiz,
   onBackToDashboard,
-}: ResultsScreenProps) {
+}: ResultsProps) {
   const scorePercentage = Math.round(
     (result.correctAnswers / result.totalQuestions) * 100
   );

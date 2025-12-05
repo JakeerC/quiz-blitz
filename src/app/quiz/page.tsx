@@ -1,7 +1,7 @@
 'use client';
 
-import {MultipleChoiceQuiz} from '@/components/MultipleChoiceQuiz';
-import {TrueFalseQuiz} from '@/components/TrueFalseQuiz';
+import {MultipleChoiceQuiz} from '@/app/quiz/MultipleChoiceQuiz';
+import {TrueFalseQuiz} from '@/app/quiz/TrueFalseQuiz';
 import {useApp, QuizResult} from '@/context/AppContext';
 import {useRouter} from 'next/navigation';
 import {useEffect} from 'react';
