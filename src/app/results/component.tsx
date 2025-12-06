@@ -14,6 +14,7 @@ import {BrutalistButton} from '@/components/ui/BrutalistButton';
 import {soundManager} from '@/utils/sounds';
 import type {QuizResult, QuizConfig} from '@/context/AppContext';
 import {color} from '@/constants/colors';
+import {Grade} from '@/types';
 
 type ResultsProps = {
   result: QuizResult;
@@ -46,7 +47,7 @@ export function Results({
     return `${mins}m ${secs}s`;
   };
 
-  const getGrade = () => {
+  const getGrade = (): {grade: Grade; color: string} => {
     if (scorePercentage >= 90) return {grade: 'A+', color: color.gradeAplus};
     if (scorePercentage >= 80) return {grade: 'A', color: color.gradeA};
     if (scorePercentage >= 70) return {grade: 'B', color: color.gradeB};

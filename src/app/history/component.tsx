@@ -11,17 +11,18 @@ import {
 import {BrutalistButton} from '@/components/ui/BrutalistButton';
 import {soundManager} from '@/utils/sounds';
 import {color} from '@/constants/colors';
+import {Difficulty, Grade} from '@/types';
 
 type HistoryEntry = {
   id: number;
   date: string;
   topic: string;
-  difficulty: 'easy' | 'medium' | 'hard';
+  difficulty: Difficulty;
   score: number;
   totalQuestions: number;
   correctAnswers: number;
   timeTaken: number;
-  grade: string;
+  grade: Grade;
 };
 
 type HistoryProps = {
@@ -108,7 +109,7 @@ export function History({onBackAction}: HistoryProps) {
     });
   };
 
-  const getDifficultyColor = (difficulty: string) => {
+  const getDifficultyColor = (difficulty: Difficulty) => {
     if (difficulty === 'easy') return '#00D9A3';
     if (difficulty === 'medium') return '#FFE500';
     return '#FF9500';

@@ -14,11 +14,12 @@ import {
   ArrowLeft,
   Lock,
 } from 'lucide-react';
+
 import {BrutalistButton} from '@/components/ui/BrutalistButton';
 import {soundManager} from '@/utils/sounds';
 import {cn} from '@/components/ui/utils';
+import {Rarity} from '@/types';
 
-type Rarity = 'common' | 'rare' | 'epic' | 'legendary';
 type Achievement = {
   id: number;
   title: string;

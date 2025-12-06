@@ -15,6 +15,7 @@ import {Slider} from '@/components/ui/Slider';
 import {BrutalistInput} from '@/components/ui/BrutalistInput';
 import {soundManager} from '@/utils/sounds';
 import type {QuizConfig} from '@/context/AppContext';
+import {AnswerMode, Difficulty, QuestionType} from '@/types';
 
 type SetupProps = {
   onStartQuizAction: (config: QuizConfig) => void;
@@ -35,19 +36,14 @@ const TOPICS = [
 ];
 
 export function Setup({onStartQuizAction, onBackAction}: SetupProps) {
-  const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>(
-    'medium'
-  );
-  const [topic, setTopic] = useState('Science');
-  const [customTopic, setCustomTopic] = useState('');
-  const [useCustomTopic, setUseCustomTopic] = useState(false);
-  const [numQuestions, setNumQuestions] = useState(10);
-  const [responseType, setResponseType] = useState<
-    'multiple-choice' | 'true-false'
-  >('multiple-choice');
-  const [answerMode, setAnswerMode] = useState<'interactive' | 'batch'>(
-    'interactive'
-  );
+  const [difficulty, setDifficulty] = useState<Difficulty>('medium');
+  const [topic, setTopic] = useState<string>('Science');
+  const [customTopic, setCustomTopic] = useState<string>('');
+  const [useCustomTopic, setUseCustomTopic] = useState<boolean>(false);
+  const [numQuestions, setNumQuestions] = useState<number>(10);
+  const [responseType, setResponseType] =
+    useState<QuestionType>('multiple-choice');
+  const [answerMode, setAnswerMode] = useState<AnswerMode>('interactive');
 
   const handleStart = () => {
     soundManager.playClick();
@@ -62,7 +58,7 @@ export function Setup({onStartQuizAction, onBackAction}: SetupProps) {
     });
   };
 
-  const handleDifficultyChange = (value: 'easy' | 'medium' | 'hard') => {
+  const handleDifficultyChange = (value: Difficulty) => {
     soundManager.playClick();
     setDifficulty(value);
   };
@@ -73,14 +69,12 @@ export function Setup({onStartQuizAction, onBackAction}: SetupProps) {
     setUseCustomTopic(false);
   };
 
-  const handleResponseTypeChange = (
-    value: 'multiple-choice' | 'true-false'
-  ) => {
+  const handleResponseTypeChange = (value: QuestionType) => {
     soundManager.playClick();
     setResponseType(value);
   };
 
-  const handleAnswerModeChange = (value: 'interactive' | 'batch') => {
+  const handleAnswerModeChange = (value: AnswerMode) => {
     soundManager.playClick();
     setAnswerMode(value);
   };
@@ -119,6 +113,7 @@ export function Setup({onStartQuizAction, onBackAction}: SetupProps) {
                 {value: 'easy', label: 'Easy'},
                 {value: 'medium', label: 'Medium'},
                 {value: 'hard', label: 'Hard'},
+                {value: 'mixed', label: 'Mixed'},
               ]}
               selected={difficulty}
               onChange={handleDifficultyChange}
@@ -207,6 +202,7 @@ export function Setup({onStartQuizAction, onBackAction}: SetupProps) {
               options={[
                 {value: 'multiple-choice', label: 'Multiple Choice'},
                 {value: 'true-false', label: 'True / False'},
+                {value: 'mixed', label: 'Mixed'},
               ]}
               selected={responseType}
               onChange={handleResponseTypeChange}

@@ -1,13 +1,14 @@
 'use client';
 
 import {createContext, useContext, useState, ReactNode} from 'react';
+import {Difficulty, QuestionType, AnswerMode} from '@/types';
 
 export type QuizConfig = {
-  difficulty: 'easy' | 'medium' | 'hard';
+  difficulty: Difficulty;
   topic: string;
   numQuestions: number;
-  responseType: 'multiple-choice' | 'true-false';
-  answerMode: 'interactive' | 'batch';
+  responseType: QuestionType;
+  answerMode: AnswerMode;
 };
 
 export type QuestionDetail = {

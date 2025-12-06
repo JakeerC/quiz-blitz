@@ -39,7 +39,12 @@ export function Dashboard({
       : 0;
 
   const menuItems = [
-    {icon: Play, label: 'New Quiz', screen: 'setup', className: 'bg-green-500'},
+    {
+      icon: Play,
+      label: 'New Quiz',
+      screen: 'setup',
+      className: 'bg-green-500',
+    },
     {
       icon: BarChart3,
       label: 'Leaderboard',
@@ -144,12 +149,12 @@ export function Dashboard({
                 </div>
                 <h2 className="tracking-tight uppercase">{item.label}</h2>
               </div>
-              <p className="text-sm tracking-wide text-gray-600 uppercase">
+              {/* <p className="text-sm tracking-wide text-gray-600 uppercase">
                 {item.screen === 'setup' && 'Start a new quiz session'}
                 {item.screen === 'leaderboard' && 'See top performers'}
                 {item.screen === 'history' && 'View past quiz attempts'}
                 {item.screen === 'trophies' && 'Track your progress'}
-              </p>
+              </p> */}
             </button>
           ))}
         </div>
