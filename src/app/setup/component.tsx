@@ -13,7 +13,7 @@ import {ChipSelector} from '@/components/ui/ChipSelector';
 import {Stepper} from '@/components/ui/Stepper';
 import {Slider} from '@/components/ui/Slider';
 import {BrutalistInput} from '@/components/ui/BrutalistInput';
-import {soundManager} from '@/utils/sounds';
+import {soundManager} from '@/utils';
 import type {QuizConfig} from '@/context/AppContext';
 import {AnswerMode, Difficulty, QuestionType} from '@/types';
 

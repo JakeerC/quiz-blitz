@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import {PieChart, Pie, Cell, ResponsiveContainer} from 'recharts';
 import {BrutalistButton} from '@/components/ui/BrutalistButton';
-import {soundManager} from '@/utils/sounds';
+import {soundManager} from '@/utils';
 import type {QuizResult, QuizConfig} from '@/context/AppContext';
 import {color} from '@/constants/colors';
 import {Grade} from '@/types';

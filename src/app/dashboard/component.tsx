@@ -2,8 +2,8 @@
 
 import {Play, Trophy, History, BarChart3, LogOut} from 'lucide-react';
 import {Logo} from '@/components/ui/Logo';
-import {soundManager} from '@/utils/sounds';
-import {cn} from '@/components/ui/utils';
+import {soundManager} from '@/utils';
+import {cn} from '@/utils';
 
 type DashboardProps = {
   username: string;

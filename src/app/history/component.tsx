@@ -9,7 +9,7 @@ import {
   ArrowLeft,
 } from 'lucide-react';
 import {BrutalistButton} from '@/components/ui/BrutalistButton';
-import {soundManager} from '@/utils/sounds';
+import {soundManager} from '@/utils';
 import {color} from '@/constants/colors';
 import {Difficulty, Grade} from '@/types';
 

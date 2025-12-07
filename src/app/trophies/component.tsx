@@ -16,8 +16,8 @@ import {
 } from 'lucide-react';
 
 import {BrutalistButton} from '@/components/ui/BrutalistButton';
-import {soundManager} from '@/utils/sounds';
-import {cn} from '@/components/ui/utils';
+import {soundManager} from '@/utils';
+import {cn} from '@/utils';
 import {Rarity} from '@/types';
 
 type Achievement = {

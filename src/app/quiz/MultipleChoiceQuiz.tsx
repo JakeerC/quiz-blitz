@@ -3,7 +3,7 @@
 import {useState} from 'react';
 import {Check, X, Clock, Info} from 'lucide-react';
 import {BrutalistButton} from '@/components/ui/BrutalistButton';
-import {soundManager} from '@/utils/sounds';
+import {soundManager} from '@/utils';
 import type {
   QuizConfig,
   QuizResult,

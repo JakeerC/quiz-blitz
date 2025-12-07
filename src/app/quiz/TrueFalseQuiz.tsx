@@ -8,7 +8,7 @@ import {
   useTransform,
 } from 'motion/react';
 import {ChevronLeft, ChevronRight, Check, X, Clock, Info} from 'lucide-react';
-import {soundManager} from '@/utils/sounds';
+import {soundManager} from '@/utils';
 import type {
   QuizConfig,
   QuizResult,

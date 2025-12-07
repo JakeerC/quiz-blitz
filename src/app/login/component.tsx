@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {User, Lock, LogIn} from 'lucide-react';
 import {BrutalistButton} from '@/components/ui/BrutalistButton';
 import {Logo} from '@/components/ui/Logo';
-import {soundManager} from '@/utils/sounds';
+import {soundManager} from '@/utils';
 
 type LoginProps = {
   onLogin: (username: string) => void;
