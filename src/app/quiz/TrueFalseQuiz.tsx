@@ -9,11 +9,7 @@ import {
 } from 'motion/react';
 import {ChevronLeft, ChevronRight, Check, X, Clock, Info} from 'lucide-react';
 import {soundManager} from '@/utils';
-import type {
-  QuizConfig,
-  QuizResult,
-  QuestionDetail,
-} from '@/context/AppContext';
+import type {QuizConfig, QuizResult, QuestionDetail} from '@/types';
 import {generateTrueFalseQuestions} from '@/mocks/questions';
 
 type TrueFalseQuizProps = {

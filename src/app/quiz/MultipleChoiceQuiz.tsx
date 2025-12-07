@@ -8,7 +8,8 @@ import type {
   QuizConfig,
   QuizResult,
   QuestionDetail,
-} from '@/context/AppContext';
+  MultipleChoiceQuestion as Question,
+} from '@/types';
 import {generateMultipleChoiceQuestions} from '@/mocks/questions';
 
 type MultipleChoiceQuizProps = {

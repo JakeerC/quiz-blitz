@@ -1,16 +1,4 @@
-import {Difficulty, Grade} from '@/types';
-
-export type HistoryEntry = {
-  id: number;
-  date: string;
-  topic: string;
-  difficulty: Difficulty;
-  score: number;
-  totalQuestions: number;
-  correctAnswers: number;
-  timeTaken: number;
-  grade: Grade;
-};
+import {HistoryEntry} from '@/types';
 
 // Mock history data
 export const mockHistory: HistoryEntry[] = [

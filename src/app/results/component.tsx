@@ -12,9 +12,8 @@ import {
 import {PieChart, Pie, Cell, ResponsiveContainer} from 'recharts';
 import {BrutalistButton} from '@/components/ui/BrutalistButton';
 import {soundManager} from '@/utils';
-import type {QuizResult, QuizConfig} from '@/context/AppContext';
+import type {QuizResult, QuizConfig, Grade} from '@/types';
 import {color} from '@/constants/colors';
-import {Grade} from '@/types';
 
 type ResultsProps = {
   result: QuizResult;

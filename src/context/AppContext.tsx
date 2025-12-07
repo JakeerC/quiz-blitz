@@ -1,40 +1,8 @@
 'use client';
 
 import {createContext, useContext, useState, ReactNode} from 'react';
-import {Difficulty, QuestionType, AnswerMode} from '@/types';
+import {QuizConfig, QuizResult, UserStats} from '@/types';
 import {mockUserStats} from '@/mocks/user';
-
-export type QuizConfig = {
-  difficulty: Difficulty;
-  topic: string;
-  numQuestions: number;
-  responseType: QuestionType;
-  answerMode: AnswerMode;
-};
-
-export type QuestionDetail = {
-  question: string;
-  userAnswer: string | boolean;
-  correctAnswer: string | boolean;
-  isCorrect: boolean;
-  explanation: string;
-};
-
-export type QuizResult = {
-  totalQuestions: number;
-  correctAnswers: number;
-  incorrectAnswers: number;
-  timeTaken: number;
-  weakTopics: string[];
-  questionDetails: QuestionDetail[];
-};
-
-type UserStats = {
-  totalQuizzes: number;
-  totalCorrect: number;
-  totalQuestions: number;
-  achievements: number;
-};
 
 type AppContextType = {
   username: string;

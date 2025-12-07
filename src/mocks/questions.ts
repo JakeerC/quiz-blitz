@@ -1,19 +1,4 @@
-import {QuizConfig} from '@/context/AppContext';
-
-export type MultipleChoiceQuestion = {
-  question: string;
-  options: string[];
-  correctAnswer: number;
-  topic: string;
-  explanation: string;
-};
-
-export type TrueFalseQuestion = {
-  question: string;
-  correctAnswer: boolean;
-  topic: string;
-  explanation: string;
-};
+import {QuizConfig, MultipleChoiceQuestion, TrueFalseQuestion} from '@/types';
 
 // Generate mock questions for multiple choice
 export function generateMultipleChoiceQuestions(
