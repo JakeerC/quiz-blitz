@@ -9,70 +9,18 @@ import type {
   QuizResult,
   QuestionDetail,
 } from '@/context/AppContext';
-
-type Question = {
-  question: string;
-  options: string[];
-  correctAnswer: number;
-  topic: string;
-  explanation: string;
-};
+import {generateMultipleChoiceQuestions} from '@/mocks/questions';
 
 type MultipleChoiceQuizProps = {
   config: QuizConfig;
   onCompleteAction: (result: QuizResult) => void;
 };
 
-// Generate mock questions
-function generateQuestions(config: QuizConfig): Question[] {
-  const templates = [
-    {
-      q: `What is the capital of ${config.topic}?`,
-      opts: ['Paris', 'London', 'Berlin', 'Madrid'],
-      exp: 'This question tests your knowledge of capitals and major cities in geography.',
-    },
-    {
-      q: `Which year is significant in ${config.topic}?`,
-      opts: ['1492', '1776', '1945', '2001'],
-      exp: 'Historical dates help us understand the timeline of important events and discoveries.',
-    },
-    {
-      q: `Who is famous in ${config.topic}?`,
-      opts: ['Einstein', 'Newton', 'Tesla', 'Curie'],
-      exp: 'Understanding key figures helps us appreciate their contributions to this field.',
-    },
-    {
-      q: `What is a key concept in ${config.topic}?`,
-      opts: ['Gravity', 'Evolution', 'Relativity', 'Quantum'],
-      exp: 'Core concepts form the foundation for understanding more complex topics in this area.',
-    },
-    {
-      q: `Which discovery relates to ${config.topic}?`,
-      opts: ['DNA', 'Electricity', 'Atoms', 'Cells'],
-      exp: 'Scientific discoveries have shaped our modern understanding of the world around us.',
-    },
-  ];
-
-  const questions: Question[] = [];
-  for (let i = 0; i < config.numQuestions; i++) {
-    const template = templates[i % templates.length];
-    const correctIndex = Math.floor(Math.random() * 4);
-    questions.push({
-      question: `${template.q} (${config.difficulty})`,
-      options: template.opts,
-      correctAnswer: correctIndex,
-      topic: config.topic,
-      explanation: `${template.exp} The correct answer is "${template.opts[correctIndex]}" based on established ${config.topic} knowledge at ${config.difficulty} level.`,
-    });
-  }
-  return questions;
-}
-
 export function MultipleChoiceQuiz({
   config,
   onCompleteAction,
 }: MultipleChoiceQuizProps) {
-  const [questions] = useState(() => generateQuestions(config));
+  const [questions] = useState(() => generateMultipleChoiceQuestions(config));
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [answers, setAnswers] = useState<(number | null)[]>(

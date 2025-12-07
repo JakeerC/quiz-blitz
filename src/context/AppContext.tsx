@@ -2,6 +2,7 @@
 
 import {createContext, useContext, useState, ReactNode} from 'react';
 import {Difficulty, QuestionType, AnswerMode} from '@/types';
+import {mockUserStats} from '@/mocks/user';
 
 export type QuizConfig = {
   difficulty: Difficulty;
@@ -55,12 +56,7 @@ export function AppProvider({children}: {children: ReactNode}) {
   const [quizResult, setQuizResult] = useState<QuizResult | null>(null);
 
   // User stats (mock data)
-  const [userStats, setUserStats] = useState<UserStats>({
-    totalQuizzes: 5,
-    totalCorrect: 82,
-    totalQuestions: 100,
-    achievements: 4,
-  });
+  const [userStats, setUserStats] = useState<UserStats>(mockUserStats);
 
   const login = (user: string) => {
     setUsername(user);

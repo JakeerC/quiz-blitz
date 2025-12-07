@@ -1,0 +1,72 @@
+import {Difficulty, Grade} from '@/types';
+
+export type HistoryEntry = {
+  id: number;
+  date: string;
+  topic: string;
+  difficulty: Difficulty;
+  score: number;
+  totalQuestions: number;
+  correctAnswers: number;
+  timeTaken: number;
+  grade: Grade;
+};
+
+// Mock history data
+export const mockHistory: HistoryEntry[] = [
+  {
+    id: 1,
+    date: '2025-11-29',
+    topic: 'Science',
+    difficulty: 'hard',
+    score: 950,
+    totalQuestions: 20,
+    correctAnswers: 18,
+    timeTaken: 240,
+    grade: 'A',
+  },
+  {
+    id: 2,
+    date: '2025-11-28',
+    topic: 'History',
+    difficulty: 'medium',
+    score: 820,
+    totalQuestions: 15,
+    correctAnswers: 13,
+    timeTaken: 180,
+    grade: 'A',
+  },
+  {
+    id: 3,
+    date: '2025-11-27',
+    topic: 'Geography',
+    difficulty: 'easy',
+    score: 750,
+    totalQuestions: 10,
+    correctAnswers: 9,
+    timeTaken: 95,
+    grade: 'A',
+  },
+  {
+    id: 4,
+    date: '2025-11-26',
+    topic: 'Math',
+    difficulty: 'hard',
+    score: 680,
+    totalQuestions: 20,
+    correctAnswers: 14,
+    timeTaken: 310,
+    grade: 'B',
+  },
+  {
+    id: 5,
+    date: '2025-11-25',
+    topic: 'Literature',
+    difficulty: 'medium',
+    score: 720,
+    totalQuestions: 15,
+    correctAnswers: 12,
+    timeTaken: 195,
+    grade: 'B',
+  },
+];

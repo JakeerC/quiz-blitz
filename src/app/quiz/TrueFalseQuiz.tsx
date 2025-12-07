@@ -13,65 +13,16 @@ import type {
   QuizConfig,
   QuizResult,
   QuestionDetail,
-} from '../context/AppContext';
-
-type Question = {
-  question: string;
-  correctAnswer: boolean;
-  topic: string;
-  explanation: string;
-};
+} from '@/context/AppContext';
+import {generateTrueFalseQuestions} from '@/mocks/questions';
 
 type TrueFalseQuizProps = {
   config: QuizConfig;
   onCompleteAction: (result: QuizResult) => void;
 };
 
-// Generate mock questions
-function generateQuestions(config: QuizConfig): Question[] {
-  const templates = [
-    {
-      q: `${config.topic} was discovered in ancient times`,
-      a: true,
-      exp: 'Many foundational concepts and discoveries have roots in ancient civilizations and early human inquiry.',
-    },
-    {
-      q: `The study of ${config.topic} began in the 20th century`,
-      a: false,
-      exp: 'Most fields of study have much longer histories, often dating back centuries or millennia.',
-    },
-    {
-      q: `${config.topic} is considered a fundamental concept`,
-      a: true,
-      exp: 'Core concepts form the building blocks for understanding more advanced topics in any field.',
-    },
-    {
-      q: `There are no practical applications of ${config.topic}`,
-      a: false,
-      exp: 'Nearly all areas of knowledge have real-world applications that benefit society and technology.',
-    },
-    {
-      q: `${config.topic} has influenced modern technology`,
-      a: true,
-      exp: 'Scientific and theoretical knowledge often serves as the foundation for technological advancement.',
-    },
-  ];
-
-  const questions: Question[] = [];
-  for (let i = 0; i < config.numQuestions; i++) {
-    const template = templates[i % templates.length];
-    questions.push({
-      question: `${template.q} (${config.difficulty})`,
-      correctAnswer: template.a,
-      topic: config.topic,
-      explanation: `${template.exp} In the context of ${config.topic}, this ${template.a ? 'is' : 'is not'} accurate at ${config.difficulty} level.`,
-    });
-  }
-  return questions;
-}
-
 export function TrueFalseQuiz({config, onCompleteAction}: TrueFalseQuizProps) {
-  const [questions] = useState(() => generateQuestions(config));
+  const [questions] = useState(() => generateTrueFalseQuestions(config));
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<(boolean | null)[]>(
     Array(config.numQuestions).fill(null)
