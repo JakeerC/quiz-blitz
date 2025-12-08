@@ -23,10 +23,13 @@ export function BrutalistButton({
     'border-box transition-all cursor-pointer select-none rounded';
 
   const variantStyles = {
-    primary: 'bg-primary hover:bg-[#FFD700] active:bg-[#FFC700]',
-    secondary: 'bg-white hover:bg-gray-50 active:bg-gray-100',
-    danger: 'bg-[#FF5757] hover:bg-[#FF4444] active:bg-[#FF3333]',
-    success: 'bg-[#00D9A3] hover:bg-[#00C794] active:bg-[#00B585]',
+    primary:
+      'bg-primary hover:bg-primary-hover active:bg-primary-active text-primary-foreground',
+    secondary: 'bg-card text-card-foreground hover:bg-muted active:bg-muted/80',
+    danger:
+      'bg-destructive hover:bg-destructive-hover active:bg-destructive-active text-destructive-foreground',
+    success:
+      'bg-success hover:bg-success-hover active:bg-success-active text-white',
   };
 
   const sizeStyles = {

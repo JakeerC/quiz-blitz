@@ -17,7 +17,7 @@ export function BrutalistInput({
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className={`border-box w-full bg-white px-6 py-4 tracking-wide uppercase transition-all placeholder:text-gray-400 placeholder:uppercase focus:bg-[#FFFEF9] focus:outline-none ${className} `}
+      className={`border-box bg-card placeholder:text-muted-foreground focus:bg-card w-full px-6 py-4 tracking-wide uppercase transition-all placeholder:uppercase focus:outline-none ${className} `}
     />
   );
 }

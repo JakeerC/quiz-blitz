@@ -16,8 +16,8 @@ export function ChipSelector({options, selected, onChange}: ChipSelectorProps) {
             onClick={() => onChange(option)}
             className={`border-box px-5 py-2.5 transition-all ${
               isSelected
-                ? 'bg-primary text-black'
-                : 'bg-white text-black hover:bg-gray-50'
+                ? 'bg-primary text-primary-foreground'
+                : 'bg-card text-card-foreground hover:bg-muted'
             } `}>
             <span className="tracking-wide uppercase">{option}</span>
           </button>
