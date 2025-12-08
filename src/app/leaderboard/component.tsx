@@ -1,7 +1,7 @@
 'use client';
 
 import {Crown, Medal, TrendingUp, ArrowLeft} from 'lucide-react';
-import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {Button} from '@/components/ui/Button';
 import {soundManager} from '@/utils';
 
 import {mockLeaderboard} from '@/mocks/leaderboard';
@@ -40,10 +40,10 @@ export function Leaderboard({onBackAction, currentUser}: LeaderboardProps) {
               </p>
             </div>
           </div>
-          <BrutalistButton onClick={handleBack} variant="secondary">
+          <Button onClick={handleBack} variant="secondary">
             <ArrowLeft size={20} strokeWidth={3} />
             <span className="tracking-wide uppercase">Back</span>
-          </BrutalistButton>
+          </Button>
         </div>
 
         {/* Top 3 Podium */}

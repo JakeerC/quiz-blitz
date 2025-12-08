@@ -10,7 +10,7 @@ import {
   X,
 } from 'lucide-react';
 import {PieChart, Pie, Cell, ResponsiveContainer} from 'recharts';
-import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {Button} from '@/components/ui/Button';
 import {soundManager} from '@/utils';
 import type {QuizResult, QuizConfig, Grade} from '@/types';
 import {color} from '@/constants/colors';
@@ -288,25 +288,25 @@ export function Results({
 
         {/* Action Buttons */}
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <BrutalistButton
+          <Button
             onClick={handleRetake}
             variant="secondary"
             size="large"
             className="flex items-center gap-3">
             <RotateCcw size={24} strokeWidth={3} />
             <span className="tracking-widest uppercase">Retake Quiz</span>
-          </BrutalistButton>
+          </Button>
 
-          <BrutalistButton
+          <Button
             onClick={handleNewQuiz}
             variant="primary"
             size="large"
             className="flex items-center gap-3">
             <Plus size={24} strokeWidth={3} />
             <span className="tracking-widest uppercase">New Quiz</span>
-          </BrutalistButton>
+          </Button>
 
-          <BrutalistButton
+          <Button
             onClick={() => {
               soundManager.playClick();
               onBackToDashboard();
@@ -315,7 +315,7 @@ export function Results({
             size="large"
             className="flex items-center gap-3">
             <span className="tracking-widest uppercase">← Dashboard</span>
-          </BrutalistButton>
+          </Button>
         </div>
       </div>
     </div>

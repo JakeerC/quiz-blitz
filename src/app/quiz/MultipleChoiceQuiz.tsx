@@ -2,7 +2,7 @@
 
 import {useState} from 'react';
 import {Check, X, Clock, Info} from 'lucide-react';
-import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {Button} from '@/components/ui/Button';
 import {soundManager} from '@/utils';
 import type {
   QuizConfig,
@@ -180,7 +180,7 @@ export function MultipleChoiceQuiz({
         {/* Next Button (Interactive Mode) */}
         {config.answerMode === 'interactive' && showFeedback && (
           <div className="flex justify-end">
-            <BrutalistButton
+            <Button
               onClick={handleNext}
               variant={isCorrect ? 'success' : 'danger'}
               size="large"
@@ -188,7 +188,7 @@ export function MultipleChoiceQuiz({
               <span className="tracking-widest uppercase">
                 {currentIndex < questions.length - 1 ? 'Next →' : 'Finish'}
               </span>
-            </BrutalistButton>
+            </Button>
           </div>
         )}
       </div>

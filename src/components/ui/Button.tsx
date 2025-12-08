@@ -1,6 +1,6 @@
 import {ReactNode} from 'react';
 
-type BrutalistButtonProps = {
+type ButtonProps = {
   children: ReactNode;
   onClick?: () => void;
   variant?: 'primary' | 'secondary' | 'danger' | 'success';
@@ -10,7 +10,7 @@ type BrutalistButtonProps = {
   type?: 'button' | 'submit' | 'reset';
 };
 
-export function BrutalistButton({
+export function Button({
   children,
   onClick,
   variant = 'primary',
@@ -18,7 +18,7 @@ export function BrutalistButton({
   disabled = false,
   className = '',
   type = 'button',
-}: BrutalistButtonProps) {
+}: ButtonProps) {
   const baseStyles =
     'flex gap-2 items-center border-box transition-all cursor-pointer select-none rounded-md border-6 border-black shadow-md hover:shadow-lg active:shadow-sm';
 

@@ -4,7 +4,7 @@ import {Play, Trophy, History, BarChart3, LogOut} from 'lucide-react';
 import {Logo} from '@/components/ui/Logo';
 import {soundManager} from '@/utils';
 import {cn} from '@/utils';
-import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {Button} from '@/components/ui/Button';
 
 type DashboardProps = {
   username: string;
@@ -80,10 +80,10 @@ export function Dashboard({
               </p>
             </div>
           </div>
-          <BrutalistButton onClick={handleLogout} variant="secondary">
+          <Button onClick={handleLogout} variant="secondary">
             <LogOut size={20} strokeWidth={3} />
             Logout
-          </BrutalistButton>
+          </Button>
         </div>
 
         {/* Stats Cards */}

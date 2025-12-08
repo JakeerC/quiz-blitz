@@ -1,16 +1,16 @@
-type BrutalistInputProps = {
+type InputProps = {
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
   className?: string;
 };
 
-export function BrutalistInput({
+export function Input({
   value,
   onChange,
   placeholder,
   className = '',
-}: BrutalistInputProps) {
+}: InputProps) {
   return (
     <input
       type="text"

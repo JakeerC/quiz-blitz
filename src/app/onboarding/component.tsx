@@ -1,5 +1,5 @@
 import {Sparkles} from 'lucide-react';
-import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {Button} from '@/components/ui/Button';
 import {soundManager} from '@/utils';
 
 type OnboardingProps = {
@@ -41,13 +41,13 @@ export function Onboarding({onStart}: OnboardingProps) {
 
           {/* CTA Button */}
           <div className="flex justify-center">
-            <BrutalistButton
+            <Button
               onClick={handleStart}
               variant="primary"
               size="large"
               className="w-full max-w-xs">
               <span className="tracking-widest uppercase">Start Quiz</span>
-            </BrutalistButton>
+            </Button>
           </div>
         </div>
 

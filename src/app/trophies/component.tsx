@@ -1,7 +1,7 @@
 import {Trophy, Star, ArrowLeft, Lock} from 'lucide-react';
 import {mockAchievements} from '@/mocks/achievements';
 
-import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {Button} from '@/components/ui/Button';
 import {soundManager} from '@/utils';
 import {cn} from '@/utils';
 import {Rarity} from '@/types';
@@ -45,10 +45,10 @@ export function TrophiesAchievements({
               </p>
             </div>
           </div>
-          <BrutalistButton onClick={handleBack} variant="secondary">
+          <Button onClick={handleBack} variant="secondary">
             <ArrowLeft size={20} strokeWidth={3} />
             <span className="tracking-wide uppercase">Back</span>
-          </BrutalistButton>
+          </Button>
         </div>
 
         {/* Progress Overview */}

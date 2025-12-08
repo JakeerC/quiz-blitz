@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {User, Lock, LogIn} from 'lucide-react';
-import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {Button} from '@/components/ui/Button';
 import {Logo} from '@/components/ui/Logo';
 import {soundManager} from '@/utils';
 
@@ -107,7 +107,7 @@ export function Login({onLogin}: LoginProps) {
               </div>
 
               {/* Submit Button */}
-              <BrutalistButton
+              <Button
                 type="submit"
                 variant="primary"
                 size="large"
@@ -116,7 +116,7 @@ export function Login({onLogin}: LoginProps) {
                 <span className="tracking-widest uppercase">
                   {isLogin ? 'Login' : 'Sign Up'}
                 </span>
-              </BrutalistButton>
+              </Button>
             </form>
           </div>
 

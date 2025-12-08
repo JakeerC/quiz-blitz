@@ -7,12 +7,12 @@ import {
   Shuffle,
   PenLine,
 } from 'lucide-react';
-import {BrutalistButton} from '@/components/ui/BrutalistButton';
+import {Button} from '@/components/ui/Button';
 import {ToggleSelector} from '@/components/ui/ToggleSelector';
 import {ChipSelector} from '@/components/ui/ChipSelector';
 import {Stepper} from '@/components/ui/Stepper';
 import {Slider} from '@/components/ui/Slider';
-import {BrutalistInput} from '@/components/ui/BrutalistInput';
+import {Input} from '@/components/ui/Input';
 import {soundManager} from '@/utils';
 import type {QuizConfig} from '@/context/AppContext';
 import {AnswerMode, Difficulty, QuestionType} from '@/types';
@@ -90,14 +90,14 @@ export function Setup({onStartQuizAction, onBackAction}: SetupProps) {
             </div>
             <h1 className="tracking-tight uppercase">Setup Quiz</h1>
           </div>
-          <BrutalistButton
+          <Button
             onClick={() => {
               soundManager.playClick();
               onBackAction();
             }}
             variant="secondary">
             <span className="tracking-wide uppercase">← Dashboard</span>
-          </BrutalistButton>
+          </Button>
         </div>
 
         {/* Main Setup Container */}
@@ -140,7 +140,7 @@ export function Setup({onStartQuizAction, onBackAction}: SetupProps) {
                   Or enter custom topic:
                 </label>
               </div>
-              <BrutalistInput
+              <Input
                 value={customTopic}
                 onChange={(value) => {
                   setCustomTopic(value);
@@ -241,13 +241,13 @@ export function Setup({onStartQuizAction, onBackAction}: SetupProps) {
 
         {/* Start Button */}
         <div className="mt-8 flex justify-end">
-          <BrutalistButton
+          <Button
             onClick={handleStart}
             variant="primary"
             size="large"
             className="px-16">
             <span className="tracking-widest uppercase">Start Quiz →</span>
-          </BrutalistButton>
+          </Button>
         </div>
       </div>
     </div>
