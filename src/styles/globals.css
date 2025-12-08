@@ -18,7 +18,7 @@
     border-radius: var(--radius-md);
   }
   .card {
-    @apply overflow-hidden border-6 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)];
+    @apply overflow-hidden border-6 border-black bg-white shadow-md;
     border-radius: var(--radius-md);
   }
   .border-box {
