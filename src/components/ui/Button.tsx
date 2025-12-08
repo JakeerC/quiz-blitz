@@ -1,48 +1,58 @@
 import {ReactNode} from 'react';
+import {cva, type VariantProps} from 'class-variance-authority';
+import {cn} from '@/utils';
 
-type ButtonProps = {
+const buttonVariants = cva(
+  'flex gap-2 items-center border-box transition-all cursor-pointer select-none rounded-md border-6 border-black shadow-md hover:shadow-lg active:shadow-sm',
+  {
+    variants: {
+      variant: {
+        primary: 'bg-primary text-primary-foreground',
+        secondary: 'bg-secondary text-secondary-foreground',
+        danger: 'bg-danger text-danger-foreground',
+        success: 'bg-success text-success-foreground',
+      },
+      size: {
+        small: 'px-4 py-2',
+        medium: 'px-6 py-4',
+        large: 'px-8 py-6',
+      },
+    },
+    defaultVariants: {
+      variant: 'primary',
+      size: 'medium',
+    },
+  }
+);
+
+export interface ButtonProps
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   children: ReactNode;
-  onClick?: () => void;
-  variant?: 'primary' | 'secondary' | 'danger' | 'success';
-  size?: 'small' | 'medium' | 'large';
-  disabled?: boolean;
-  className?: string;
-  type?: 'button' | 'submit' | 'reset';
-};
+}
 
 export function Button({
   children,
-  onClick,
-  variant = 'primary',
-  size = 'medium',
-  disabled = false,
-  className = '',
+  variant,
+  size,
+  disabled,
+  className,
   type = 'button',
+  onClick,
+  ...props
 }: ButtonProps) {
-  const baseStyles =
-    'flex gap-2 items-center border-box transition-all cursor-pointer select-none rounded-md border-6 border-black shadow-md hover:shadow-lg active:shadow-sm';
-
-  const variantStyles = {
-    primary: 'bg-primary  text-primary-foreground',
-    secondary: 'bg-secondary  text-secondary-foreground',
-    danger: 'bg-danger  text-danger-foreground',
-    success: 'bg-success  text-success-foreground',
-  };
-
-  const sizeStyles = {
-    small: 'px-4 py-2',
-    medium: 'px-6 py-4',
-    large: 'px-8 py-6',
-  };
-
-  const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed' : '';
-
   return (
     <button
       type={type}
       onClick={disabled ? undefined : onClick}
-      className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${disabledStyles} ${className}`}
-      disabled={disabled}>
+      className={cn(
+        buttonVariants({variant, size}),
+        disabled && 'cursor-not-allowed opacity-50',
+        className
+      )}
+      disabled={disabled}
+      {...props}>
       {children}
     </button>
   );
