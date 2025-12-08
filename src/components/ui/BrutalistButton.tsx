@@ -20,16 +20,13 @@ export function BrutalistButton({
   type = 'button',
 }: BrutalistButtonProps) {
   const baseStyles =
-    'border-box transition-all cursor-pointer select-none rounded';
+    'flex gap-2 items-center border-box transition-all cursor-pointer select-none rounded-md border-6 border-black shadow-md hover:shadow-lg active:shadow-sm';
 
   const variantStyles = {
-    primary:
-      'bg-primary hover:bg-primary-hover active:bg-primary-active text-primary-foreground',
-    secondary: 'bg-card text-card-foreground hover:bg-muted active:bg-muted/80',
-    danger:
-      'bg-destructive hover:bg-destructive-hover active:bg-destructive-active text-destructive-foreground',
-    success:
-      'bg-success hover:bg-success-hover active:bg-success-active text-white',
+    primary: 'bg-primary  text-primary-foreground',
+    secondary: 'bg-secondary  text-secondary-foreground',
+    danger: 'bg-danger  text-danger-foreground',
+    success: 'bg-success  text-success-foreground',
   };
 
   const sizeStyles = {
