@@ -1,4 +1,5 @@
 import {Minus, Plus} from 'lucide-react';
+import {cn} from '@/utils';
 
 type StepperProps = {
   value: number;
@@ -6,6 +7,7 @@ type StepperProps = {
   min?: number;
   max?: number;
   step?: number;
+  className?: string;
 };
 
 export function Stepper({
@@ -14,6 +16,7 @@ export function Stepper({
   min = 1,
   max = 50,
   step = 1,
+  className,
 }: StepperProps) {
   const handleIncrement = () => {
     if (value < max) {
@@ -28,7 +31,7 @@ export function Stepper({
   };
 
   return (
-    <div className="flex items-center gap-4">
+    <div className={cn('flex items-center gap-4', className)}>
       <button
         onClick={handleDecrement}
         disabled={value <= min}

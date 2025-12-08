@@ -1,9 +1,12 @@
+import {cn} from '@/utils';
+
 type SliderProps = {
   value: number;
   onChange: (value: number) => void;
   min?: number;
   max?: number;
   step?: number;
+  className?: string;
 };
 
 export function Slider({
@@ -12,11 +15,12 @@ export function Slider({
   min = 1,
   max = 50,
   step = 1,
+  className,
 }: SliderProps) {
   const percentage = ((value - min) / (max - min)) * 100;
 
   return (
-    <div className="w-full">
+    <div className={cn('w-full', className)}>
       <div className="border-box relative h-6 bg-white">
         {/* Track Fill */}
         <div

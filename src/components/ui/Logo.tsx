@@ -1,5 +1,5 @@
 import {Zap} from 'lucide-react';
-import {cn} from '../../utils/cn';
+import {cn} from '@/utils';
 
 export function Logo({className}: {className?: string}) {
   return (
