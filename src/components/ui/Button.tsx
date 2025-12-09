@@ -3,12 +3,14 @@ import {cva, type VariantProps} from 'class-variance-authority';
 import {cn} from '@/utils';
 
 const buttonVariants = cva(
-  'flex gap-2 items-center border-box transition-all cursor-pointer select-none rounded-md border-6 border-black shadow-md hover:shadow-lg active:shadow-sm',
+  'flex gap-2 items-center border-box transition-all cursor-pointer select-none rounded-md border-6 border shadow-md hover:shadow-lg active:shadow-sm',
   {
     variants: {
       variant: {
-        primary: 'bg-primary text-primary-foreground',
-        secondary: 'bg-secondary text-secondary-foreground',
+        primary:
+          'bg-primary-300 text-primary-900 hover:bg-primary-900 hover:text-primary-300',
+        secondary:
+          'bg-secondary-300 text-secondary-900 hover:bg-secondary-900 hover:text-secondary-300',
         danger: 'bg-danger text-danger-foreground',
         success: 'bg-success text-success-foreground',
       },
@@ -16,6 +18,7 @@ const buttonVariants = cva(
         small: 'px-4 py-2',
         medium: 'px-6 py-4',
         large: 'px-8 py-6',
+        full: 'w-full px-8 py-6 flex items-center justify-center text-center',
       },
     },
     defaultVariants: {

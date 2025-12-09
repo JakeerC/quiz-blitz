@@ -14,7 +14,7 @@ import {Stepper} from '@/components/ui/Stepper';
 import {Slider} from '@/components/ui/Slider';
 import {Input} from '@/components/ui/Input';
 import {soundManager} from '@/utils';
-import type {QuizConfig} from '@/context/AppContext';
+import {QuizConfig} from '@/types';
 import {AnswerMode, Difficulty, QuestionType} from '@/types';
 
 type SetupProps = {
@@ -142,7 +142,8 @@ export function Setup({onStartQuizAction, onBackAction}: SetupProps) {
               </div>
               <Input
                 value={customTopic}
-                onChange={(value) => {
+                onChange={(e) => {
+                  const value = e.target.value;
                   setCustomTopic(value);
                   if (value.trim()) {
                     setUseCustomTopic(true);
@@ -190,7 +191,7 @@ export function Setup({onStartQuizAction, onBackAction}: SetupProps) {
             </div>
           </div>
 
-          <div className="h-4 bg-black"></div>
+          <div className="h-2 bg-black"></div>
 
           {/* Response Type */}
           <div>
@@ -210,7 +211,7 @@ export function Setup({onStartQuizAction, onBackAction}: SetupProps) {
 
             {/* Swipe Hint for True/False */}
             {responseType === 'true-false' && (
-              <div className="bg-primary border-box mt-4 p-4">
+              <div className="border-primary-950 bg-primary-200 border-box mt-4 rounded-md p-4">
                 <p className="text-sm tracking-wide uppercase">
                   💡 Swipe right for TRUE, left for FALSE
                 </p>
