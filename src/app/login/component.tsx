@@ -44,21 +44,21 @@ export function Login({onLogin}: LoginProps) {
         <div className="card">
           <div className="p-8">
             <div className="mb-6 flex gap-2">
-              <button
+              <Button
                 onClick={() => setIsLogin(true)}
                 className={`border-box flex-1 cursor-pointer px-4 py-3 tracking-wide uppercase transition-colors ${
                   isLogin ? 'bg-primary' : 'bg-white'
                 }`}>
                 Login
-              </button>
+              </Button>
 
-              <button
+              <Button
                 onClick={() => setIsLogin(false)}
                 className={`border-box flex-1 px-4 py-3 tracking-wide uppercase transition-colors ${
                   !isLogin ? 'bg-primary' : 'bg-white'
                 }`}>
                 Sign Up
-              </button>
+              </Button>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -107,11 +107,7 @@ export function Login({onLogin}: LoginProps) {
               </div>
 
               {/* Submit Button */}
-              <Button
-                type="submit"
-                variant="primary"
-                size="large"
-                className="flex w-full items-center justify-center gap-3">
+              <Button type="submit" variant="primary" size="full">
                 <LogIn size={24} strokeWidth={3} />
                 <span className="tracking-widest uppercase">
                   {isLogin ? 'Login' : 'Sign Up'}
@@ -125,18 +121,11 @@ export function Login({onLogin}: LoginProps) {
             <p className="mb-3 text-center text-sm tracking-wide text-gray-600 uppercase">
               Or try it out:
             </p>
-            <button
-              onClick={handleDemoLogin}
-              className="border-box w-full bg-white px-4 py-3 tracking-wide uppercase transition-colors hover:bg-gray-100">
+            <Button variant="secondary" size="full" onClick={handleDemoLogin}>
               Continue as Demo User
-            </button>
+            </Button>
           </div>
         </div>
-
-        {/* Footer */}
-        <p className="mt-6 text-center text-sm tracking-wide text-gray-600 uppercase">
-          New-Brutalist Quiz Experience
-        </p>
       </div>
     </div>
   );

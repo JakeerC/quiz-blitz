@@ -7,7 +7,7 @@ const chipVariants = cva(
     variants: {
       variant: {
         default: 'bg-card text-card-foreground hover:bg-muted',
-        selected: 'bg-primary text-primary-foreground',
+        selected: 'bg-primary-500 text-primary-foreground',
       },
     },
     defaultVariants: {

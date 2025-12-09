@@ -24,7 +24,7 @@ export function Slider({
       <div className="border-box relative h-6 bg-white">
         {/* Track Fill */}
         <div
-          className="bg-primary absolute top-0 left-0 h-full transition-all"
+          className="bg-primary-500 absolute top-0 left-0 h-full transition-all"
           style={{width: `${percentage}%`}}
         />
 

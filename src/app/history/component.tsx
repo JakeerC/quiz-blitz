@@ -131,9 +131,7 @@ export function History({onBackAction}: HistoryProps) {
         {/* History List */}
         <div className="space-y-4">
           {mockHistory.map((entry) => (
-            <div
-              key={entry.id}
-              className="border-box overflow-hidden bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <div key={entry.id} className="card">
               {/* Header */}
               <div className="border-b-4 border-black bg-gray-50 p-4">
                 <div className="flex items-center justify-between">
