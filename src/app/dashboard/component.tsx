@@ -39,30 +39,52 @@ export function Dashboard({
       ? Math.round((userStats.totalCorrect / userStats.totalQuestions) * 100)
       : 0;
 
-  const menuItems = [
+  const statistics = [
+    {
+      label: 'Total Quizzes',
+      value: userStats.totalQuizzes,
+      className: 'text-green-900',
+    },
+    {
+      label: 'Accuracy',
+      value: accuracy + '%',
+      className: 'text-blue-900',
+    },
+    {
+      label: 'Questions Answered',
+      value: userStats.totalQuestions,
+      className: 'text-cyan-900',
+    },
+    {
+      label: 'Achievements',
+      value: userStats.achievements,
+      className: 'text-yellow-900',
+    },
+  ];
+  const actions = [
     {
       icon: Play,
       label: 'New Quiz',
       screen: 'setup',
-      className: 'bg-green-500',
+      className: 'bg-green-100 text-green-900',
     },
     {
       icon: BarChart3,
       label: 'Leaderboard',
       screen: 'leaderboard',
-      className: 'bg-blue-500',
+      className: 'bg-blue-100 text-blue-900',
     },
     {
       icon: History,
       label: 'Quiz History',
       screen: 'history',
-      className: 'bg-cyan-500',
+      className: 'bg-cyan-100 text-cyan-900',
     },
     {
       icon: Trophy,
       label: 'Achievements',
       screen: 'trophies',
-      className: 'bg-orange-500',
+      className: 'bg-yellow-100 text-yellow-900',
     },
   ];
 
@@ -88,69 +110,42 @@ export function Dashboard({
 
         {/* Stats Cards */}
         <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-4">
-          <div className="border-box bg-white p-6">
-            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
-              Total Quizzes
-            </p>
-            <p className="tracking-tight" style={{fontSize: '2rem'}}>
-              {userStats.totalQuizzes}
-            </p>
-          </div>
-
-          <div className="border-box bg-white p-6">
-            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
-              Accuracy
-            </p>
-            <p className="tracking-tight" style={{fontSize: '2rem'}}>
-              {accuracy}%
-            </p>
-          </div>
-
-          <div className="border-box bg-white p-6">
-            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
-              Questions Answered
-            </p>
-            <p className="tracking-tight" style={{fontSize: '2rem'}}>
-              {userStats.totalQuestions}
-            </p>
-          </div>
-
-          <div className="border-box bg-white p-6">
-            <p className="mb-2 text-sm tracking-wide text-gray-600 uppercase">
-              Achievements
-            </p>
-            <p className="tracking-tight" style={{fontSize: '2rem'}}>
-              {userStats.achievements}
-            </p>
-          </div>
+          {statistics.map((stat) => (
+            <div
+              key={stat.label}
+              className={cn('border-box p-6', stat.className)}>
+              <p className="mb-2 text-sm tracking-wide uppercase">
+                {stat.label}
+              </p>
+              <p className="tracking-tight" style={{fontSize: '2rem'}}>
+                {stat.value}
+              </p>
+            </div>
+          ))}
         </div>
 
         {/* Main Menu Grid */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {menuItems.map((item) => (
+          {actions.map((item) => (
             <button
               key={item.screen}
               onClick={() => handleNavigate(item.screen)}
               className={cn(
                 'card p-8 text-left',
-                'transition-colors hover:bg-gray-50'
+                'interactive-action',
+                item.className
               )}>
               <div className="mb-4 flex items-center gap-4">
                 <div
                   className={cn(
-                    'border-box flex h-16 w-16 items-center justify-center',
-                    item.className
+                    'border-box flex h-16 w-16 items-center justify-center'
                   )}>
                   <item.icon size={32} strokeWidth={3} />
                 </div>
-                <h2 className="tracking-tight uppercase">{item.label}</h2>
+                <h2 className="font-bold tracking-tight uppercase">
+                  {item.label}
+                </h2>
               </div>
-              {/* <p className="text-sm tracking-wide text-gray-600 uppercase">
-                {item.screen === 'setup' && 'Start a new quiz session'}
-                {item.screen === 'leaderboard' && 'See top performers'}
-                {item.screen === 'history' && 'View past quiz attempts'}
-                {item.screen === 'trophies' && 'Track your progress'}
-              </p> */}
             </button>
           ))}
         </div>
