@@ -41,4 +41,16 @@
     @apply hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-md;
     @apply active:translate-x-0 active:translate-y-0 active:shadow-none;
   }
+  .interactive-input {
+    border-color: currentColor;
+    @apply border-2 shadow-sm transition-all duration-100;
+    /* @apply hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-md;
+    @apply focus:-translate-x-0.5 focus:-translate-y-0.5 focus:shadow-md; */
+    @apply focus-visible:outline-none;
+    @apply focus-visible:ring-ring focus-visible:ring-2 focus-visible:ring-offset-2;
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+    @apply focus-within:-translate-x-0.5 focus-within:-translate-y-0.5;
+    @apply focus-within:shadow-md;
+    @apply focus-within:ring-primary focus-within:ring-2;
+  }
 }
