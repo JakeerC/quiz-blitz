@@ -5,14 +5,15 @@ import {
   Calendar,
   Clock,
   Target,
-  TrendingUp,
   ArrowLeft,
+  Crosshair,
 } from 'lucide-react';
 import {Button} from '@/components/ui/Button';
-import {soundManager} from '@/utils';
+import {cn, soundManager} from '@/utils';
 import {color} from '@/constants/colors';
 import {Difficulty, Grade} from '@/types';
 import {mockHistory} from '@/mocks/history';
+import {Badge} from '@/components/ui/Badge';
 
 type HistoryProps = {
   onBackAction: () => void;
@@ -39,17 +40,20 @@ export function History({onBackAction}: HistoryProps) {
     });
   };
 
-  const getDifficultyColor = (difficulty: Difficulty) => {
-    if (difficulty === 'easy') return '#00D9A3';
-    if (difficulty === 'medium') return '#FFE500';
-    return '#FF9500';
+  const difficultyColor: Record<Difficulty, string> = {
+    easy: 'bg-green-300 text-green-800',
+    medium: 'bg-yellow-200 text-yellow-600',
+    hard: 'bg-red-200 text-red-600',
+    mixed: 'bg-blue-200 text-blue-600',
   };
 
-  const getGradeColor = (grade: Grade) => {
-    if (grade === 'A' || grade === 'A+') return color.gradeAplus;
-    if (grade === 'B') return color.gradeB;
-    if (grade === 'C') return color.gradeC;
-    return color.gradeF;
+  const gradeColor: Record<Grade, string> = {
+    'A+': 'bg-green-300 text-green-800',
+    A: 'bg-green-300 text-green-800',
+    B: 'bg-yellow-200 text-yellow-600',
+    C: 'bg-red-200 text-red-600',
+    D: 'bg-red-200 text-red-600',
+    F: 'bg-red-200 text-red-600',
   };
 
   // Calculate stats
@@ -137,36 +141,31 @@ export function History({onBackAction}: HistoryProps) {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <Calendar size={20} strokeWidth={3} className="" />
-                    <span className="text-sm tracking-wide uppercase">
+                    <span className="tracking-wide uppercase">
                       {formatDate(entry.date)}
                     </span>
                   </div>
-                  <div
-                    className="border-box px-3 py-1"
-                    style={{backgroundColor: getGradeColor(entry.grade)}}>
-                    <span className="tracking-wide uppercase">
-                      Grade: {entry.grade}
-                    </span>
-                  </div>
+                  <Badge
+                    variant="outline"
+                    className={cn(gradeColor[entry.grade], 'text-md')}>
+                    Grade: {entry.grade}
+                  </Badge>
                 </div>
               </div>
 
               {/* Content */}
               <div className="p-6">
                 <div className="mb-4 flex items-start justify-between">
-                  <div>
-                    <h3 className="mb-2 tracking-tight uppercase">
-                      {entry.topic}
-                    </h3>
-                    <div
-                      className="border-box inline-block px-3 py-1"
-                      style={{
-                        backgroundColor: getDifficultyColor(entry.difficulty),
-                      }}>
-                      <span className="text-sm tracking-wide uppercase">
-                        {entry.difficulty}
-                      </span>
-                    </div>
+                  <div className="flex content-center items-center gap-3">
+                    <h3 className="tracking-tight uppercase">{entry.topic}</h3>
+                    <Badge
+                      variant="outline"
+                      className={cn(
+                        'tracking-wide uppercase',
+                        difficultyColor[entry.difficulty]
+                      )}>
+                      {entry.difficulty}
+                    </Badge>
                   </div>
                   <div className="text-right">
                     <p className="tracking-tight" style={{fontSize: '2rem'}}>
@@ -209,10 +208,10 @@ export function History({onBackAction}: HistoryProps) {
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <TrendingUp
+                    <Crosshair
                       size={20}
                       strokeWidth={3}
-                      className="text-[#FF9500]"
+                      className={cn('text-orange-300')}
                     />
                     <div>
                       <p className="text-sm tracking-wide text-gray-600 uppercase">
