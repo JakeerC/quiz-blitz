@@ -10,7 +10,6 @@ import {
 } from 'lucide-react';
 import {Button} from '@/components/ui/Button';
 import {cn, soundManager} from '@/utils';
-import {color} from '@/constants/colors';
 import {Difficulty, Grade} from '@/types';
 import {mockHistory} from '@/mocks/history';
 import {Badge} from '@/components/ui/Badge';

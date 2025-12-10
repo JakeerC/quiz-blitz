@@ -1,8 +1,14 @@
 import {useState} from 'react';
-import {User, Lock, LogIn} from 'lucide-react';
+import {User, Lock, LogIn, Check, X, CircleX} from 'lucide-react';
 import {Button} from '@/components/ui/Button';
 import {Logo} from '@/components/ui/Logo';
 import {soundManager} from '@/utils';
+import {Input} from '@/components/ui/Input';
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from '@/components/ui/InputGroup';
 
 type LoginProps = {
   onLogin: (username: string) => void;
@@ -11,6 +17,7 @@ type LoginProps = {
 export function Login({onLogin}: LoginProps) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [isLogin, setIsLogin] = useState(true);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -67,21 +74,18 @@ export function Login({onLogin}: LoginProps) {
                 <label className="mb-2 block text-sm tracking-wide uppercase">
                   Username
                 </label>
-                <div className="relative">
-                  <User
-                    className="absolute top-1/2 left-4 -translate-y-1/2"
-                    size={20}
-                    strokeWidth={3}
-                  />
-                  <input
+                <InputGroup>
+                  <InputGroupInput
+                    placeholder="Enter username"
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="focus:border-primary border-box w-full bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:outline-none"
-                    placeholder="Enter username"
                     required
                   />
-                </div>
+                  <InputGroupAddon>
+                    <User size={20} strokeWidth={3} />
+                  </InputGroupAddon>
+                </InputGroup>
               </div>
 
               {/* Password Input */}
@@ -89,22 +93,48 @@ export function Login({onLogin}: LoginProps) {
                 <label className="mb-2 block text-sm tracking-wide uppercase">
                   Password
                 </label>
-                <div className="relative">
-                  <Lock
-                    className="absolute top-1/2 left-4 -translate-y-1/2"
-                    size={20}
-                    strokeWidth={3}
-                  />
-                  <input
+                <InputGroup>
+                  <InputGroupInput
+                    placeholder="Enter password"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="focus:border-primary border-box w-full bg-white py-4 pr-4 pl-12 tracking-wide uppercase focus:outline-none"
-                    placeholder="Enter password"
                     required
                   />
-                </div>
+                  <InputGroupAddon>
+                    <Lock size={20} strokeWidth={3} />
+                  </InputGroupAddon>
+                </InputGroup>
               </div>
+
+              {/* Confirm password Input */}
+              {!isLogin && (
+                <div>
+                  <label className="mb-2 block text-sm tracking-wide uppercase">
+                    Confirm Password
+                  </label>
+                  <InputGroup>
+                    <InputGroupInput
+                      placeholder="Confirm password"
+                      type="password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      required
+                    />
+                    <InputGroupAddon>
+                      <Lock size={20} strokeWidth={3} />
+                    </InputGroupAddon>
+                    <InputGroupAddon align="inline-end">
+                      {confirmPassword &&
+                        (password === confirmPassword ? (
+                          <Check size={20} strokeWidth={3} color="green" />
+                        ) : (
+                          <CircleX size={20} strokeWidth={3} color="red" />
+                        ))}
+                    </InputGroupAddon>
+                  </InputGroup>
+                </div>
+              )}
 
               {/* Submit Button */}
               <Button type="submit" variant="primary" size="full">
