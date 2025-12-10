@@ -4,7 +4,7 @@ import {cn} from '@/utils';
 
 const buttonVariants = cva(
   cn(
-    'flex gap-2 items-center cursor-pointer select-none',
+    'flex gap-3 items-center justify-center cursor-pointer select-none font-medium',
     'rounded-md',
     'no-underline',
     'interactive-action'
@@ -12,10 +12,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-primary-400 text-primary-950',
-        secondary: 'bg-secondary-400 text-secondary-950',
-        danger: 'bg-danger-400 text-danger-950',
-        success: 'bg-success-400 text-success-950',
+        primary: 'bg-primary text-gray-950',
+        secondary: 'bg-secondary text-secondary-950',
+        danger: 'bg-danger text-danger-950',
+        success: 'bg-success text-success-950',
         disable: 'bg-gray-400 text-gray-950',
       },
       size: {
