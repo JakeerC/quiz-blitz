@@ -43,22 +43,22 @@ export function Dashboard({
     {
       label: 'Total Quizzes',
       value: userStats.totalQuizzes,
-      className: 'text-green-900',
+      className: 'bg-green-100 text-green-900',
     },
     {
       label: 'Accuracy',
       value: accuracy + '%',
-      className: 'text-blue-900',
+      className: 'bg-blue-100 text-blue-900',
     },
     {
       label: 'Questions Answered',
       value: userStats.totalQuestions,
-      className: 'text-cyan-900',
+      className: 'bg-cyan-100 text-cyan-900',
     },
     {
       label: 'Achievements',
       value: userStats.achievements,
-      className: 'text-yellow-900',
+      className: 'bg-yellow-100 text-yellow-900',
     },
   ];
   const actions = [
