@@ -16,6 +16,7 @@ import {soundManager} from '@/utils';
 import {QuizConfig} from '@/types';
 import {AnswerMode, Difficulty, QuestionType} from '@/types';
 import {InputGroup, InputGroupInput} from '@/components/ui/InputGroup';
+import {Banner} from '@/components/ui/Banner';
 
 type SetupProps = {
   onStartQuizAction: (config: QuizConfig) => void;
@@ -213,11 +214,9 @@ export function Setup({onStartQuizAction, onBackAction}: SetupProps) {
 
             {/* Swipe Hint for True/False */}
             {responseType === 'true-false' && (
-              <div className="border-primary-950 bg-primary-200 border-box mt-4 rounded-md p-4">
-                <p className="text-sm tracking-wide uppercase">
-                  💡 Swipe right for TRUE, left for FALSE
-                </p>
-              </div>
+              <Banner variant="info" title="Quick Tip" onDismiss={() => {}}>
+                Swipe right for TRUE, left for FALSE
+              </Banner>
             )}
           </div>
 

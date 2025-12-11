@@ -5,6 +5,7 @@ import {Logo} from '@/components/ui/Logo';
 import {soundManager} from '@/utils';
 import {cn} from '@/utils';
 import {Button} from '@/components/ui/Button';
+import {Banner} from '@/components/ui/Banner';
 
 type DashboardProps = {
   username: string;
@@ -151,12 +152,9 @@ export function Dashboard({
         </div>
 
         {/* Quick Tip */}
-        <div className="bg-primary border-box mt-8 p-6">
-          <p className="tracking-wide uppercase">
-            💡 Complete quizzes to unlock achievements and climb the
-            leaderboard!
-          </p>
-        </div>
+        <Banner variant="info" title="Quick Tip" onDismiss={() => {}}>
+          Complete quizzes to unlock achievements and climb the leaderboard!
+        </Banner>
       </div>
     </div>
   );
