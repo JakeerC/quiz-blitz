@@ -1,9 +1,9 @@
 import {useState} from 'react';
-import {User, Lock, LogIn, Check, X, CircleX} from 'lucide-react';
+import {User, Lock, LogIn, Check, CircleX} from 'lucide-react';
 import {Button} from '@/components/ui/Button';
 import {Logo} from '@/components/ui/Logo';
 import {soundManager} from '@/utils';
-import {Input} from '@/components/ui/Input';
+
 import {
   InputGroup,
   InputGroupAddon,
@@ -71,10 +71,7 @@ export function Login({onLogin}: LoginProps) {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Username Input */}
               <div>
-                <label className="mb-2 block text-sm tracking-wide uppercase">
-                  Username
-                </label>
-                <InputGroup>
+                <InputGroup label="Username">
                   <InputGroupInput
                     placeholder="Enter username"
                     type="text"
@@ -90,10 +87,7 @@ export function Login({onLogin}: LoginProps) {
 
               {/* Password Input */}
               <div>
-                <label className="mb-2 block text-sm tracking-wide uppercase">
-                  Password
-                </label>
-                <InputGroup>
+                <InputGroup label="Password">
                   <InputGroupInput
                     placeholder="Enter password"
                     type="password"
@@ -110,10 +104,9 @@ export function Login({onLogin}: LoginProps) {
               {/* Confirm password Input */}
               {!isLogin && (
                 <div>
-                  <label className="mb-2 block text-sm tracking-wide uppercase">
-                    Confirm Password
-                  </label>
-                  <InputGroup>
+                  <InputGroup
+                    label="Confirm Password"
+                    helpText="Please confirm your password">
                     <InputGroupInput
                       placeholder="Confirm password"
                       type="password"
@@ -151,7 +144,11 @@ export function Login({onLogin}: LoginProps) {
             <p className="mb-3 text-center text-sm tracking-wide text-gray-600 uppercase">
               Or try it out:
             </p>
-            <Button variant="secondary" size="full" onClick={handleDemoLogin}>
+            <Button
+              variant="secondary"
+              className="uppercase"
+              size="full"
+              onClick={handleDemoLogin}>
               Continue as Demo User
             </Button>
           </div>

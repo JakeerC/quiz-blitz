@@ -12,10 +12,10 @@ import {ToggleSelector} from '@/components/ui/ToggleSelector';
 import {ChipSelector} from '@/components/ui/ChipSelector';
 import {Stepper} from '@/components/ui/Stepper';
 import {Slider} from '@/components/ui/Slider';
-import {Input} from '@/components/ui/Input';
 import {soundManager} from '@/utils';
 import {QuizConfig} from '@/types';
 import {AnswerMode, Difficulty, QuestionType} from '@/types';
+import {InputGroup, InputGroupInput} from '@/components/ui/InputGroup';
 
 type SetupProps = {
   onStartQuizAction: (config: QuizConfig) => void;
@@ -140,7 +140,7 @@ export function Setup({onStartQuizAction, onBackAction}: SetupProps) {
                   Or enter custom topic:
                 </label>
               </div>
-              <Input
+              <InputGroup
                 value={customTopic}
                 onChange={(e) => {
                   const value = e.target.value;
@@ -149,8 +149,9 @@ export function Setup({onStartQuizAction, onBackAction}: SetupProps) {
                     setUseCustomTopic(true);
                   }
                 }}
-                placeholder="e.g. Ancient Rome, JavaScript, Marine Biology"
-              />
+                placeholder="e.g. Ancient Rome, JavaScript, Marine Biology">
+                <InputGroupInput />
+              </InputGroup>
             </div>
           </div>
 

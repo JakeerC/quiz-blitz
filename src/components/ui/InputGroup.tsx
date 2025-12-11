@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import {Info, CircleAlert} from 'lucide-react';
 import {cva, type VariantProps} from 'class-variance-authority';
 
 import {cn} from '@/utils';
@@ -8,24 +9,58 @@ import {Button} from '@/components/ui/Button';
 // import {Input} from '@/components/ui/Input';
 // import {Textarea} from '@/components/ui/Textarea';
 
-function InputGroup({className, ...props}: React.ComponentProps<'div'>) {
+interface InputGroupProps extends React.ComponentProps<'div'> {
+  label?: string;
+  helpText?: string;
+  error?: string;
+}
+
+function InputGroup({
+  className,
+  label,
+  helpText,
+  error,
+  children,
+  ...props
+}: InputGroupProps) {
   return (
-    <div
-      data-slot="input-group"
-      role="group"
-      className={cn(
-        'interactive-input border-box bg-card group/input-group relative flex w-full items-center overflow-hidden transition-all',
-        // Variants based on alignment (simplify or adapt as needed, currently keeping basic logic but removing fixed heights if possible)
-        'has-[>[data-align=inline-start]]:[&>input]:pl-2',
-        'has-[>[data-align=inline-end]]:[&>input]:pr-2',
-
-        // Error state.
-        'has-[[data-slot][aria-invalid=true]]:ring-destructive/20 has-[[data-slot][aria-invalid=true]]:border-destructive dark:has-[[data-slot][aria-invalid=true]]:ring-destructive/40',
-
-        className
+    <div className="w-full">
+      {label && (
+        <label className="mb-2 block text-sm tracking-wide uppercase">
+          {label}
+        </label>
       )}
-      {...props}
-    />
+      <div
+        data-slot="input-group"
+        role="group"
+        className={cn(
+          'interactive-input border-box bg-card group/input-group relative flex w-full items-center overflow-hidden transition-all',
+          // Variants based on alignment (simplify or adapt as needed, currently keeping basic logic but removing fixed heights if possible)
+          'has-[>[data-align=inline-start]]:[&>input]:pl-2',
+          'has-[>[data-align=inline-end]]:[&>input]:pr-2',
+
+          // Error state.
+          'has-[[data-slot][aria-invalid=true]]:ring-destructive/20 has-[[data-slot][aria-invalid=true]]:border-destructive dark:has-[[data-slot][aria-invalid=true]]:ring-destructive/40',
+          error &&
+            'ring-destructive/20 border-destructive dark:ring-destructive/40',
+
+          className
+        )}
+        {...props}>
+        {children}
+      </div>
+      {error ? (
+        <div className="text-destructive mt-1 flex items-center gap-2 text-xs">
+          <CircleAlert className="size-3" />
+          <span>{error}</span>
+        </div>
+      ) : helpText ? (
+        <div className="text-muted-foreground mt-1 flex items-center gap-2 text-xs">
+          <Info className="size-3" />
+          <span>{helpText}</span>
+        </div>
+      ) : null}
+    </div>
   );
 }
 
