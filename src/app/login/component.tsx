@@ -73,6 +73,8 @@ export function Login({onLogin}: LoginProps) {
               <div>
                 <InputGroup label="Username">
                   <InputGroupInput
+                    name="username"
+                    id="username"
                     placeholder="Enter username"
                     type="text"
                     value={username}
@@ -89,6 +91,8 @@ export function Login({onLogin}: LoginProps) {
               <div>
                 <InputGroup label="Password">
                   <InputGroupInput
+                    name="password"
+                    id="password"
                     placeholder="Enter password"
                     type="password"
                     value={password}
@@ -109,6 +113,8 @@ export function Login({onLogin}: LoginProps) {
                     helpText="Please confirm your password">
                     <InputGroupInput
                       placeholder="Confirm password"
+                      id="confirm-password"
+                      name="confirm-password"
                       type="password"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}

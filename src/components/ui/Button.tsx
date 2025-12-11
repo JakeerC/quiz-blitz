@@ -13,10 +13,10 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: 'bg-primary text-gray-950',
-        secondary: 'bg-secondary text-secondary-950',
-        danger: 'bg-danger text-danger-950',
-        success: 'bg-success text-success-950',
-        disable: 'bg-gray-400 text-gray-950',
+        secondary: 'bg-primary-200 text-gray-950',
+        danger: 'bg-destructive-200 text-destructive-950',
+        success: 'bg-success-300 text-success-950',
+        disable: 'bg-gray-300 text-gray-950 disabled:cursor-not-allowed',
       },
       size: {
         small: 'px-4 py-2',

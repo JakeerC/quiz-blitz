@@ -25,28 +25,29 @@ function InputGroup({
 }: InputGroupProps) {
   return (
     <div className="w-full">
-      {label && (
-        <label className="mb-2 block text-sm tracking-wide">{label}</label>
-      )}
-      <div
-        data-slot="input-group"
-        role="group"
-        className={cn(
-          'interactive-input border-box bg-card group/input-group relative flex w-full items-center overflow-hidden transition-all',
-          // Variants based on alignment (simplify or adapt as needed, currently keeping basic logic but removing fixed heights if possible)
-          'has-[>[data-align=inline-start]]:[&>input]:pl-2',
-          'has-[>[data-align=inline-end]]:[&>input]:pr-2',
+      <label className="text-md mb-2 block tracking-wide focus-within:font-bold">
+        {label}
 
-          // Error state.
-          'has-[[data-slot][aria-invalid=true]]:ring-destructive/20 has-[[data-slot][aria-invalid=true]]:border-destructive dark:has-[[data-slot][aria-invalid=true]]:ring-destructive/40',
-          error &&
-            'ring-destructive/20 border-destructive dark:ring-destructive/40',
+        <div
+          data-slot="input-group"
+          role="group"
+          className={cn(
+            'interactive-input border-box group/input-group relative mt-2 flex w-full items-center overflow-hidden transition-all',
+            // Variants based on alignment (simplify or adapt as needed, currently keeping basic logic but removing fixed heights if possible)
+            'has-[>[data-align=inline-start]]:[&>input]:pl-2',
+            'has-[>[data-align=inline-end]]:[&>input]:pr-2',
 
-          className
-        )}
-        {...props}>
-        {children}
-      </div>
+            // Error state.
+            'has-[[data-slot][aria-invalid=true]]:ring-destructive/20 has-[[data-slot][aria-invalid=true]]:border-destructive dark:has-[[data-slot][aria-invalid=true]]:ring-destructive/40',
+            error &&
+              'ring-destructive/20 border-destructive dark:ring-destructive/40',
+
+            className
+          )}
+          {...props}>
+          {children}
+        </div>
+      </label>
       {error ? (
         <div className="text-destructive mt-1 flex items-center gap-2 text-xs">
           <CircleAlert className="size-3" />
@@ -63,7 +64,7 @@ function InputGroup({
 }
 
 const inputGroupAddonVariants = cva(
-  "text-muted-foreground flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium select-none tracking-wide [&>svg:not([class*='size-'])]:size-4 [&>kbd]:rounded-[calc(var(--radius)-5px)] group-data-[disabled=true]/input-group:opacity-50",
+  "text-muted-foreground flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm  select-none tracking-wide [&>svg:not([class*='size-'])]:size-4 [&>kbd]:rounded-[calc(var(--radius)-5px)] group-data-[disabled=true]/input-group:opacity-50",
   {
     variants: {
       align: {
@@ -159,7 +160,10 @@ function InputGroupInput({className, ...props}: React.ComponentProps<'input'>) {
     <input
       data-slot="input-group-control"
       className={cn(
-        'placeholder:text-muted-foreground w-full min-w-0 flex-1 bg-transparent px-6 py-4 tracking-wide outline-none disabled:cursor-not-allowed disabled:opacity-50',
+        'text-black',
+        'placeholder:text-muted-foreground w-full min-w-0 flex-1 bg-transparent',
+        'd px-6 py-4 tracking-wide outline-none',
+        'isabled:cursor-not-allowed disabled:opacity-50',
         className
       )}
       {...props}
@@ -167,21 +171,24 @@ function InputGroupInput({className, ...props}: React.ComponentProps<'input'>) {
   );
 }
 
-// function InputGroupTextarea({
-//   className,
-//   ...props
-// }: React.ComponentProps<'textarea'>) {
-//   return (
-//     <Textarea
-//       data-slot="input-group-control"
-//       className={cn(
-//         'flex-1 resize-none rounded-none border-0 bg-transparent py-3 shadow-none focus-visible:ring-0 dark:bg-transparent',
-//         className
-//       )}
-//       {...props}
-//     />
-//   );
-// }
+function InputGroupTextarea({
+  className,
+  ...props
+}: React.ComponentProps<'textarea'>) {
+  return (
+    <textarea
+      data-slot="input-group-control"
+      className={cn(
+        'text-black',
+        'placeholder:text-muted-foreground w-full min-w-0 flex-1',
+        'resize-none bg-transparent px-6 py-4 tracking-wide outline-none',
+        'disabled:cursor-not-allowed disabled:opacity-50',
+        className
+      )}
+      {...props}
+    />
+  );
+}
 
 export {
   InputGroup,
@@ -189,4 +196,5 @@ export {
   InputGroupButton,
   InputGroupText,
   InputGroupInput,
+  InputGroupTextarea,
 };

@@ -102,7 +102,7 @@ export function Dashboard({
               </p>
             </div>
           </div>
-          <Button onClick={handleLogout} variant="secondary">
+          <Button onClick={handleLogout} variant="danger">
             <LogOut size={20} strokeWidth={3} />
             Logout
           </Button>
