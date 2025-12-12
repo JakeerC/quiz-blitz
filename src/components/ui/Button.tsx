@@ -17,6 +17,8 @@ const buttonVariants = cva(
         danger: 'bg-destructive-200 text-destructive-950',
         success: 'bg-success-300 text-success-950',
         disable: 'bg-gray-300 text-gray-950 disabled:cursor-not-allowed',
+        unstyled:
+          'bg-transparent text-gray-950 hover:text-primary-600 focus:text-primary-600 p-0 h-auto font-normal shadow-none inline-flex',
       },
       size: {
         small: 'px-4 py-2',
