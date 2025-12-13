@@ -1,6 +1,6 @@
 'use client';
 
-import {Play, Trophy, History, BarChart3, LogOut} from 'lucide-react';
+import {Play, User, BarChart3, LogOut} from 'lucide-react';
 import {Logo} from '@/components/ui/Logo';
 import {soundManager} from '@/utils';
 import {cn} from '@/utils';
@@ -76,16 +76,10 @@ export function Dashboard({
       className: 'bg-blue-100 text-blue-900',
     },
     {
-      icon: History,
-      label: 'Quiz History',
-      screen: 'history',
-      className: 'bg-cyan-100 text-cyan-900',
-    },
-    {
-      icon: Trophy,
-      label: 'Achievements',
-      screen: 'trophies',
-      className: 'bg-yellow-100 text-yellow-900',
+      icon: User,
+      label: 'Profile',
+      screen: 'profile',
+      className: 'bg-purple-100 text-purple-900',
     },
   ];
 

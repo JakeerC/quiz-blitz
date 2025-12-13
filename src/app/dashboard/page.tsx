@@ -20,8 +20,7 @@ export default function DashboardPage() {
     const routeMap: Record<string, string> = {
       setup: '/setup',
       leaderboard: '/leaderboard',
-      history: '/history',
-      trophies: '/trophies',
+      profile: '/profile',
     };
 
     const route = routeMap[screen];
