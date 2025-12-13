@@ -1,3 +1,17 @@
+/*
+Badges are small, visual indicators placed on or near other components (icons, avatars, buttons) to provide extra info like counts (new messages), statuses (new, high priority, 'New'), promotions (sale, free), or categories, drawing attention to important updates without cluttering the interface. They act as context-rich labels, often using numbers or short text, helping users quickly understand what needs attention on an item. 
+Common Uses of Badges:
+Notifications/Counts: Showing unread messages, items in a cart, or new updates (e.g., a red circle with '5' on a chat icon).
+Status Indicators: Highlighting item states like "High Priority," "New," "Featured," or "Sold Out".
+Promotions/Labels: Marking items with offers like "Sale," "BOGO," or "Limited Time".
+Categorization: Displaying tags or categories for content (e.g., "VIP," "Beta").
+Activity/Progress: Indicating ongoing actions or achievements (e.g., likes, comments). 
+
+Key Characteristics:
+Contextual: They are rarely standalone; they always relate to another UI element.
+Small & Visual: They use numbers, icons, or short text (like 'New') to convey information quickly.
+Versatile: They can be circles, pills, or have borders, adapting to different styles and needs. 
+*/
 import * as React from 'react';
 import {Slot} from '@radix-ui/react-slot';
 import {cva, type VariantProps} from 'class-variance-authority';
